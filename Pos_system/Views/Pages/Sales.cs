@@ -84,7 +84,8 @@ namespace Pos_system.Views.Pages
 
                     lastCompletedSale = newSale;
 
-                    printDocument.PrintPage += new PrintPageEventHandler(PrintReceiptPage);
+                    printDocument.PrintPage -= PrintReceiptPage;
+                    printDocument.PrintPage += PrintReceiptPage;
 
                     int baseHeight = 300;
                     int itemHeight = lastCompletedSale.Items.Count * 30;
@@ -135,7 +136,7 @@ namespace Pos_system.Views.Pages
             g.DrawString("GoodMart Supermarket", new Font("Courier New", 12, FontStyle.Bold), Brushes.Black, x, y);
             y += lineHeight * 2;
 
-            g.DrawString("Date: " + lastCompletedSale.SaleDate.ToString("g"), font, Brushes.Black, x, y);
+            g.DrawString("DATE: " + lastCompletedSale.SaleDate.ToString("g"), font, Brushes.Black, x, y);
             y += lineHeight;
 
 
@@ -143,7 +144,7 @@ namespace Pos_system.Views.Pages
             y += lineHeight;
 
             // Table header
-            g.DrawString("Item           Qty   Price   Total", font, Brushes.Black, x, y);
+            g.DrawString("ITEM           QTY   PRICE   AMOUNT", font, Brushes.Black, x, y);
             y += lineHeight;
 
             g.DrawString("----------------------------------------", font, Brushes.Black, x, y);
@@ -152,7 +153,7 @@ namespace Pos_system.Views.Pages
             // Items
             foreach (var item in lastCompletedSale.Items)
             {
-                string line = $"{item.ProductName.PadRight(14)} {item.Quantity,3}  {item.Price,6:C}  {item.TotalPrice,6:C}";
+                string line = $"{item.ProductName.PadRight(14)} {item.Quantity,3}  {item.SellingPrice,6:C}  {item.TotalPrice,6:C}";
                 g.DrawString(line, font, Brushes.Black, x, y);
                 y += lineHeight;
             }
@@ -160,14 +161,33 @@ namespace Pos_system.Views.Pages
             g.DrawString("----------------------------------------", font, Brushes.Black, x, y);
             y += lineHeight;
 
+            // Print total items count
+            g.DrawString("Total Items: " + lastCompletedSale.Items.Count, font, Brushes.Black, x, y); y += lineHeight;
+
+            g.DrawString("----------------------------------------", font, Brushes.Black, x, y);
+            y += lineHeight;
+
             // Totals
-            decimal subtotal = lastCompletedSale.Items.Sum(i => i.Price * i.Quantity);
+            decimal subtotal = lastCompletedSale.Items.Sum(i => i.Subtotal);
             decimal vat = lastCompletedSale.Items.Sum(i => i.VatAmount);
             decimal total = lastCompletedSale.TotalAmount;            
 
             g.DrawString($"Subtotal: {subtotal,30:C}", font, Brushes.Black, x, y); y += lineHeight;
             g.DrawString($"VAT:      {vat,30:C}", font, Brushes.Black, x, y); y += lineHeight;
             g.DrawString($"Total:    {total,30:C}", new Font("Courier New", 10, FontStyle.Bold), Brushes.Black, x, y); y += lineHeight;
+
+            g.DrawString("----------------------------------------", font, Brushes.Black, x, y);
+            y += lineHeight;
+            g.DrawString("Payment Method: Cash", font, Brushes.Black, x, y); y += lineHeight;
+            g.DrawString($"Cash Tendered:  {total,30:C}", font, Brushes.Black, x, y);
+            y += lineHeight;
+            g.DrawString("----------------------------------------", font, Brushes.Black, x, y);
+
+            g.DrawString("----------------------------------------", font, Brushes.Black, x, y);
+            y += lineHeight;
+            g.DrawString("PRICES INCLUSIVE OF VAT WHERE APPLICABLE.", font, Brushes.Black, x, y);
+            y += lineHeight;
+            g.DrawString("----------------------------------------", font, Brushes.Black, x, y);
 
             y += lineHeight * 2;
             g.DrawString("Thank you for your shopping with us!", font, Brushes.Black, x, y);
@@ -179,13 +199,13 @@ namespace Pos_system.Views.Pages
         {
 
             // validations
-                if (productComboBox.SelectedItem == null)
+            if (productComboBox.SelectedItem == null)
                 {
                     MessageBox.Show("Please select a product.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
-                if (!int.TryParse(quantityTextBox.Text, out int quantity) || quantity <= 0)
+            if (!int.TryParse(quantityTextBox.Text, out int quantity) || quantity <= 0)
                 {
                     MessageBox.Show("Enter a valid quantity.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
@@ -211,6 +231,7 @@ namespace Pos_system.Views.Pages
                 ProductId = selectedProduct.Idproducts,
                 ProductName = selectedProduct.PName,
                 Price = selectedProduct.Price,
+                SellingPrice = selectedProduct.SellingPrice,
                 Quantity = quantity,
                 VatPercentage = vatPercentage
             };
@@ -219,7 +240,7 @@ namespace Pos_system.Views.Pages
 
             saleGridView.Rows.Add(
                 item.ProductName,
-                item.Price.ToString("F2"),
+                item.SellingPrice.ToString("F2"),
                 item.Quantity,
                 item.VatAmount,
                 item.TotalPrice.ToString("F2")
@@ -227,7 +248,7 @@ namespace Pos_system.Views.Pages
 
             // --- Update Totals ---
             // SubTotal Label
-            decimal subTotal = saleItemsList.Sum(i => i.Price * i.Quantity);
+            decimal subTotal = saleItemsList.Sum(i => i.Subtotal);
             subTotalLabel.Text = subTotal.ToString("F2");
 
             // VAT Label
@@ -236,7 +257,7 @@ namespace Pos_system.Views.Pages
 
             // Total Label
             decimal total = saleItemsList.Sum(i => i.TotalPrice);
-            totalLabel.Text = total.ToString("F2");
+            totalLabel.Text = total.ToString("C");
 
             quantityTextBox.Clear();
         }

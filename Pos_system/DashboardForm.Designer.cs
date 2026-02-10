@@ -20,7 +20,7 @@ namespace Pos_system
                 components.Dispose();
             }
             base.Dispose(disposing);
-        }        
+        }
 
         #region Windows Form Designer generated code
 
@@ -38,14 +38,14 @@ namespace Pos_system
             panelMain.Dock = DockStyle.Fill;
             panelMain.Location = new Point(0, 0);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(1006, 721);
+            panelMain.Size = new Size(1262, 753);
             panelMain.TabIndex = 0;
             // 
             // DashboardForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1006, 721);
+            ClientSize = new Size(1262, 753);
             Controls.Add(panelMain);
             Name = "DashboardForm";
             Text = "POS System - Dashboard";

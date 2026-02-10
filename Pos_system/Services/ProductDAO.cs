@@ -25,8 +25,8 @@ namespace Pos_system.Services
         public bool AddProduct(Product product, out string message)
         {
             using var conn = DBConnection.GetConnection();
-            string query = "INSERT INTO products (pName, pCategory, price, vatCategory, stock_status, stock_quantity)"
-                + "VALUES (@pName, @pCategory, @price, @vatCategory, @stock_status, @stock_quantity)";
+            string query = "INSERT INTO products (pName, sku, pCategory, price, sellingPrice, vatCategory, stock_status, stock_quantity, low_stock_threshold)"
+                + "VALUES (@pName, @sku, @pCategory, @price, @sellingPrice, @vatCategory, @stock_status, @stock_quantity, @low_stock_threshold)";
 
             if (conn == null)
             {
@@ -38,11 +38,14 @@ namespace Pos_system.Services
             {
                 using MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@pName", product.PName);
+                cmd.Parameters.AddWithValue("@sku", product.SKU);
                 cmd.Parameters.AddWithValue("@pCategory", product.PCategory);
                 cmd.Parameters.AddWithValue("@price", product.Price);
+                cmd.Parameters.AddWithValue("@sellingPrice", product.SellingPrice);
                 cmd.Parameters.AddWithValue("@vatCategory", product.VatCategory);
                 cmd.Parameters.AddWithValue("@stock_status", product.Stock_status);
                 cmd.Parameters.AddWithValue("@stock_quantity", product.Stock_quantity);
+                cmd.Parameters.AddWithValue("@low_stock_threshold", product.Low_stock_threshold);
 
                 int rows = cmd.ExecuteNonQuery();
 
@@ -152,7 +155,7 @@ namespace Pos_system.Services
         {
             var products = new List<Product>();
             using var conn = DBConnection.GetConnection();
-            string query = "SELECT idproducts, pName, pCategory, price, vatCategory, stock_status, stock_quantity FROM products";
+            string query = "SELECT idproducts, pName, sku, pCategory, price, sellingPrice, vatCategory, stock_status, stock_quantity FROM products";
 
             try
             {
@@ -165,8 +168,10 @@ namespace Pos_system.Services
                     {
                         Idproducts = Convert.ToInt32(reader["idproducts"]),
                         PName = reader["pName"]?.ToString() ?? string.Empty,
+                        SKU = reader["sku"]?.ToString(),
                         PCategory = reader["pCategory"]?.ToString() ?? string.Empty,
                         Price = Convert.ToDecimal(reader["price"]),
+                        SellingPrice = Convert.ToDecimal(reader["sellingPrice"]),
                         VatCategory = reader["vatCategory"]?.ToString() ?? string.Empty,
                         Stock_status = reader["stock_status"] as string ?? string.Empty,
                         Stock_quantity = Convert.ToInt32(reader["stock_quantity"])

@@ -72,18 +72,38 @@ namespace Pos_system.Views.Pages
         {
             // Collecting User input
             string name = pnameTextBox.Text;
-            string? category = pCategoryComboBox.SelectedItem?.ToString();
-            decimal price = decimal.Parse(priceTextBox.Text);
+            string sku = skuTextBox.Text;
+            string? category = pCategoryComboBox.SelectedItem?.ToString();            
             string? vatCategory = vatComboBox.SelectedItem?.ToString();
+            decimal price = decimal.Parse(priceTextBox.Text);
+            decimal sellingPrice = decimal.Parse(sellingpriceTextBox.Text);
+            int stockQty = int.Parse(stockqtyTextBox.Text);
+            int lowStockThreshold = int.Parse(lowstockthresholdTextBox.Text);
             bool inStock = stockCheckBox.Checked;
+
+            // Null check
+            if (string.IsNullOrEmpty(category))
+            {
+                MessageBox.Show("Please select a product category.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(vatCategory))
+            {
+                MessageBox.Show("Please select a VAT category.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             // Object for New product
             Product newProduct = new Product
             {
                 PName = name,
+                SKU = sku,
                 PCategory = category,
-                Price = price,
                 VatCategory = vatCategory,
+                Price = price,
+                SellingPrice = sellingPrice,
+                Stock_quantity = stockQty,
+                Low_stock_threshold = lowStockThreshold,
                 Stock_status = inStock ? "In Stock" : "Out of Stock"
             };
 
@@ -93,8 +113,8 @@ namespace Pos_system.Views.Pages
 
             if (result)
             {
-                MessageBox.Show(message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); 
-            } 
+                MessageBox.Show(message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else
             {
                 MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -104,9 +124,13 @@ namespace Pos_system.Views.Pages
             {
                 // Clear the input fields
                 pnameTextBox.Clear();
+                skuTextBox.Clear();
                 pCategoryComboBox.SelectedIndex = -1;
-                priceTextBox.Clear();
                 vatComboBox.SelectedIndex = -1;
+                priceTextBox.Clear();
+                sellingpriceTextBox.Clear();
+                stockqtyTextBox.Clear();
+                lowstockthresholdTextBox.Clear();
                 stockCheckBox.Checked = false;
             }
 
@@ -122,6 +146,20 @@ namespace Pos_system.Views.Pages
             {
                 dashboardForm.LoadPage(dashboardPage);
             }
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            // clear all fields
+            pnameTextBox.Clear();
+            skuTextBox.Clear();
+            pCategoryComboBox.SelectedIndex = -1;
+            vatComboBox.SelectedIndex = -1;
+            priceTextBox.Clear();
+            sellingpriceTextBox.Clear();
+            stockqtyTextBox.Clear();
+            lowstockthresholdTextBox.Clear();
+            stockCheckBox.Checked = false;
         }
     }
 }

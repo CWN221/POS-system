@@ -31,6 +31,11 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             panelSidebar = new Panel();
+            logoutLabel = new Label();
+            button1 = new Button();
+            settingsLabel = new Label();
+            reportsLabel = new Label();
+            saleslabelPanel = new Label();
             inventoryLabel = new Label();
             settingsNavBtn = new Button();
             reportsNavBtn = new Button();
@@ -52,11 +57,6 @@
             pictureBox2 = new PictureBox();
             totalSalesLabel = new Label();
             salesLabel = new Label();
-            saleslabelPanel = new Label();
-            reportsLabel = new Label();
-            settingsLabel = new Label();
-            button1 = new Button();
-            logoutLabel = new Label();
             panelSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelTopbar.SuspendLayout();
@@ -89,11 +89,62 @@
             panelSidebar.Size = new Size(235, 800);
             panelSidebar.TabIndex = 0;
             // 
+            // logoutLabel
+            // 
+            logoutLabel.AutoSize = true;
+            logoutLabel.Font = new Font("Tahoma", 11F);
+            logoutLabel.Location = new Point(135, 746);
+            logoutLabel.Name = "logoutLabel";
+            logoutLabel.Size = new Size(67, 23);
+            logoutLabel.TabIndex = 11;
+            logoutLabel.Text = "Logout";
+            // 
+            // button1
+            // 
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Zoom;
+            button1.Location = new Point(37, 733);
+            button1.Name = "button1";
+            button1.Size = new Size(50, 50);
+            button1.TabIndex = 10;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += logoutNavBtn_Click;
+            // 
+            // settingsLabel
+            // 
+            settingsLabel.AutoSize = true;
+            settingsLabel.Font = new Font("Tahoma", 11F);
+            settingsLabel.Location = new Point(135, 614);
+            settingsLabel.Name = "settingsLabel";
+            settingsLabel.Size = new Size(77, 23);
+            settingsLabel.TabIndex = 9;
+            settingsLabel.Text = "Settings";
+            // 
+            // reportsLabel
+            // 
+            reportsLabel.AutoSize = true;
+            reportsLabel.Font = new Font("Tahoma", 11F);
+            reportsLabel.Location = new Point(135, 479);
+            reportsLabel.Name = "reportsLabel";
+            reportsLabel.Size = new Size(74, 23);
+            reportsLabel.TabIndex = 8;
+            reportsLabel.Text = "Reports";
+            // 
+            // saleslabelPanel
+            // 
+            saleslabelPanel.AutoSize = true;
+            saleslabelPanel.Font = new Font("Tahoma", 11F);
+            saleslabelPanel.Location = new Point(135, 360);
+            saleslabelPanel.Name = "saleslabelPanel";
+            saleslabelPanel.Size = new Size(53, 23);
+            saleslabelPanel.TabIndex = 7;
+            saleslabelPanel.Text = "Sales";
+            // 
             // inventoryLabel
             // 
             inventoryLabel.AutoSize = true;
             inventoryLabel.Font = new Font("Tahoma", 11F);
-            inventoryLabel.Location = new Point(135, 247);
+            inventoryLabel.Location = new Point(135, 236);
             inventoryLabel.Name = "inventoryLabel";
             inventoryLabel.Size = new Size(90, 23);
             inventoryLabel.TabIndex = 6;
@@ -104,11 +155,12 @@
             settingsNavBtn.BackgroundImage = (Image)resources.GetObject("settingsNavBtn.BackgroundImage");
             settingsNavBtn.BackgroundImageLayout = ImageLayout.Zoom;
             settingsNavBtn.Cursor = Cursors.Hand;
-            settingsNavBtn.Location = new Point(3, 595);
+            settingsNavBtn.Location = new Point(20, 578);
             settingsNavBtn.Name = "settingsNavBtn";
-            settingsNavBtn.Size = new Size(100, 100);
+            settingsNavBtn.Size = new Size(80, 80);
             settingsNavBtn.TabIndex = 5;
             settingsNavBtn.UseVisualStyleBackColor = true;
+            settingsNavBtn.Click += settingsNavBtn_Click;
             // 
             // reportsNavBtn
             // 
@@ -116,12 +168,13 @@
             reportsNavBtn.BackgroundImageLayout = ImageLayout.Zoom;
             reportsNavBtn.Cursor = Cursors.Hand;
             reportsNavBtn.ImageAlign = ContentAlignment.TopCenter;
-            reportsNavBtn.Location = new Point(3, 465);
+            reportsNavBtn.Location = new Point(20, 449);
             reportsNavBtn.Name = "reportsNavBtn";
-            reportsNavBtn.Size = new Size(100, 100);
+            reportsNavBtn.Size = new Size(80, 80);
             reportsNavBtn.TabIndex = 4;
             reportsNavBtn.TextAlign = ContentAlignment.BottomCenter;
             reportsNavBtn.UseVisualStyleBackColor = true;
+            reportsNavBtn.Click += reportsNavBtn_Click;
             // 
             // salesNavBtn
             // 
@@ -132,9 +185,9 @@
             salesNavBtn.FlatStyle = FlatStyle.Flat;
             salesNavBtn.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             salesNavBtn.ImageAlign = ContentAlignment.TopCenter;
-            salesNavBtn.Location = new Point(3, 321);
+            salesNavBtn.Location = new Point(20, 317);
             salesNavBtn.Name = "salesNavBtn";
-            salesNavBtn.Size = new Size(100, 100);
+            salesNavBtn.Size = new Size(80, 80);
             salesNavBtn.TabIndex = 3;
             salesNavBtn.TextAlign = ContentAlignment.BottomCenter;
             salesNavBtn.UseVisualStyleBackColor = true;
@@ -149,9 +202,9 @@
             inventoryNavBtn.FlatStyle = FlatStyle.Flat;
             inventoryNavBtn.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             inventoryNavBtn.ImageAlign = ContentAlignment.TopCenter;
-            inventoryNavBtn.Location = new Point(3, 205);
+            inventoryNavBtn.Location = new Point(20, 205);
             inventoryNavBtn.Name = "inventoryNavBtn";
-            inventoryNavBtn.Size = new Size(100, 100);
+            inventoryNavBtn.Size = new Size(80, 80);
             inventoryNavBtn.TabIndex = 1;
             inventoryNavBtn.TextAlign = ContentAlignment.BottomCenter;
             inventoryNavBtn.UseVisualStyleBackColor = true;
@@ -324,56 +377,6 @@
             salesLabel.Size = new Size(93, 28);
             salesLabel.TabIndex = 0;
             salesLabel.Text = "Total Sales";
-            // 
-            // saleslabelPanel
-            // 
-            saleslabelPanel.AutoSize = true;
-            saleslabelPanel.Font = new Font("Tahoma", 11F);
-            saleslabelPanel.Location = new Point(135, 370);
-            saleslabelPanel.Name = "saleslabelPanel";
-            saleslabelPanel.Size = new Size(53, 23);
-            saleslabelPanel.TabIndex = 7;
-            saleslabelPanel.Text = "Sales";
-            // 
-            // reportsLabel
-            // 
-            reportsLabel.AutoSize = true;
-            reportsLabel.Font = new Font("Tahoma", 11F);
-            reportsLabel.Location = new Point(135, 506);
-            reportsLabel.Name = "reportsLabel";
-            reportsLabel.Size = new Size(74, 23);
-            reportsLabel.TabIndex = 8;
-            reportsLabel.Text = "Reports";
-            // 
-            // settingsLabel
-            // 
-            settingsLabel.AutoSize = true;
-            settingsLabel.Font = new Font("Tahoma", 11F);
-            settingsLabel.Location = new Point(135, 635);
-            settingsLabel.Name = "settingsLabel";
-            settingsLabel.Size = new Size(77, 23);
-            settingsLabel.TabIndex = 9;
-            settingsLabel.Text = "Settings";
-            // 
-            // button1
-            // 
-            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
-            button1.BackgroundImageLayout = ImageLayout.Zoom;
-            button1.Location = new Point(20, 727);
-            button1.Name = "button1";
-            button1.Size = new Size(60, 63);
-            button1.TabIndex = 10;
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // logoutLabel
-            // 
-            logoutLabel.AutoSize = true;
-            logoutLabel.Font = new Font("Tahoma", 11F);
-            logoutLabel.Location = new Point(135, 746);
-            logoutLabel.Name = "logoutLabel";
-            logoutLabel.Size = new Size(67, 23);
-            logoutLabel.TabIndex = 11;
-            logoutLabel.Text = "Logout";
             // 
             // Dashboard
             // 

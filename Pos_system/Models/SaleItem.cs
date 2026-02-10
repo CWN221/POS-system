@@ -15,12 +15,14 @@ namespace Pos_system.Models
         public int SaleId { get; set; }
         public int ProductId { get; set; }
         public required string ProductName { get; set; }
-        public decimal Price { get; set; }
+        public required decimal Price { get; set; }
+        public required decimal SellingPrice { get; set; }
         public int Quantity { get; set; }
-
+        public decimal Subtotal => Math.Round(SellingPrice * Quantity, 2);
+        public decimal Discount => Math.Round((Price - SellingPrice) * Quantity, 2);
         public decimal VatPercentage { get; set; } = 0;
-        public decimal VatAmount => Math.Round((Price * Quantity) * (VatPercentage / 100),2);
-        public decimal TotalPrice => Math.Round((Price * Quantity) + VatAmount, 2);
+        public decimal VatAmount => Math.Round(Subtotal * (VatPercentage / 100),2);
+        public decimal TotalPrice => Math.Round(Subtotal + VatAmount, 2);
 
     }
 }

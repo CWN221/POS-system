@@ -16,5 +16,16 @@ namespace Pos_system.Views.Pages
         {
             InitializeComponent();
         }
+
+        private void backToDashboardBtn_Click(object sender, EventArgs e)
+        {
+            var dashboardPage = new Dashboard();
+
+            var dashboardForm = this.FindForm() as DashboardForm;
+            if (dashboardForm != null)
+            {
+                dashboardForm.LoadPage(dashboardPage);
+            }
+        }
     }
 }

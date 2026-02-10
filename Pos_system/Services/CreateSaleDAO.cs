@@ -69,15 +69,18 @@ namespace Pos_system.Services
 
                 foreach (var item in sale.Items)
                 {
-                    const string ItemQuery = "INSERT INTO sale_items(sale_id, product_id, product_name, unit_price, quantity, total_price) " +
-                        "VALUES (@sale_id, @product_id, @product_name, @unit_price, @quantity, @total_price)";
+                    const string ItemQuery = "INSERT INTO sale_items(sale_id, product_id, product_name, unit_price, selling_price, discount, quantity, vat_amount, total_price) " +
+                        "VALUES (@sale_id, @product_id, @product_name, @unit_price, @selling_price, @discount, @quantity, @vat_amount, @total_price)";
 
                     using var itemCmd = new MySqlCommand(ItemQuery, conn, transaction);
                     itemCmd.Parameters.AddWithValue("@sale_id", saleId);
                     itemCmd.Parameters.AddWithValue("@product_id", item.ProductId);
                     itemCmd.Parameters.AddWithValue("@product_name", item.ProductName);
+                    itemCmd.Parameters.AddWithValue("@selling_price", item.SellingPrice);
                     itemCmd.Parameters.AddWithValue("@unit_price", item.Price);
+                    itemCmd.Parameters.AddWithValue("@discount", item.Discount);
                     itemCmd.Parameters.AddWithValue("@quantity", item.Quantity);
+                    itemCmd.Parameters.AddWithValue("@vat_amount", item.VatAmount);
                     itemCmd.Parameters.AddWithValue("@total_price", item.TotalPrice);
 
                     await itemCmd.ExecuteNonQueryAsync();

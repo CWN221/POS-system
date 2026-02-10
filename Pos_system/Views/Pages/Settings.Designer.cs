@@ -30,42 +30,42 @@
         {
             settingsTabControl = new TabControl();
             Users = new TabPage();
-            Store = new TabPage();
-            Logs = new TabPage();
-            usersLabel = new Label();
-            dataGridView1 = new DataGridView();
-            userDetailsLabel = new Label();
-            usernameLabel = new Label();
-            roleLabel = new Label();
-            passwordLabel = new Label();
-            comboBox1 = new ComboBox();
-            usernameTextBox = new TextBox();
-            passwordTextBox = new TextBox();
-            saveBtn = new Button();
             deleteBtn = new Button();
-            infoLabel = new Label();
-            storenameLabel = new Label();
-            addressLabel = new Label();
-            contactLabel = new Label();
-            storenameLabelOut = new Label();
-            addressLabelOut = new Label();
-            contactLabelOut = new Label();
-            editLabel = new Label();
+            saveBtn = new Button();
+            passwordTextBox = new TextBox();
+            usernameTextBox = new TextBox();
+            comboBox1 = new ComboBox();
+            passwordLabel = new Label();
+            roleLabel = new Label();
+            usernameLabel = new Label();
+            userDetailsLabel = new Label();
+            dataGridView1 = new DataGridView();
+            usersLabel = new Label();
+            Store = new TabPage();
+            storeCancelBtn = new Button();
+            storeSaveBtn = new Button();
+            contactTextBox = new TextBox();
+            addressTextBox = new TextBox();
+            storenameTextBox = new TextBox();
             editContactLabel = new Label();
             editAddressLabel = new Label();
             editNameLabel = new Label();
-            storenameTextBox = new TextBox();
-            addressTextBox = new TextBox();
-            contactTextBox = new TextBox();
-            storeSaveBtn = new Button();
-            storeCancelBtn = new Button();
+            editLabel = new Label();
+            contactLabelOut = new Label();
+            addressLabelOut = new Label();
+            storenameLabelOut = new Label();
+            contactLabel = new Label();
+            addressLabel = new Label();
+            storenameLabel = new Label();
+            infoLabel = new Label();
+            Logs = new TabPage();
             logsListLabel = new Label();
             backToDashboardBtn = new Button();
             settingsTabControl.SuspendLayout();
             Users.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             Store.SuspendLayout();
             Logs.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // settingsTabControl
@@ -73,15 +73,17 @@
             settingsTabControl.Controls.Add(Users);
             settingsTabControl.Controls.Add(Store);
             settingsTabControl.Controls.Add(Logs);
-            settingsTabControl.Location = new Point(73, 105);
+            settingsTabControl.Font = new Font("Tahoma", 12F);
+            settingsTabControl.Location = new Point(49, 105);
+            settingsTabControl.Multiline = true;
             settingsTabControl.Name = "settingsTabControl";
+            settingsTabControl.Padding = new Point(22, 7);
             settingsTabControl.SelectedIndex = 0;
-            settingsTabControl.Size = new Size(1133, 586);
+            settingsTabControl.Size = new Size(1228, 612);
             settingsTabControl.TabIndex = 0;
             // 
             // Users
             // 
-            Users.BorderStyle = BorderStyle.Fixed3D;
             Users.Controls.Add(deleteBtn);
             Users.Controls.Add(saveBtn);
             Users.Controls.Add(passwordTextBox);
@@ -93,18 +95,114 @@
             Users.Controls.Add(userDetailsLabel);
             Users.Controls.Add(dataGridView1);
             Users.Controls.Add(usersLabel);
-            Users.Font = new Font("Tahoma", 10F);
-            Users.Location = new Point(4, 29);
+            Users.Font = new Font("Tahoma", 11F);
+            Users.Location = new Point(4, 41);
             Users.Name = "Users";
             Users.Padding = new Padding(3);
-            Users.Size = new Size(1125, 553);
+            Users.Size = new Size(1220, 567);
             Users.TabIndex = 0;
             Users.Text = "Users";
             Users.UseVisualStyleBackColor = true;
             // 
+            // deleteBtn
+            // 
+            deleteBtn.Location = new Point(879, 384);
+            deleteBtn.Name = "deleteBtn";
+            deleteBtn.Size = new Size(127, 29);
+            deleteBtn.TabIndex = 10;
+            deleteBtn.Text = "Delete User";
+            deleteBtn.UseVisualStyleBackColor = true;
+            // 
+            // saveBtn
+            // 
+            saveBtn.Location = new Point(632, 384);
+            saveBtn.Name = "saveBtn";
+            saveBtn.Size = new Size(94, 29);
+            saveBtn.TabIndex = 9;
+            saveBtn.Text = "Save";
+            saveBtn.UseVisualStyleBackColor = true;
+            // 
+            // passwordTextBox
+            // 
+            passwordTextBox.Location = new Point(782, 270);
+            passwordTextBox.Name = "passwordTextBox";
+            passwordTextBox.Size = new Size(224, 30);
+            passwordTextBox.TabIndex = 8;
+            // 
+            // usernameTextBox
+            // 
+            usernameTextBox.Location = new Point(782, 119);
+            usernameTextBox.Name = "usernameTextBox";
+            usernameTextBox.Size = new Size(224, 30);
+            usernameTextBox.TabIndex = 7;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Admin", "Manager", "Cashier" });
+            comboBox1.Location = new Point(782, 186);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(224, 30);
+            comboBox1.TabIndex = 6;
+            // 
+            // passwordLabel
+            // 
+            passwordLabel.AutoSize = true;
+            passwordLabel.Location = new Point(630, 270);
+            passwordLabel.Name = "passwordLabel";
+            passwordLabel.Size = new Size(88, 23);
+            passwordLabel.TabIndex = 5;
+            passwordLabel.Text = "Password";
+            // 
+            // roleLabel
+            // 
+            roleLabel.AutoSize = true;
+            roleLabel.Location = new Point(632, 189);
+            roleLabel.Name = "roleLabel";
+            roleLabel.Size = new Size(46, 23);
+            roleLabel.TabIndex = 4;
+            roleLabel.Text = "Role";
+            // 
+            // usernameLabel
+            // 
+            usernameLabel.AutoSize = true;
+            usernameLabel.Location = new Point(630, 119);
+            usernameLabel.Name = "usernameLabel";
+            usernameLabel.Size = new Size(94, 23);
+            usernameLabel.TabIndex = 3;
+            usernameLabel.Text = "Username";
+            // 
+            // userDetailsLabel
+            // 
+            userDetailsLabel.AutoSize = true;
+            userDetailsLabel.Font = new Font("Tahoma", 11F);
+            userDetailsLabel.Location = new Point(632, 73);
+            userDetailsLabel.Name = "userDetailsLabel";
+            userDetailsLabel.Size = new Size(108, 23);
+            userDetailsLabel.TabIndex = 2;
+            userDetailsLabel.Text = "User Details";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(41, 119);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(478, 294);
+            dataGridView1.TabIndex = 1;
+            // 
+            // usersLabel
+            // 
+            usersLabel.AutoSize = true;
+            usersLabel.Font = new Font("Tahoma", 11F);
+            usersLabel.Location = new Point(41, 73);
+            usersLabel.Name = "usersLabel";
+            usersLabel.Size = new Size(55, 23);
+            usersLabel.TabIndex = 0;
+            usersLabel.Text = "Users";
+            // 
             // Store
             // 
-            Store.BorderStyle = BorderStyle.Fixed3D;
             Store.Controls.Add(storeCancelBtn);
             Store.Controls.Add(storeSaveBtn);
             Store.Controls.Add(contactTextBox);
@@ -121,188 +219,80 @@
             Store.Controls.Add(addressLabel);
             Store.Controls.Add(storenameLabel);
             Store.Controls.Add(infoLabel);
-            Store.Font = new Font("Tahoma", 10F);
-            Store.Location = new Point(4, 29);
+            Store.Font = new Font("Tahoma", 11F);
+            Store.Location = new Point(4, 41);
             Store.Name = "Store";
             Store.Padding = new Padding(3);
-            Store.Size = new Size(1125, 553);
+            Store.Size = new Size(1220, 567);
             Store.TabIndex = 1;
-            Store.Text = "tabPage2";
+            Store.Text = "Store";
             Store.UseVisualStyleBackColor = true;
             // 
-            // Logs
+            // storeCancelBtn
             // 
-            Logs.BorderStyle = BorderStyle.Fixed3D;
-            Logs.Controls.Add(logsListLabel);
-            Logs.Font = new Font("Tahoma", 10F);
-            Logs.Location = new Point(4, 29);
-            Logs.Name = "Logs";
-            Logs.Padding = new Padding(3);
-            Logs.Size = new Size(1125, 553);
-            Logs.TabIndex = 2;
-            Logs.Text = "tabPage3";
-            Logs.UseVisualStyleBackColor = true;
+            storeCancelBtn.Location = new Point(932, 387);
+            storeCancelBtn.Name = "storeCancelBtn";
+            storeCancelBtn.Size = new Size(94, 29);
+            storeCancelBtn.TabIndex = 15;
+            storeCancelBtn.Text = "Cancel";
+            storeCancelBtn.UseVisualStyleBackColor = true;
             // 
-            // usersLabel
+            // storeSaveBtn
             // 
-            usersLabel.AutoSize = true;
-            usersLabel.Font = new Font("Tahoma", 11F);
-            usersLabel.Location = new Point(41, 73);
-            usersLabel.Name = "usersLabel";
-            usersLabel.Size = new Size(55, 23);
-            usersLabel.TabIndex = 0;
-            usersLabel.Text = "Users";
+            storeSaveBtn.Location = new Point(545, 387);
+            storeSaveBtn.Name = "storeSaveBtn";
+            storeSaveBtn.Size = new Size(94, 29);
+            storeSaveBtn.TabIndex = 14;
+            storeSaveBtn.Text = "Save";
+            storeSaveBtn.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // contactTextBox
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(41, 119);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(478, 294);
-            dataGridView1.TabIndex = 1;
+            contactTextBox.Location = new Point(684, 264);
+            contactTextBox.Name = "contactTextBox";
+            contactTextBox.Size = new Size(341, 30);
+            contactTextBox.TabIndex = 13;
             // 
-            // userDetailsLabel
+            // addressTextBox
             // 
-            userDetailsLabel.AutoSize = true;
-            userDetailsLabel.Font = new Font("Tahoma", 11F);
-            userDetailsLabel.Location = new Point(632, 73);
-            userDetailsLabel.Name = "userDetailsLabel";
-            userDetailsLabel.Size = new Size(108, 23);
-            userDetailsLabel.TabIndex = 2;
-            userDetailsLabel.Text = "User Details";
+            addressTextBox.Location = new Point(684, 202);
+            addressTextBox.Name = "addressTextBox";
+            addressTextBox.Size = new Size(342, 30);
+            addressTextBox.TabIndex = 12;
             // 
-            // usernameLabel
+            // storenameTextBox
             // 
-            usernameLabel.AutoSize = true;
-            usernameLabel.Location = new Point(630, 119);
-            usernameLabel.Name = "usernameLabel";
-            usernameLabel.Size = new Size(85, 21);
-            usernameLabel.TabIndex = 3;
-            usernameLabel.Text = "Username";
+            storenameTextBox.Location = new Point(684, 133);
+            storenameTextBox.Name = "storenameTextBox";
+            storenameTextBox.Size = new Size(341, 30);
+            storenameTextBox.TabIndex = 11;
             // 
-            // roleLabel
+            // editContactLabel
             // 
-            roleLabel.AutoSize = true;
-            roleLabel.Location = new Point(632, 189);
-            roleLabel.Name = "roleLabel";
-            roleLabel.Size = new Size(43, 21);
-            roleLabel.TabIndex = 4;
-            roleLabel.Text = "Role";
+            editContactLabel.AutoSize = true;
+            editContactLabel.Location = new Point(545, 264);
+            editContactLabel.Name = "editContactLabel";
+            editContactLabel.Size = new Size(80, 23);
+            editContactLabel.TabIndex = 10;
+            editContactLabel.Text = "Contact:";
             // 
-            // passwordLabel
+            // editAddressLabel
             // 
-            passwordLabel.AutoSize = true;
-            passwordLabel.Location = new Point(630, 270);
-            passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new Size(81, 21);
-            passwordLabel.TabIndex = 5;
-            passwordLabel.Text = "Password";
+            editAddressLabel.AutoSize = true;
+            editAddressLabel.Location = new Point(542, 202);
+            editAddressLabel.Name = "editAddressLabel";
+            editAddressLabel.Size = new Size(83, 23);
+            editAddressLabel.TabIndex = 9;
+            editAddressLabel.Text = "Address:";
             // 
-            // comboBox1
+            // editNameLabel
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Admin", "Manager", "Cashier" });
-            comboBox1.Location = new Point(782, 186);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(224, 29);
-            comboBox1.TabIndex = 6;
-            // 
-            // usernameTextBox
-            // 
-            usernameTextBox.Location = new Point(782, 119);
-            usernameTextBox.Name = "usernameTextBox";
-            usernameTextBox.Size = new Size(224, 28);
-            usernameTextBox.TabIndex = 7;
-            // 
-            // passwordTextBox
-            // 
-            passwordTextBox.Location = new Point(782, 270);
-            passwordTextBox.Name = "passwordTextBox";
-            passwordTextBox.Size = new Size(224, 28);
-            passwordTextBox.TabIndex = 8;
-            // 
-            // saveBtn
-            // 
-            saveBtn.Location = new Point(632, 384);
-            saveBtn.Name = "saveBtn";
-            saveBtn.Size = new Size(94, 29);
-            saveBtn.TabIndex = 9;
-            saveBtn.Text = "Save";
-            saveBtn.UseVisualStyleBackColor = true;
-            // 
-            // deleteBtn
-            // 
-            deleteBtn.Location = new Point(879, 384);
-            deleteBtn.Name = "deleteBtn";
-            deleteBtn.Size = new Size(127, 29);
-            deleteBtn.TabIndex = 10;
-            deleteBtn.Text = "Delete User";
-            deleteBtn.UseVisualStyleBackColor = true;
-            // 
-            // infoLabel
-            // 
-            infoLabel.AutoSize = true;
-            infoLabel.Font = new Font("Tahoma", 13F);
-            infoLabel.Location = new Point(47, 76);
-            infoLabel.Name = "infoLabel";
-            infoLabel.Size = new Size(109, 27);
-            infoLabel.TabIndex = 0;
-            infoLabel.Text = "Store Info";
-            // 
-            // storenameLabel
-            // 
-            storenameLabel.AutoSize = true;
-            storenameLabel.Location = new Point(47, 133);
-            storenameLabel.Name = "storenameLabel";
-            storenameLabel.Size = new Size(59, 21);
-            storenameLabel.TabIndex = 1;
-            storenameLabel.Text = "Name:";
-            // 
-            // addressLabel
-            // 
-            addressLabel.AutoSize = true;
-            addressLabel.Location = new Point(50, 202);
-            addressLabel.Name = "addressLabel";
-            addressLabel.Size = new Size(76, 21);
-            addressLabel.TabIndex = 2;
-            addressLabel.Text = "Address:";
-            // 
-            // contactLabel
-            // 
-            contactLabel.AutoSize = true;
-            contactLabel.Location = new Point(50, 264);
-            contactLabel.Name = "contactLabel";
-            contactLabel.Size = new Size(73, 21);
-            contactLabel.TabIndex = 3;
-            contactLabel.Text = "Contact:";
-            // 
-            // storenameLabelOut
-            // 
-            storenameLabelOut.AutoSize = true;
-            storenameLabelOut.Location = new Point(175, 133);
-            storenameLabelOut.Name = "storenameLabelOut";
-            storenameLabelOut.Size = new Size(82, 21);
-            storenameLabelOut.TabIndex = 4;
-            storenameLabelOut.Text = "Loading...";
-            // 
-            // addressLabelOut
-            // 
-            addressLabelOut.AutoSize = true;
-            addressLabelOut.Location = new Point(175, 202);
-            addressLabelOut.Name = "addressLabelOut";
-            addressLabelOut.Size = new Size(82, 21);
-            addressLabelOut.TabIndex = 5;
-            addressLabelOut.Text = "Loading...";
-            // 
-            // contactLabelOut
-            // 
-            contactLabelOut.AutoSize = true;
-            contactLabelOut.Location = new Point(175, 264);
-            contactLabelOut.Name = "contactLabelOut";
-            contactLabelOut.Size = new Size(82, 21);
-            contactLabelOut.TabIndex = 6;
-            contactLabelOut.Text = "Loading...";
+            editNameLabel.AutoSize = true;
+            editNameLabel.Location = new Point(542, 133);
+            editNameLabel.Name = "editNameLabel";
+            editNameLabel.Size = new Size(66, 23);
+            editNameLabel.TabIndex = 8;
+            editNameLabel.Text = "Name:";
             // 
             // editLabel
             // 
@@ -314,78 +304,88 @@
             editLabel.TabIndex = 7;
             editLabel.Text = "Edit";
             // 
-            // editContactLabel
+            // contactLabelOut
             // 
-            editContactLabel.AutoSize = true;
-            editContactLabel.Location = new Point(545, 264);
-            editContactLabel.Name = "editContactLabel";
-            editContactLabel.Size = new Size(73, 21);
-            editContactLabel.TabIndex = 10;
-            editContactLabel.Text = "Contact:";
+            contactLabelOut.AutoSize = true;
+            contactLabelOut.Location = new Point(175, 264);
+            contactLabelOut.Name = "contactLabelOut";
+            contactLabelOut.Size = new Size(94, 23);
+            contactLabelOut.TabIndex = 6;
+            contactLabelOut.Text = "Loading...";
             // 
-            // editAddressLabel
+            // addressLabelOut
             // 
-            editAddressLabel.AutoSize = true;
-            editAddressLabel.Location = new Point(542, 202);
-            editAddressLabel.Name = "editAddressLabel";
-            editAddressLabel.Size = new Size(76, 21);
-            editAddressLabel.TabIndex = 9;
-            editAddressLabel.Text = "Address:";
+            addressLabelOut.AutoSize = true;
+            addressLabelOut.Location = new Point(175, 202);
+            addressLabelOut.Name = "addressLabelOut";
+            addressLabelOut.Size = new Size(94, 23);
+            addressLabelOut.TabIndex = 5;
+            addressLabelOut.Text = "Loading...";
             // 
-            // editNameLabel
+            // storenameLabelOut
             // 
-            editNameLabel.AutoSize = true;
-            editNameLabel.Location = new Point(542, 133);
-            editNameLabel.Name = "editNameLabel";
-            editNameLabel.Size = new Size(59, 21);
-            editNameLabel.TabIndex = 8;
-            editNameLabel.Text = "Name:";
+            storenameLabelOut.AutoSize = true;
+            storenameLabelOut.Location = new Point(175, 133);
+            storenameLabelOut.Name = "storenameLabelOut";
+            storenameLabelOut.Size = new Size(94, 23);
+            storenameLabelOut.TabIndex = 4;
+            storenameLabelOut.Text = "Loading...";
             // 
-            // storenameTextBox
+            // contactLabel
             // 
-            storenameTextBox.Location = new Point(684, 133);
-            storenameTextBox.Name = "storenameTextBox";
-            storenameTextBox.Size = new Size(341, 28);
-            storenameTextBox.TabIndex = 11;
+            contactLabel.AutoSize = true;
+            contactLabel.Location = new Point(50, 264);
+            contactLabel.Name = "contactLabel";
+            contactLabel.Size = new Size(80, 23);
+            contactLabel.TabIndex = 3;
+            contactLabel.Text = "Contact:";
             // 
-            // addressTextBox
+            // addressLabel
             // 
-            addressTextBox.Location = new Point(684, 202);
-            addressTextBox.Name = "addressTextBox";
-            addressTextBox.Size = new Size(342, 28);
-            addressTextBox.TabIndex = 12;
+            addressLabel.AutoSize = true;
+            addressLabel.Location = new Point(50, 202);
+            addressLabel.Name = "addressLabel";
+            addressLabel.Size = new Size(83, 23);
+            addressLabel.TabIndex = 2;
+            addressLabel.Text = "Address:";
             // 
-            // contactTextBox
+            // storenameLabel
             // 
-            contactTextBox.Location = new Point(684, 264);
-            contactTextBox.Name = "contactTextBox";
-            contactTextBox.Size = new Size(341, 28);
-            contactTextBox.TabIndex = 13;
+            storenameLabel.AutoSize = true;
+            storenameLabel.Location = new Point(47, 133);
+            storenameLabel.Name = "storenameLabel";
+            storenameLabel.Size = new Size(66, 23);
+            storenameLabel.TabIndex = 1;
+            storenameLabel.Text = "Name:";
             // 
-            // storeSaveBtn
+            // infoLabel
             // 
-            storeSaveBtn.Location = new Point(545, 387);
-            storeSaveBtn.Name = "storeSaveBtn";
-            storeSaveBtn.Size = new Size(94, 29);
-            storeSaveBtn.TabIndex = 14;
-            storeSaveBtn.Text = "Save";
-            storeSaveBtn.UseVisualStyleBackColor = true;
+            infoLabel.AutoSize = true;
+            infoLabel.Font = new Font("Tahoma", 13F);
+            infoLabel.Location = new Point(47, 76);
+            infoLabel.Name = "infoLabel";
+            infoLabel.Size = new Size(109, 27);
+            infoLabel.TabIndex = 0;
+            infoLabel.Text = "Store Info";
             // 
-            // storeCancelBtn
+            // Logs
             // 
-            storeCancelBtn.Location = new Point(932, 387);
-            storeCancelBtn.Name = "storeCancelBtn";
-            storeCancelBtn.Size = new Size(94, 29);
-            storeCancelBtn.TabIndex = 15;
-            storeCancelBtn.Text = "Cancel";
-            storeCancelBtn.UseVisualStyleBackColor = true;
+            Logs.BackColor = Color.Transparent;
+            Logs.Controls.Add(logsListLabel);
+            Logs.Font = new Font("Tahoma", 11F);
+            Logs.Location = new Point(4, 41);
+            Logs.Name = "Logs";
+            Logs.Padding = new Padding(3);
+            Logs.Size = new Size(1220, 567);
+            Logs.TabIndex = 2;
+            Logs.Text = "Logs";
             // 
             // logsListLabel
             // 
             logsListLabel.AutoSize = true;
             logsListLabel.Location = new Point(67, 77);
             logsListLabel.Name = "logsListLabel";
-            logsListLabel.Size = new Size(75, 21);
+            logsListLabel.Size = new Size(81, 23);
             logsListLabel.TabIndex = 0;
             logsListLabel.Text = "Logs List";
             // 
@@ -403,11 +403,13 @@
             backToDashboardBtn.Text = "Dashboard";
             backToDashboardBtn.TextAlign = ContentAlignment.MiddleRight;
             backToDashboardBtn.UseVisualStyleBackColor = false;
+            backToDashboardBtn.Click += backToDashboardBtn_Click;
             // 
             // Settings
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             Controls.Add(backToDashboardBtn);
             Controls.Add(settingsTabControl);
             Name = "Settings";
@@ -415,11 +417,11 @@
             settingsTabControl.ResumeLayout(false);
             Users.ResumeLayout(false);
             Users.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             Store.ResumeLayout(false);
             Store.PerformLayout();
             Logs.ResumeLayout(false);
             Logs.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
