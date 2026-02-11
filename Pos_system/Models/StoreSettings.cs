@@ -8,6 +8,6 @@ namespace Pos_system.Models
         public required string Storename { get; set; }
         public required string Address { get; set; }
         public required string Contact { get; set; }
-        public string LogoPath { get; set; }
+        public string? LogoPath { get; set; }
     }
 }

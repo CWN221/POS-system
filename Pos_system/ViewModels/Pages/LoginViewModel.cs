@@ -1,6 +1,4 @@
-﻿using Pos_system.Services;
-using System;
-using System.Net;
+﻿using Pos_system.logs;
 using Authorization = Pos_system.Services.Authorization;
 
 namespace Pos_system.ViewModels
@@ -12,15 +10,60 @@ namespace Pos_system.ViewModels
         // Getter & Setter Methods
         public required string Username { get; set; }
         public required string Password { get; set; }
+        public required string Role { get; set; }
 
+        private readonly string[] ValidRoles = {"Admin", "Manager", "Cashier"};
+
+        // Method to handle user login
         public void UserLogin()
         {
-            var userLogin = authorization_service.login(Username, Password);
+            var userLogin = authorization_service.Login(Username, Password);
+
+            try
+            {
+                if (userLogin != null)
+                {
+                    MessageBox.Show($"Welcome, {userLogin.Username}");
+                }
+                else
+                {
+                    MessageBox.Show("Login failed. Check username/password or account may be inactive.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Log("Error during login: " + ex.Message);
+            }
         }
 
+
+        // Method to handle user signup
         public void UserSignup()
         {
-            var userLogin = authorization_service.signup(Username, Password);
+            try
+            {
+                var userLogin = authorization_service.Signup(Username, Password, Role);
+
+                if (!ValidRoles.Contains(Role))
+                {
+                    MessageBox.Show("Invalid role selected.");
+                    return;
+                }
+
+                if (userLogin == "User Registration Successful")
+                {
+                    MessageBox.Show(userLogin);
+                }
+                else
+                {
+                    MessageBox.Show(userLogin);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error during signup" + ex.Message);
+            }
         }
 
     }

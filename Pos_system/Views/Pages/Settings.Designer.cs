@@ -28,18 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             settingsTabControl = new TabControl();
             Users = new TabPage();
+            updateBtn = new Button();
             deleteBtn = new Button();
             saveBtn = new Button();
             passwordTextBox = new TextBox();
             usernameTextBox = new TextBox();
-            comboBox1 = new ComboBox();
+            roleComboBox = new ComboBox();
             passwordLabel = new Label();
             roleLabel = new Label();
             usernameLabel = new Label();
             userDetailsLabel = new Label();
-            dataGridView1 = new DataGridView();
+            usersDataGridView = new DataGridView();
             usersLabel = new Label();
             Store = new TabPage();
             storeCancelBtn = new Button();
@@ -60,12 +62,14 @@
             infoLabel = new Label();
             Logs = new TabPage();
             logsListLabel = new Label();
+            authorizationBindingSource = new BindingSource(components);
             backToDashboardBtn = new Button();
             settingsTabControl.SuspendLayout();
             Users.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)usersDataGridView).BeginInit();
             Store.SuspendLayout();
             Logs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)authorizationBindingSource).BeginInit();
             SuspendLayout();
             // 
             // settingsTabControl
@@ -84,16 +88,17 @@
             // 
             // Users
             // 
+            Users.Controls.Add(updateBtn);
             Users.Controls.Add(deleteBtn);
             Users.Controls.Add(saveBtn);
             Users.Controls.Add(passwordTextBox);
             Users.Controls.Add(usernameTextBox);
-            Users.Controls.Add(comboBox1);
+            Users.Controls.Add(roleComboBox);
             Users.Controls.Add(passwordLabel);
             Users.Controls.Add(roleLabel);
             Users.Controls.Add(usernameLabel);
             Users.Controls.Add(userDetailsLabel);
-            Users.Controls.Add(dataGridView1);
+            Users.Controls.Add(usersDataGridView);
             Users.Controls.Add(usersLabel);
             Users.Font = new Font("Tahoma", 11F);
             Users.Location = new Point(4, 41);
@@ -104,51 +109,63 @@
             Users.Text = "Users";
             Users.UseVisualStyleBackColor = true;
             // 
+            // updateBtn
+            // 
+            updateBtn.Location = new Point(779, 500);
+            updateBtn.Name = "updateBtn";
+            updateBtn.Size = new Size(161, 29);
+            updateBtn.TabIndex = 11;
+            updateBtn.Text = "Update User";
+            updateBtn.UseVisualStyleBackColor = true;
+            updateBtn.Click += updateBtn_Click;
+            // 
             // deleteBtn
             // 
-            deleteBtn.Location = new Point(879, 384);
+            deleteBtn.Location = new Point(1028, 410);
             deleteBtn.Name = "deleteBtn";
             deleteBtn.Size = new Size(127, 29);
             deleteBtn.TabIndex = 10;
             deleteBtn.Text = "Delete User";
             deleteBtn.UseVisualStyleBackColor = true;
+            deleteBtn.Click += deleteBtn_Click;
             // 
             // saveBtn
             // 
-            saveBtn.Location = new Point(632, 384);
+            saveBtn.Location = new Point(781, 410);
             saveBtn.Name = "saveBtn";
             saveBtn.Size = new Size(94, 29);
             saveBtn.TabIndex = 9;
             saveBtn.Text = "Save";
             saveBtn.UseVisualStyleBackColor = true;
+            saveBtn.Click += saveBtn_Click;
             // 
             // passwordTextBox
             // 
-            passwordTextBox.Location = new Point(782, 270);
+            passwordTextBox.Location = new Point(931, 296);
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(224, 30);
             passwordTextBox.TabIndex = 8;
             // 
             // usernameTextBox
             // 
-            usernameTextBox.Location = new Point(782, 119);
+            usernameTextBox.Location = new Point(931, 145);
             usernameTextBox.Name = "usernameTextBox";
             usernameTextBox.Size = new Size(224, 30);
             usernameTextBox.TabIndex = 7;
             // 
-            // comboBox1
+            // roleComboBox
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Admin", "Manager", "Cashier" });
-            comboBox1.Location = new Point(782, 186);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(224, 30);
-            comboBox1.TabIndex = 6;
+            roleComboBox.FormattingEnabled = true;
+            roleComboBox.Items.AddRange(new object[] { "Admin", "Manager", "Cashier" });
+            roleComboBox.Location = new Point(931, 212);
+            roleComboBox.Name = "roleComboBox";
+            roleComboBox.Size = new Size(224, 30);
+            roleComboBox.TabIndex = 6;
             // 
             // passwordLabel
             // 
             passwordLabel.AutoSize = true;
-            passwordLabel.Location = new Point(630, 270);
+            passwordLabel.Location = new Point(779, 296);
             passwordLabel.Name = "passwordLabel";
             passwordLabel.Size = new Size(88, 23);
             passwordLabel.TabIndex = 5;
@@ -157,7 +174,7 @@
             // roleLabel
             // 
             roleLabel.AutoSize = true;
-            roleLabel.Location = new Point(632, 189);
+            roleLabel.Location = new Point(781, 215);
             roleLabel.Name = "roleLabel";
             roleLabel.Size = new Size(46, 23);
             roleLabel.TabIndex = 4;
@@ -166,7 +183,7 @@
             // usernameLabel
             // 
             usernameLabel.AutoSize = true;
-            usernameLabel.Location = new Point(630, 119);
+            usernameLabel.Location = new Point(779, 145);
             usernameLabel.Name = "usernameLabel";
             usernameLabel.Size = new Size(94, 23);
             usernameLabel.TabIndex = 3;
@@ -175,29 +192,30 @@
             // userDetailsLabel
             // 
             userDetailsLabel.AutoSize = true;
-            userDetailsLabel.Font = new Font("Tahoma", 11F);
-            userDetailsLabel.Location = new Point(632, 73);
+            userDetailsLabel.Font = new Font("Tahoma", 13F);
+            userDetailsLabel.Location = new Point(781, 73);
             userDetailsLabel.Name = "userDetailsLabel";
-            userDetailsLabel.Size = new Size(108, 23);
+            userDetailsLabel.Size = new Size(129, 27);
             userDetailsLabel.TabIndex = 2;
             userDetailsLabel.Text = "User Details";
             // 
-            // dataGridView1
+            // usersDataGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(41, 119);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(478, 294);
-            dataGridView1.TabIndex = 1;
+            usersDataGridView.BackgroundColor = Color.White;
+            usersDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            usersDataGridView.Location = new Point(41, 119);
+            usersDataGridView.Name = "usersDataGridView";
+            usersDataGridView.RowHeadersWidth = 51;
+            usersDataGridView.Size = new Size(656, 423);
+            usersDataGridView.TabIndex = 1;
             // 
             // usersLabel
             // 
             usersLabel.AutoSize = true;
-            usersLabel.Font = new Font("Tahoma", 11F);
+            usersLabel.Font = new Font("Tahoma", 13F);
             usersLabel.Location = new Point(41, 73);
             usersLabel.Name = "usersLabel";
-            usersLabel.Size = new Size(55, 23);
+            usersLabel.Size = new Size(66, 27);
             usersLabel.TabIndex = 0;
             usersLabel.Text = "Users";
             // 
@@ -236,6 +254,7 @@
             storeCancelBtn.TabIndex = 15;
             storeCancelBtn.Text = "Cancel";
             storeCancelBtn.UseVisualStyleBackColor = true;
+            storeCancelBtn.Click += storeCancelBtn_Click;
             // 
             // storeSaveBtn
             // 
@@ -245,6 +264,7 @@
             storeSaveBtn.TabIndex = 14;
             storeSaveBtn.Text = "Save";
             storeSaveBtn.UseVisualStyleBackColor = true;
+            storeSaveBtn.Click += storeSaveBtn_Click;
             // 
             // contactTextBox
             // 
@@ -389,6 +409,10 @@
             logsListLabel.TabIndex = 0;
             logsListLabel.Text = "Logs List";
             // 
+            // authorizationBindingSource
+            // 
+            authorizationBindingSource.DataSource = typeof(Services.Authorization);
+            // 
             // backToDashboardBtn
             // 
             backToDashboardBtn.BackColor = Color.FromArgb(55, 161, 218);
@@ -417,11 +441,12 @@
             settingsTabControl.ResumeLayout(false);
             Users.ResumeLayout(false);
             Users.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)usersDataGridView).EndInit();
             Store.ResumeLayout(false);
             Store.PerformLayout();
             Logs.ResumeLayout(false);
             Logs.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)authorizationBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -433,13 +458,13 @@
         private TabPage Logs;
         private Label usersLabel;
         private Label userDetailsLabel;
-        private DataGridView dataGridView1;
+        private DataGridView usersDataGridView;
         private Label roleLabel;
         private Label usernameLabel;
         private Button saveBtn;
         private TextBox passwordTextBox;
         private TextBox usernameTextBox;
-        private ComboBox comboBox1;
+        private ComboBox roleComboBox;
         private Label passwordLabel;
         private Button deleteBtn;
         private Label contactLabel;
@@ -460,5 +485,7 @@
         private Button storeSaveBtn;
         private Label logsListLabel;
         private Button backToDashboardBtn;
+        private BindingSource authorizationBindingSource;
+        private Button updateBtn;
     }
 }

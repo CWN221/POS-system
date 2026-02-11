@@ -5,8 +5,12 @@
  * 
 */
 
+using Microsoft.VisualBasic.ApplicationServices;
 using MySql.Data.MySqlClient;
 using Pos_system.Database;
+using Pos_system.logs;
+using Pos_system.Models;
+using BCrypt.Net;
 
 namespace Pos_system.Services
 {
@@ -18,36 +22,37 @@ namespace Pos_system.Services
          * Method to create a new user and add to the DB (Signup)
          * 
          */
-        public string signup(string username, string password)
+        public async Task<string> Signup(string username, string password, string role)
         {
-            var conn = DBConnection.GetConnection();
-            string query = "INSERT INTO users(username, password) VALUES(@username, @password)";
+
+            using var conn = DBConnection.GetConnection();
+            string query = "INSERT INTO users(Username, PasswordHash, Role, IsActive) VALUES(@Username, @Passwordhash, @Role, @IsActive)";
 
             if (conn == null)
             {
                 return "Database could not be reached!";
             }
 
+            if (CheckUsername(username))
+            {
+                return "Username already exists. Please choose a different username.";
+            }
+
             try
             {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@username", username);
-                cmd.Parameters.AddWithValue("@password", password);
+                using var cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.Parameters.AddWithValue("@Passwordhash", BCrypt.Net.BCrypt.HashPassword(password));
+                cmd.Parameters.AddWithValue("@Role", role);
+                cmd.Parameters.AddWithValue("@IsActive", true);
 
-                cmd.ExecuteNonQuery();
+                await cmd.ExecuteNonQueryAsync();
                 return "User Registration Successful";
             }
             catch (MySqlException e)
             {
                 return "Registration failed: " + e.Message;
-            }
-            finally
-            {
-                if (conn != null)
-                {
-                    conn.Dispose();
-                }
-            }
+            }            
         }
 
 
@@ -55,54 +60,67 @@ namespace Pos_system.Services
          * User Login Method
          *
         */
-        public string login(string username, string password)
+        public UserModel? Login(string username, string password)
         {
-            var conn = DBConnection.GetConnection();
+            using var conn = DBConnection.GetConnection();
 
-            if (conn == null)
-            {
-                return "Database could not be reached!";
-            }
+            if (conn == null)  return null;
 
-            string query = "SELECT password FROM users WHERE username = @username";
+            string query = "SELECT Id, Username, PasswordHash, Role, IsActive FROM users WHERE Username = @Username";
 
             try
             {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@username", username);
+                using var cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Username", username);
 
-                MySqlDataReader reader = cmd.ExecuteReader();
+                using var reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    string saved_password = reader.GetString("password");
-                    if (saved_password == password)
+                    string hashed_password = reader.GetString("PasswordHash");
+
+                    if(!reader.GetBoolean("IsActive"))
                     {
-                        return "Login Successful";
+                        throw new Exception("User account is inactive. Please contact administrator.");
                     }
-                    else
+
+                    if (!BCrypt.Net.BCrypt.Verify(password, hashed_password)) 
+                        return null;
+
+                    return new UserModel
                     {
-                        return "Incorrect Username/Password!";
-                    }
+                        Id = reader.GetInt32("Id"),
+                        Username = reader.GetString("Username"),
+                        PasswordHash = hashed_password,
+                        Role = reader.GetString("Role"),
+                        IsActive = reader.GetBoolean("IsActive")
+                    };
+
                 }
-                else
-                {
-                    return "User not found!";
-                }
+                
             }
             catch (MySqlException e)
             {
-                return "Login failed: " + e.Message;
+                Logger.Log("Login failed: " + e.Message);
             }
-            finally
-            {
-                if (conn != null)
-                {
-                    conn.Dispose();
-                }
-            }
+            return null;
 
+        }        
+
+
+
+        // Method to check if user already exists
+        private bool CheckUsername(string username)
+        {
+            using var conn = DBConnection.GetConnection();
+
+            string query = "SELECT COUNT(*) FROM users WHERE Username = @Username";
+
+            using var cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@Username", username);
+
+            return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
         }
-
+       
 
     }
 }

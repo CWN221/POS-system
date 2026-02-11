@@ -4,7 +4,6 @@
  * 
  */
 
-using System;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using Pos_system.Database;
@@ -19,13 +18,13 @@ namespace Pos_system.Services
         {
             List<SaleTransaction> transactions = new List<SaleTransaction>();
 
-            var conn = DBConnection.GetConnection();
+            using var conn = DBConnection.GetConnection();
             var query = "SELECT * FROM sales ORDER BY sale_date DESC";
 
             try
             {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
+                using var cmd = new MySqlCommand(query, conn);
+                using var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     SaleTransaction newTransaction = new SaleTransaction
@@ -41,11 +40,7 @@ namespace Pos_system.Services
             catch (Exception ex)
             {
                 throw new Exception("Failed to retrieve transactions", ex);
-            }
-            finally
-            {
-                conn.Dispose();
-            }
+            }           
             return transactions;
         }
 
