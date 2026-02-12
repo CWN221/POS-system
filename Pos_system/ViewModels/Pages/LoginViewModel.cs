@@ -38,11 +38,11 @@ namespace Pos_system.ViewModels
 
 
         // Method to handle user signup
-        public void UserSignup()
+        public async Task UserSignup()
         {
             try
             {
-                var userLogin = authorization_service.Signup(Username, Password, Role);
+                var userLogin = await authorization_service.Signup(Username, Password, Role);
 
                 if (!ValidRoles.Contains(Role))
                 {

@@ -1,3 +1,5 @@
+using Pos_system.Views.Pages;
+
 namespace Pos_system
 {
     internal static class Program
@@ -11,7 +13,12 @@ namespace Pos_system
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new DashboardForm());
+            LoginPage login = new LoginPage();
+
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new DashboardForm());
+            }
         }
     }
 }

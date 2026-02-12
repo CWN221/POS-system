@@ -82,7 +82,13 @@ namespace Pos_system.Views.Pages
 
 
 
-        // Save button click event handler to save user settings
+        /*
+         * 
+         * Save button click event handler to save user settings. 
+         * New user is created and added to the system by calling the Signup method of the Authorization service.
+         * Handled from Authorization service (Authorization.cs)
+         * 
+         */
         private async void saveBtn_Click(object sender, EventArgs e)
         {
             string username = usernameTextBox.Text.Trim();
