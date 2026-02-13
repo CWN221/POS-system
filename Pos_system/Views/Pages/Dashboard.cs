@@ -112,6 +112,14 @@ namespace Pos_system.Views.Pages
 
         private void logoutNavBtn_Click(object sender, EventArgs e)
         {
+            var result = MessageBox.Show("Are you sure you want to logout?", "Confirm logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                SessionManager.Logout();
+                this.FindForm()?.Close();                
+                
+            }
+
 
         }
     }

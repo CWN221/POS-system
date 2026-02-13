@@ -34,6 +34,7 @@
             passwordTextBox = new MaterialSkin.Controls.MaterialMaskedTextBox();
             loginBtn = new MaterialSkin.Controls.MaterialButton();
             pictureBox1 = new PictureBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -42,7 +43,7 @@
             usernameLabel.AutoSize = true;
             usernameLabel.Depth = 0;
             usernameLabel.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            usernameLabel.Location = new Point(869, 170);
+            usernameLabel.Location = new Point(869, 216);
             usernameLabel.MouseState = MaterialSkin.MouseState.HOVER;
             usernameLabel.Name = "usernameLabel";
             usernameLabel.Size = new Size(72, 19);
@@ -54,7 +55,7 @@
             passwordLabel.AutoSize = true;
             passwordLabel.Depth = 0;
             passwordLabel.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            passwordLabel.Location = new Point(869, 408);
+            passwordLabel.Location = new Point(869, 430);
             passwordLabel.MouseState = MaterialSkin.MouseState.HOVER;
             passwordLabel.Name = "passwordLabel";
             passwordLabel.Size = new Size(71, 19);
@@ -70,7 +71,7 @@
             usernameTextBox.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             usernameTextBox.HideSelection = true;
             usernameTextBox.LeadingIcon = null;
-            usernameTextBox.Location = new Point(865, 237);
+            usernameTextBox.Location = new Point(866, 276);
             usernameTextBox.MaxLength = 32767;
             usernameTextBox.MouseState = MaterialSkin.MouseState.OUT;
             usernameTextBox.Name = "usernameTextBox";
@@ -103,7 +104,7 @@
             passwordTextBox.HideSelection = true;
             passwordTextBox.InsertKeyMode = InsertKeyMode.Default;
             passwordTextBox.LeadingIcon = null;
-            passwordTextBox.Location = new Point(869, 475);
+            passwordTextBox.Location = new Point(869, 491);
             passwordTextBox.Mask = "";
             passwordTextBox.MaxLength = 32767;
             passwordTextBox.MouseState = MaterialSkin.MouseState.OUT;
@@ -138,8 +139,8 @@
             loginBtn.Depth = 0;
             loginBtn.HighEmphasis = true;
             loginBtn.Icon = null;
-            loginBtn.Location = new Point(869, 584);
-            loginBtn.Margin = new Padding(4, 6, 4, 6);
+            loginBtn.Location = new Point(869, 589);
+            loginBtn.Margin = new Padding(3, 5, 3, 5);
             loginBtn.MouseState = MaterialSkin.MouseState.HOVER;
             loginBtn.Name = "loginBtn";
             loginBtn.NoAccentTextColor = Color.Empty;
@@ -154,24 +155,36 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.POS_logo;
-            pictureBox1.Location = new Point(113, 170);
+            pictureBox1.Location = new Point(114, 153);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(450, 450);
+            pictureBox1.Size = new Size(450, 405);
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 13F);
+            label1.Location = new Point(869, 122);
+            label1.Name = "label1";
+            label1.Size = new Size(66, 30);
+            label1.TabIndex = 8;
+            label1.Text = "Login";
+            // 
             // LoginPage
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1294, 666);
+            Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(loginBtn);
             Controls.Add(passwordTextBox);
             Controls.Add(usernameTextBox);
             Controls.Add(passwordLabel);
             Controls.Add(usernameLabel);
+            Font = new Font("Tahoma", 9F);
             Name = "LoginPage";
-            Size = new Size(1313, 787);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -185,5 +198,6 @@
         private MaterialSkin.Controls.MaterialMaskedTextBox passwordTextBox;
         private MaterialSkin.Controls.MaterialButton loginBtn;
         private PictureBox pictureBox1;
+        private Label label1;
     }
 }

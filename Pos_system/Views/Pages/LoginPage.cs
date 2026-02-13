@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using Pos_system.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Pos_system.Services;
 
 namespace Pos_system.Views.Pages
 {
@@ -23,7 +24,10 @@ namespace Pos_system.Views.Pages
             Authorization auth = new Authorization();
             var success = auth.Login(usernameTextBox.Text, passwordTextBox.Text);
 
-            if (success != null) { 
+            if (success != null) {
+
+                SessionManager.login(success);
+
                 this.DialogResult = DialogResult.OK;
                 MessageBox.Show("Login successful!");                
 

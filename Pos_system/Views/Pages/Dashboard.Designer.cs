@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             panelSidebar = new Panel();
             logoutLabel = new Label();
-            button1 = new Button();
+            logoutBtn = new Button();
             settingsLabel = new Label();
             reportsLabel = new Label();
             saleslabelPanel = new Label();
@@ -73,7 +73,7 @@
             // 
             panelSidebar.BackColor = Color.White;
             panelSidebar.Controls.Add(logoutLabel);
-            panelSidebar.Controls.Add(button1);
+            panelSidebar.Controls.Add(logoutBtn);
             panelSidebar.Controls.Add(settingsLabel);
             panelSidebar.Controls.Add(reportsLabel);
             panelSidebar.Controls.Add(saleslabelPanel);
@@ -99,16 +99,16 @@
             logoutLabel.TabIndex = 11;
             logoutLabel.Text = "Logout";
             // 
-            // button1
+            // logoutBtn
             // 
-            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
-            button1.BackgroundImageLayout = ImageLayout.Zoom;
-            button1.Location = new Point(37, 733);
-            button1.Name = "button1";
-            button1.Size = new Size(50, 50);
-            button1.TabIndex = 10;
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += logoutNavBtn_Click;
+            logoutBtn.BackgroundImage = (Image)resources.GetObject("logoutBtn.BackgroundImage");
+            logoutBtn.BackgroundImageLayout = ImageLayout.Zoom;
+            logoutBtn.Location = new Point(37, 733);
+            logoutBtn.Name = "logoutBtn";
+            logoutBtn.Size = new Size(50, 50);
+            logoutBtn.TabIndex = 10;
+            logoutBtn.UseVisualStyleBackColor = true;
+            logoutBtn.Click += logoutNavBtn_Click;
             // 
             // settingsLabel
             // 
@@ -432,7 +432,7 @@
         private Label saleslabelPanel;
         private Label settingsLabel;
         private Label reportsLabel;
-        private Button button1;
+        private Button logoutBtn;
         private Label logoutLabel;
     }
 }
