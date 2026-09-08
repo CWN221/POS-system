@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Npgsql;
 using Pos_system.Database;
 using Pos_system.Models;
 using Pos_system.logs;
@@ -7,7 +7,6 @@ namespace Pos_system.Services
 {
     public class VatDAO
     {
-
         /*
          * Method to set the VAT in the DB
          */
@@ -18,8 +17,7 @@ namespace Pos_system.Services
 
             try
             {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-
+                NpgsqlCommand cmd = new NpgsqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@vat_percentage", vatSettings.VatPercentage);
 
                 cmd.ExecuteNonQuery();
@@ -27,15 +25,14 @@ namespace Pos_system.Services
                 message = "VAT Updated.";
                 return true;
             }
-            catch (MySqlException ex)
+            catch (PostgresException ex)
             {
                 Logger.Log("SetVat failed: " + ex.Message);
                 message = "VAT update failed!";
                 return false;
-            }            
+            }
         }
 
-        
         /*
          * 
          * Method to fetch VAT categories
@@ -49,23 +46,22 @@ namespace Pos_system.Services
 
             try
             {
-                await using var cmd = new MySqlCommand(query, conn);
+                await using var cmd = new NpgsqlCommand(query, conn);
                 await using var reader = await cmd.ExecuteReaderAsync();
-                while (await reader.ReadAsync()) 
+                while (await reader.ReadAsync())
                 {
                     string category = reader["name"].ToString();
-                    Vatcategories.Add(category);
+                    if (!string.IsNullOrEmpty(category))
+                        Vatcategories.Add(category);
                 }
             }
             catch (Exception ex)
             {
                 Logger.Log("VAT Category fetch failed: " + ex.Message);
                 throw new Exception("Failed to fetch VAT categories!");
-            }            
+            }
             return Vatcategories;
         }
-
-
 
         /*
          * 
@@ -79,11 +75,11 @@ namespace Pos_system.Services
 
             try
             {
-                await using var cmd = new MySqlCommand(query, conn);
+                await using var cmd = new NpgsqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@name", vatCategory);
                 var result = await cmd.ExecuteScalarAsync();
 
-                if (result != null)
+                if (result != null && result != DBNull.Value)
                 {
                     return Convert.ToDecimal(result);
                 }
@@ -96,8 +92,7 @@ namespace Pos_system.Services
             {
                 Logger.Log("VAT percentage fetch failed: " + ex.Message);
                 throw new Exception("Failed to fetch VAT Percentage");
-            }            
+            }
         }
-
     }
 }

@@ -153,9 +153,29 @@ namespace Pos_system.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap reports_logo1 {
+            get {
+                object obj = ResourceManager.GetObject("reports_logo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap settings_logo {
             get {
                 object obj = ResourceManager.GetObject("settings_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap users_png {
+            get {
+                object obj = ResourceManager.GetObject("users_png", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

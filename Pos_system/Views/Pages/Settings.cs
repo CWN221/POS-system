@@ -1,161 +1,227 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Pos_system.Services;
+﻿using Pos_system.Core;
+using Pos_system.logs;
 using Pos_system.Models;
+using Pos_system.Services;
+using Pos_system.ViewModels;
+using AppContext = Pos_system.Core.AppContext;
 
 namespace Pos_system.Views.Pages
 {
     public partial class Settings : UserControl
     {
+        private ListBox? _logsListBox;
+
         public Settings()
         {
             InitializeComponent();
+            AuthorizationGuard.RequireManageSettings();
+
+            SetupLogsViewer();
+            _ = LoadBranchesForSettings();
             _ = LoadUsers();
         }
 
-
-        // Load list of users in the system
         private async Task LoadUsers()
         {
-            GetUsers getUsers = new GetUsers();
-            var users = await getUsers.GetAllUsers();
-
+            var users = await AppServices.GetRequiredService<GetUsers>().GetAllUsers();
             usersDataGridView.AutoGenerateColumns = true;
             usersDataGridView.DataSource = users;
-            
         }
 
-
-        // Back to dashboard button click event handler to navigate back to the dashboard page
-        private void backToDashboardBtn_Click(object sender, EventArgs e)
+        private void SetupLogsViewer()
         {
-            var dashboardPage = new Dashboard();
-
-            var dashboardForm = this.FindForm() as DashboardForm;
-            if (dashboardForm != null)
+            _logsListBox = new ListBox
             {
-                dashboardForm.LoadPage(dashboardPage);
+                Dock = DockStyle.Fill,
+                Font = new Font("Consolas", 9F),
+                IntegralHeight = false
+            };
+            Logs.Controls.Clear();
+            Logs.Controls.Add(_logsListBox);
+            RefreshLogs();
+        }
+
+        private void RefreshLogs()
+        {
+            if (_logsListBox == null) return;
+            _logsListBox.Items.Clear();
+            foreach (var line in Logger.ReadRecentLogs())
+                _logsListBox.Items.Add(line);
+        }
+
+        private async Task LoadBranchesForSettings()
+        {
+            var service = AppServices.GetRequiredService<StoreSettingsService>();
+            var branches = await service.GetAllBranches();
+
+            if (branches.Count == 0)
+            {
+                MessageBox.Show("No branches found. Please add a branch first.");
+                return;
             }
+
+            BranchComboBox.DataSource = branches;
+            var current = branches.FirstOrDefault(b => b.Id == AppContext.CurrentBranchId) ?? branches.First();
+            BranchComboBox.SelectedItem = current;
+            await LoadStoreDetails(current.Id);
         }
 
-
-        // Save button click event handler to save store settings
-        private async void storeSaveBtn_Click(object sender, EventArgs e)
+        private void BackToDashboardBtn_Click(object sender, EventArgs e)
         {
-            StoreSettings storeSettings = new StoreSettings
+            var form = FindForm() as DashboardForm;
+            form?.LoadPage(new Dashboard());
+        }
+
+        private async void StoreSaveBtn_Click(object sender, EventArgs e)
+        {
+            if (BranchComboBox.SelectedItem is not StoreBranch branch) return;
+
+            var storeSettings = new StoreSettings
             {
+                BranchId = branch.Id,
                 Storename = storenameTextBox.Text,
                 Address = addressTextBox.Text,
-                Contact = contactTextBox.Text
-
+                Contact = contactTextBox.Text,
+                Contact2 = Contact2TextBox.Text,
+                Email = EmailTextBox.Text,
+                BusinessPin = PinTextBox.Text
             };
 
-            StoreSettingsService storeSettingsService = new StoreSettingsService();
-
+            var storeSettingsService = AppServices.GetRequiredService<StoreSettingsService>();
             bool success = await storeSettingsService.SaveStoreSettings(storeSettings);
 
             if (success)
             {
+                await LoadStoreDetails(branch.Id);
                 MessageBox.Show("Store settings saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Failed to save store settings. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed to save store settings.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-
-        // Cancel button click event handler to clear the input fields
-        private void storeCancelBtn_Click(object sender, EventArgs e)
+        private void StoreCancelBtn_Click(object sender, EventArgs e)
         {
             storenameTextBox.Clear();
             addressTextBox.Clear();
             contactTextBox.Clear();
+            Contact2TextBox.Clear();
+            EmailTextBox.Clear();
+            PinTextBox.Clear();
         }
 
-
-
-        /*
-         * 
-         * Save button click event handler to save user settings. 
-         * New user is created and added to the system by calling the Signup method of the Authorization service.
-         * Handled from Authorization service (Authorization.cs)
-         * 
-         */
-        private async void saveBtn_Click(object sender, EventArgs e)
+        private async void SaveBtn_Click(object sender, EventArgs e)
         {
-            string username = usernameTextBox.Text.Trim();
-            string password = passwordTextBox.Text;
-            string role = roleComboBox.SelectedItem?.ToString() ?? "User";
+            if (BranchComboBox.SelectedItem is not StoreBranch branch)
+            {
+                MessageBox.Show("Select a branch for the new user.");
+                return;
+            }
 
-            // validation
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            var signup = new LoginViewModel
+            {
+                Username = usernameTextBox.Text.Trim(),
+                Password = passwordTextBox.Text.Trim(),
+                Role = (UserRole)Enum.Parse(typeof(UserRole), roleComboBox.SelectedItem!.ToString()!),
+                BranchId = branch.Id
+            };
+
+            if (string.IsNullOrWhiteSpace(signup.Username) || string.IsNullOrWhiteSpace(signup.Password))
             {
                 MessageBox.Show("Please enter a username and password.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            Authorization auth = new Authorization();
-            string result = await auth.Signup(username, password, role);
+            await signup.UserSignup();
+            usernameTextBox.Clear();
+            passwordTextBox.Clear();
+            roleComboBox.SelectedIndex = -1;
+            await LoadUsers();
+        }
 
-            MessageBox.Show(result, "User Registration", MessageBoxButtons.OK, result.Contains("Successful") ? MessageBoxIcon.Information : MessageBoxIcon.Error);
-            
-            if (result.Contains("Successful"))
+        private async void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (usersDataGridView.CurrentRow?.DataBoundItem is not UserModel selectedUser) return;
+
+            if (MessageBox.Show($"Delete user '{selectedUser.Username}'?", "Confirm", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                return;
+
+            var result = await AppServices.GetRequiredService<UserRepository>().DeleteUser(selectedUser.Id);
+            MessageBox.Show(result);
+        }
+
+        private async void UpdateBtn_Click(object sender, EventArgs e)
+        {
+            if (usersDataGridView.CurrentRow?.DataBoundItem is not UserModel selectedUser) return;
+
+            if (MessageBox.Show($"Update user '{selectedUser.Username}'?", "Confirm", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                return;
+
+            var result = await AppServices.GetRequiredService<UserRepository>().UpdateUser(selectedUser);
+            MessageBox.Show(result);
+        }
+
+        private async void BranchSaveBtn_Click(object sender, EventArgs e)
+        {
+            var branch = new StoreBranch
             {
-                usernameTextBox.Clear();
-                passwordTextBox.Clear();
-                roleComboBox.SelectedIndex = -1;
-                
-                await LoadUsers();
+                BranchName = BranchNameTextBox.Text,
+                Location = BranchLocationTextBox.Text
+            };
+
+            bool success = await AppServices.GetRequiredService<StoreSettingsService>().SaveBranch(branch);
+
+            if (success)
+            {
+                MessageBox.Show("Branch saved successfully.");
+                BranchNameTextBox.Clear();
+                BranchLocationTextBox.Clear();
+                await LoadBranchesForSettings();
+            }
+            else
+            {
+                MessageBox.Show("Failed to save branch.");
             }
         }
 
-
-
-        // Delete button click event handler to delete selected user
-        private async void deleteBtn_Click(object sender, EventArgs e)
+        private void BranchClearBtn_Click(object sender, EventArgs e)
         {
-            UserModel? selectedUser = usersDataGridView.CurrentRow?.DataBoundItem as UserModel;
-
-            if (selectedUser == null) return;
-
-            // Show confirmation dialog before deleting user
-            var confirm = MessageBox.Show($"Are you sure you want to delete user '{selectedUser.Username}'?", "Confirm delete", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            if (confirm != DialogResult.Yes) return;
-
-            UserRepository userRepository = new UserRepository();
-            string result = await userRepository.DeleteUser(selectedUser.Id);
-
-            MessageBox.Show(result, "Delete User", MessageBoxButtons.OK, result.Contains("successfully") ? MessageBoxIcon.Information : MessageBoxIcon.Error);
-            await LoadUsers();
+            BranchNameTextBox.Clear();
+            BranchLocationTextBox.Clear();
         }
 
-
-
-        // Update button click event handler to update selected user
-        private async void updateBtn_Click(object sender, EventArgs e)
+        private async void BranchComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            UserModel? selectedUser = usersDataGridView.CurrentRow?.DataBoundItem as UserModel;
+            if (BranchComboBox.SelectedItem is StoreBranch selectedBranch)
+                await LoadStoreDetails(selectedBranch.Id);
+        }
 
-            if (selectedUser == null) return;
+        private async Task LoadStoreDetails(int branchId)
+        {
+            var store = await AppServices.GetRequiredService<StoreSettingsService>().GetStoreSettings(branchId);
 
-            // show confirmation dialog before updating user
-            var confirm = MessageBox.Show($"Are you sure you want to update user '{selectedUser.Username}'?", "Confirm update", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            if (confirm != DialogResult.Yes) return;
+            if (store != null)
+            {
+                StorenameLabelOut.Text = store.Storename;
+                AddressLabelOut.Text = store.Address;
+                ContactLabelOut.Text = store.Contact;
+                Contact2LabelOut.Text = store.Contact2;
+                EmailLabelOut.Text = store.Email;
+                PinLabelOut.Text = store.BusinessPin;
 
-            UserRepository userRepository = new UserRepository();
-            string result = await userRepository.UpdateUser(selectedUser);
-            MessageBox.Show(result, "Update User", MessageBoxButtons.OK, result.Contains("updated") ? MessageBoxIcon.Information : MessageBoxIcon.Error);
-            await LoadUsers();
-
+                storenameTextBox.Text = store.Storename;
+                addressTextBox.Text = store.Address;
+                contactTextBox.Text = store.Contact;
+                Contact2TextBox.Text = store.Contact2;
+                EmailTextBox.Text = store.Email;
+                PinTextBox.Text = store.BusinessPin;
+            }
+            else
+            {
+                StorenameLabelOut.Text = AddressLabelOut.Text = ContactLabelOut.Text = "";
+                Contact2LabelOut.Text = EmailLabelOut.Text = PinLabelOut.Text = "";
+            }
         }
     }
 }

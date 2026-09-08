@@ -1,11 +1,13 @@
 ﻿/*
- * 
- * This class represents a complete sale or transaction
- * 
+ * Sale.cs
+ * This class represents a complete sale or transaction in the POS system, encapsulating details such as sale date, list of items sold, payment method & total amount.
+ * Properties include:
+ * - 'Id': Unique identifier for the sale transaction
+ * - 'SaleDate': Date and time when the sale occurred
+ * - 'Items': List of items included in the sale
+ * - 'PaymentMethod': Method used for payment 
+ * - 'TotalAmount': Total amount for the sale including all items and taxes
  */
-
-using System;
-using System.Collections.Generic;
 
 namespace Pos_system.Models
 {
@@ -15,8 +17,9 @@ namespace Pos_system.Models
 
         public DateTime SaleDate { get; set; } = DateTime.Now;
 
-        //public decimal TotalAmount { get; set; }
         public List<SaleItem> Items { get; set; } = new List<SaleItem>();
+        public string PaymentMethod { get; set; } = "";
+
         public decimal TotalAmount
         {
             get
@@ -29,7 +32,6 @@ namespace Pos_system.Models
                 return total;
             }
         }
-
         
     }
 }

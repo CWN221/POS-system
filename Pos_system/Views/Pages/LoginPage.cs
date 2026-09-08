@@ -1,14 +1,9 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
+﻿/*
+ * LoginPage.cs
+ * 
+ */
 using Pos_system.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using Pos_system.ViewModels;
 
 namespace Pos_system.Views.Pages
 {
@@ -17,29 +12,108 @@ namespace Pos_system.Views.Pages
         public LoginPage()
         {
             InitializeComponent();
+            SetupEventHandlers();
         }
 
-        private void loginBtn_Click(object sender, EventArgs e)
+        private void SetupEventHandlers()
         {
-            Authorization auth = new Authorization();
-            var success = auth.Login(usernameTextBox.Text, passwordTextBox.Text);
+            // Handle Enter key press
+            this.KeyPreview = true;
+            this.KeyDown += LoginPage_KeyDown;
+        }
 
-            if (success != null) {
+        private async void LoginBtn_Click(object sender, EventArgs e)
+        {
+            await PerformLogin();
+        }
 
-                SessionManager.login(success);
+        private async Task PerformLogin()
+        {
+            try
+            {
+                // Validate inputs
+                if (string.IsNullOrWhiteSpace(UsernameTextBox.Text))
+                {
+                    MessageBox.Show("Please enter your username.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    UsernameTextBox.Focus();
+                    return;
+                }
 
-                this.DialogResult = DialogResult.OK;
-                MessageBox.Show("Login successful!");                
+                if (string.IsNullOrWhiteSpace(PasswordTextBox.Text))
+                {
+                    MessageBox.Show("Please enter your password.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    PasswordTextBox.Focus();
+                    return;
+                }
 
-                // Hide login form
-                this.Close();
+                // Disable controls during login
+                SetControlsEnabled(false);
 
+                var auth = new LoginViewModel
+                {
+                    Username = UsernameTextBox.Text.Trim(),
+                    Password = PasswordTextBox.Text
+                };
+
+                bool loggedIn = await auth.UserLogin();
+
+                if (loggedIn)
+                {
+                    var successUser = SessionManager.CurrentUser;
+                    MessageBox.Show($"Welcome, {successUser?.Username}!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username or password. Please try again.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    PasswordTextBox.Text = string.Empty;
+                    PasswordTextBox.Focus();
+                    SetControlsEnabled(true);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"System error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SetControlsEnabled(true);
+            }
+        }
+
+        private void SetControlsEnabled(bool enabled)
+        {
+            UsernameTextBox.Enabled = enabled;
+            PasswordTextBox.Enabled = enabled;
+            LoginBtn.Enabled = enabled;
+            ShowPasswordCheckBox.Enabled = enabled;
+
+            if (!enabled)
+            {
+                this.Cursor = Cursors.WaitCursor;
             }
             else
             {
-                MessageBox.Show("Invalid username or password. Please try again.");
+                this.Cursor = Cursors.Default;
             }
         }
 
+        private void CheckBoxShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Please contact your system administrator to reset your password.", "Forgot Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void LoginPage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoginBtn_Click(sender, e);
+            }
+        }
+
+        private void LoginPage_Load(object sender, EventArgs e)
+        {
+            // Set focus to username field
+            UsernameTextBox.Focus();
+        }
+        
     }
 }

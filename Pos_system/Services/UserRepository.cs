@@ -1,67 +1,72 @@
-﻿using Pos_system.Models;
+﻿using Pos_system.Core;
+using Pos_system.Models;
 using Pos_system.Database;
-using MySql.Data.MySqlClient;
+using Npgsql;
 using Pos_system.logs;
-
 
 namespace Pos_system.Services
 {
     public class UserRepository
     {
-
-
-        /*
-         * 
-         * Method to update user information (Admin only)
-         * 
-        */
         public async Task<string> UpdateUser(UserModel userInfo)
         {
+            AuthorizationGuard.RequireManageUsers();
+
             using var conn = DBConnection.GetConnection();
-
-            if (conn == null) return "Database could not be reached!";
-
-            string query = "UPDATE users SET Username = @Username, Role = @Role, IsActive = @IsActive WHERE id = @Id";
+            const string query = @"UPDATE users SET Username = @Username, Role = @Role, IsActive = @IsActive, BranchId = @BranchId
+                                   WHERE id = @Id";
 
             try
             {
-                using var cmd = new MySqlCommand(query, conn);
+                using var cmd = new NpgsqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Username", userInfo.Username);
-                cmd.Parameters.AddWithValue("@Role", userInfo.Role);
+                cmd.Parameters.AddWithValue("@Role", userInfo.Role.ToString());
                 cmd.Parameters.AddWithValue("@IsActive", userInfo.IsActive);
+                cmd.Parameters.AddWithValue("@BranchId", userInfo.BranchId);
+                cmd.Parameters.AddWithValue("@Id", userInfo.Id);
 
-                return await cmd.ExecuteNonQueryAsync() > 0 ? "User information updated." : "Error updating user information.";
+                var rows = await cmd.ExecuteNonQueryAsync();
+                if (rows > 0)
+                {
+                    await AppServices.GetRequiredService<AuditService>()
+                        .LogAsync("USER_UPDATED", "user", userInfo.Id.ToString());
+                    return "User information updated.";
+                }
+                return "Error updating user information.";
             }
-            catch (MySqlException ex)
+            catch (PostgresException ex)
             {
                 Logger.Log("Error updating user information: " + ex.Message);
                 return "Error updating user information";
             }
         }
 
-
-        // method to delete a user (Admin only)
         public async Task<string> DeleteUser(int userId)
         {
-            using var conn = DBConnection.GetConnection();
+            AuthorizationGuard.RequireManageUsers();
 
-            if (conn == null) return "Database could not be reached!";
-            string query = "DELETE FROM users WHERE Id=@Id";
+            if (SessionManager.CurrentUser?.Id == userId)
+                return "You cannot delete your own account while logged in.";
+
+            using var conn = DBConnection.GetConnection();
+            const string query = "DELETE FROM users WHERE Id=@Id";
 
             try
             {
-                using var cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("Id", userId);
+                using var cmd = new NpgsqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Id", userId);
                 await cmd.ExecuteNonQueryAsync();
+
+                await AppServices.GetRequiredService<AuditService>()
+                    .LogAsync("USER_DELETED", "user", userId.ToString());
 
                 return "User deleted successfully.";
             }
-            catch (MySqlException ex)
+            catch (PostgresException ex)
             {
                 Logger.Log("Error deleting user: " + ex.Message);
                 return "Error deleting user.";
             }
         }
-
     }
 }

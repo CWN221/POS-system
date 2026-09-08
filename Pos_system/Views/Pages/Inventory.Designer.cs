@@ -29,396 +29,536 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            dataGridView1 = new DataGridView();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             productViewModelBindingSource1 = new BindingSource(components);
+            productViewModelBindingSource = new BindingSource(components);
+            HeaderPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
+            BackToDashboardBtn = new Guna.UI2.WinForms.Guna2Button();
+            branchLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            titleLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            TabControl = new Guna.UI2.WinForms.Guna2TabControl();
+            viewpTabPage = new TabPage();
+            InventoryGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             tabPage2 = new TabPage();
+            cancelBtn = new Guna.UI2.WinForms.Guna2GradientButton();
+            AddBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             headerinfo2Label = new Label();
             headerinfoLabel = new Label();
-            cancelBtn = new Button();
             lowstockthresholdTextBox = new TextBox();
             stockqtyTextBox = new TextBox();
             sellingpriceTextBox = new TextBox();
-            lowstocklabel = new Label();
-            stockqtyLabel = new Label();
-            sellingPriceLabel = new Label();
+            lowStockLbl = new Label();
+            stockQtyLbl = new Label();
+            spLBL = new Label();
             skuTextBox = new TextBox();
             skulabel = new Label();
             pCategoryComboBox = new ComboBox();
             vatComboBox = new ComboBox();
             priceTextBox = new TextBox();
             pnameTextBox = new TextBox();
-            AddBtn = new Button();
             stockCheckBox = new CheckBox();
-            stockstatusLabel = new Label();
+            stockchkboxLbl = new Label();
             vatcategoryLabel = new Label();
-            label3 = new Label();
+            priceLbl = new Label();
             categoryLabel = new Label();
             nameLabel = new Label();
-            backToDashboardBtn = new Button();
-            productViewModelBindingSource = new BindingSource(components);
-            tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productViewModelBindingSource1).BeginInit();
-            tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)productViewModelBindingSource).BeginInit();
+            HeaderPanel.SuspendLayout();
+            TabControl.SuspendLayout();
+            viewpTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)InventoryGridView).BeginInit();
+            tabPage2.SuspendLayout();
             SuspendLayout();
-            // 
-            // tabControl1
-            // 
-            tabControl1.Anchor = AnchorStyles.None;
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tabControl1.Location = new Point(16, 67);
-            tabControl1.Margin = new Padding(3, 6, 3, 6);
-            tabControl1.Name = "tabControl1";
-            tabControl1.Padding = new Point(22, 7);
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1171, 727);
-            tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            tabPage1.Controls.Add(dataGridView1);
-            tabPage1.Location = new Point(4, 42);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1163, 681);
-            tabPage1.TabIndex = 2;
-            tabPage1.Text = "View Products";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToOrderColumns = true;
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.DataSource = productViewModelBindingSource1;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(3, 3);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1157, 675);
-            dataGridView1.TabIndex = 2;
             // 
             // productViewModelBindingSource1
             // 
             productViewModelBindingSource1.DataSource = typeof(ViewModels.Pages.ProductViewModel);
             // 
+            // productViewModelBindingSource
+            // 
+            productViewModelBindingSource.DataSource = typeof(ViewModels.Pages.ProductViewModel);
+            // 
+            // HeaderPanel
+            // 
+            HeaderPanel.Controls.Add(BackToDashboardBtn);
+            HeaderPanel.Controls.Add(branchLabel);
+            HeaderPanel.Controls.Add(titleLabel);
+            HeaderPanel.CustomizableEdges = customizableEdges3;
+            HeaderPanel.Dock = DockStyle.Top;
+            HeaderPanel.FillColor = Color.FromArgb(244, 248, 254);
+            HeaderPanel.FillColor2 = Color.FromArgb(224, 228, 234);
+            HeaderPanel.Location = new Point(0, 0);
+            HeaderPanel.Name = "HeaderPanel";
+            HeaderPanel.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            HeaderPanel.Size = new Size(1200, 72);
+            HeaderPanel.TabIndex = 1;
+            // 
+            // BackToDashboardBtn
+            // 
+            BackToDashboardBtn.Anchor = AnchorStyles.Left;
+            BackToDashboardBtn.BorderRadius = 7;
+            BackToDashboardBtn.Cursor = Cursors.Hand;
+            BackToDashboardBtn.CustomizableEdges = customizableEdges1;
+            BackToDashboardBtn.DisabledState.BorderColor = Color.DarkGray;
+            BackToDashboardBtn.DisabledState.CustomBorderColor = Color.DarkGray;
+            BackToDashboardBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            BackToDashboardBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            BackToDashboardBtn.FillColor = Color.FromArgb(111, 179, 255);
+            BackToDashboardBtn.FocusedColor = Color.FromArgb(75, 146, 249);
+            BackToDashboardBtn.Font = new Font("Arial", 10F);
+            BackToDashboardBtn.ForeColor = Color.White;
+            BackToDashboardBtn.HoverState.FillColor = Color.FromArgb(75, 146, 249);
+            BackToDashboardBtn.HoverState.Font = new Font("Arial", 10.1F);
+            BackToDashboardBtn.Image = Properties.Resources.dashboard_png;
+            BackToDashboardBtn.Location = new Point(19, 12);
+            BackToDashboardBtn.Name = "BackToDashboardBtn";
+            BackToDashboardBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            BackToDashboardBtn.Size = new Size(143, 45);
+            BackToDashboardBtn.TabIndex = 8;
+            BackToDashboardBtn.Text = "Dashboard";
+            BackToDashboardBtn.Click += backToDashboardBtn_Click;
+            // 
+            // branchLabel
+            // 
+            branchLabel.BackColor = Color.Transparent;
+            branchLabel.Font = new Font("Arial", 10F);
+            branchLabel.Location = new Point(961, 28);
+            branchLabel.Name = "branchLabel";
+            branchLabel.Size = new Size(30, 21);
+            branchLabel.TabIndex = 1;
+            branchLabel.Text = "N/A";
+            // 
+            // titleLabel
+            // 
+            titleLabel.BackColor = Color.Transparent;
+            titleLabel.Font = new Font("Arial", 11F, FontStyle.Bold);
+            titleLabel.Location = new Point(509, 28);
+            titleLabel.Name = "titleLabel";
+            titleLabel.Padding = new Padding(3);
+            titleLabel.Size = new Size(211, 29);
+            titleLabel.TabIndex = 0;
+            titleLabel.Text = "Inventory Management";
+            // 
+            // TabControl
+            // 
+            TabControl.Alignment = TabAlignment.Left;
+            TabControl.Controls.Add(viewpTabPage);
+            TabControl.Controls.Add(tabPage2);
+            TabControl.Dock = DockStyle.Fill;
+            TabControl.ItemSize = new Size(180, 40);
+            TabControl.Location = new Point(0, 72);
+            TabControl.Name = "TabControl";
+            TabControl.SelectedIndex = 0;
+            TabControl.Size = new Size(1200, 728);
+            TabControl.TabButtonHoverState.BorderColor = Color.Empty;
+            TabControl.TabButtonHoverState.FillColor = Color.FromArgb(40, 52, 70);
+            TabControl.TabButtonHoverState.Font = new Font("Segoe UI Semibold", 10F);
+            TabControl.TabButtonHoverState.ForeColor = Color.White;
+            TabControl.TabButtonHoverState.InnerColor = Color.FromArgb(40, 52, 70);
+            TabControl.TabButtonIdleState.BorderColor = Color.Empty;
+            TabControl.TabButtonIdleState.FillColor = Color.FromArgb(33, 42, 57);
+            TabControl.TabButtonIdleState.Font = new Font("Segoe UI Semibold", 10F);
+            TabControl.TabButtonIdleState.ForeColor = Color.FromArgb(156, 160, 167);
+            TabControl.TabButtonIdleState.InnerColor = Color.FromArgb(33, 42, 57);
+            TabControl.TabButtonImageAlign = HorizontalAlignment.Left;
+            TabControl.TabButtonSelectedState.BorderColor = Color.Empty;
+            TabControl.TabButtonSelectedState.FillColor = Color.FromArgb(29, 37, 49);
+            TabControl.TabButtonSelectedState.Font = new Font("Segoe UI Semibold", 10F);
+            TabControl.TabButtonSelectedState.ForeColor = Color.White;
+            TabControl.TabButtonSelectedState.InnerColor = Color.FromArgb(76, 132, 255);
+            TabControl.TabButtonSize = new Size(180, 40);
+            TabControl.TabIndex = 2;
+            TabControl.TabMenuBackColor = Color.FromArgb(33, 42, 57);
+            TabControl.TabIndexChanged += TabControl_SelectedIndexChanged;
+            // 
+            // viewpTabPage
+            // 
+            viewpTabPage.Controls.Add(InventoryGridView);
+            viewpTabPage.Location = new Point(184, 4);
+            viewpTabPage.Name = "viewpTabPage";
+            viewpTabPage.Padding = new Padding(3);
+            viewpTabPage.Size = new Size(1012, 720);
+            viewpTabPage.TabIndex = 0;
+            viewpTabPage.Text = "View Products";
+            viewpTabPage.UseVisualStyleBackColor = true;
+            // 
+            // InventoryGridView
+            // 
+            InventoryGridView.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            InventoryGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.MenuHighlight;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            InventoryGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            InventoryGridView.ColumnHeadersHeight = 50;
+            InventoryGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            InventoryGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            InventoryGridView.Dock = DockStyle.Fill;
+            InventoryGridView.GridColor = Color.FromArgb(231, 229, 255);
+            InventoryGridView.Location = new Point(3, 3);
+            InventoryGridView.Name = "InventoryGridView";
+            InventoryGridView.RowHeadersVisible = false;
+            InventoryGridView.RowHeadersWidth = 51;
+            InventoryGridView.Size = new Size(1006, 714);
+            InventoryGridView.TabIndex = 0;
+            InventoryGridView.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            InventoryGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+            InventoryGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            InventoryGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            InventoryGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            InventoryGridView.ThemeStyle.BackColor = Color.White;
+            InventoryGridView.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            InventoryGridView.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            InventoryGridView.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            InventoryGridView.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
+            InventoryGridView.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            InventoryGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            InventoryGridView.ThemeStyle.HeaderStyle.Height = 50;
+            InventoryGridView.ThemeStyle.ReadOnly = false;
+            InventoryGridView.ThemeStyle.RowsStyle.BackColor = Color.White;
+            InventoryGridView.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            InventoryGridView.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            InventoryGridView.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            InventoryGridView.ThemeStyle.RowsStyle.Height = 29;
+            InventoryGridView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            InventoryGridView.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(cancelBtn);
+            tabPage2.Controls.Add(AddBtn);
             tabPage2.Controls.Add(headerinfo2Label);
             tabPage2.Controls.Add(headerinfoLabel);
-            tabPage2.Controls.Add(cancelBtn);
             tabPage2.Controls.Add(lowstockthresholdTextBox);
             tabPage2.Controls.Add(stockqtyTextBox);
             tabPage2.Controls.Add(sellingpriceTextBox);
-            tabPage2.Controls.Add(lowstocklabel);
-            tabPage2.Controls.Add(stockqtyLabel);
-            tabPage2.Controls.Add(sellingPriceLabel);
+            tabPage2.Controls.Add(lowStockLbl);
+            tabPage2.Controls.Add(stockQtyLbl);
+            tabPage2.Controls.Add(spLBL);
             tabPage2.Controls.Add(skuTextBox);
             tabPage2.Controls.Add(skulabel);
             tabPage2.Controls.Add(pCategoryComboBox);
             tabPage2.Controls.Add(vatComboBox);
             tabPage2.Controls.Add(priceTextBox);
             tabPage2.Controls.Add(pnameTextBox);
-            tabPage2.Controls.Add(AddBtn);
             tabPage2.Controls.Add(stockCheckBox);
-            tabPage2.Controls.Add(stockstatusLabel);
+            tabPage2.Controls.Add(stockchkboxLbl);
             tabPage2.Controls.Add(vatcategoryLabel);
-            tabPage2.Controls.Add(label3);
+            tabPage2.Controls.Add(priceLbl);
             tabPage2.Controls.Add(categoryLabel);
             tabPage2.Controls.Add(nameLabel);
-            tabPage2.Location = new Point(4, 42);
+            tabPage2.Location = new Point(184, 4);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1163, 681);
-            tabPage2.TabIndex = 3;
+            tabPage2.Size = new Size(1012, 720);
+            tabPage2.TabIndex = 1;
             tabPage2.Text = "Add Product";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // cancelBtn
+            // 
+            cancelBtn.CustomizableEdges = customizableEdges5;
+            cancelBtn.DisabledState.BorderColor = Color.DarkGray;
+            cancelBtn.DisabledState.CustomBorderColor = Color.DarkGray;
+            cancelBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            cancelBtn.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            cancelBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            cancelBtn.FillColor = Color.FromArgb(79, 172, 254);
+            cancelBtn.FillColor2 = Color.FromArgb(102, 126, 234);
+            cancelBtn.Font = new Font("Segoe UI", 9F);
+            cancelBtn.ForeColor = Color.White;
+            cancelBtn.HoverState.FillColor = Color.FromArgb(102, 126, 234);
+            cancelBtn.HoverState.FillColor2 = Color.FromArgb(118, 75, 162);
+            cancelBtn.Location = new Point(600, 500);
+            cancelBtn.Name = "cancelBtn";
+            cancelBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            cancelBtn.Size = new Size(207, 48);
+            cancelBtn.TabIndex = 68;
+            cancelBtn.Text = "Cancel";
+            cancelBtn.Click += cancelBtn_Click;
+            // 
+            // AddBtn
+            // 
+            AddBtn.CustomizableEdges = customizableEdges7;
+            AddBtn.DisabledState.BorderColor = Color.DarkGray;
+            AddBtn.DisabledState.CustomBorderColor = Color.DarkGray;
+            AddBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            AddBtn.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            AddBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            AddBtn.FillColor = Color.FromArgb(79, 172, 254);
+            AddBtn.FillColor2 = Color.FromArgb(102, 126, 234);
+            AddBtn.Font = new Font("Segoe UI", 9F);
+            AddBtn.ForeColor = Color.White;
+            AddBtn.HoverState.FillColor = Color.FromArgb(102, 126, 234);
+            AddBtn.HoverState.FillColor2 = Color.FromArgb(118, 75, 162);
+            AddBtn.Location = new Point(25, 500);
+            AddBtn.Name = "AddBtn";
+            AddBtn.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            AddBtn.Size = new Size(203, 48);
+            AddBtn.TabIndex = 67;
+            AddBtn.Text = "Add";
+            AddBtn.Click += AddBtn_Click;
             // 
             // headerinfo2Label
             // 
             headerinfo2Label.AutoSize = true;
             headerinfo2Label.Font = new Font("Microsoft Sans Serif", 13F);
-            headerinfo2Label.Location = new Point(702, 93);
+            headerinfo2Label.Location = new Point(600, 52);
             headerinfo2Label.Name = "headerinfo2Label";
             headerinfo2Label.Size = new Size(216, 26);
-            headerinfo2Label.TabIndex = 22;
+            headerinfo2Label.TabIndex = 66;
             headerinfo2Label.Text = "Pricing and Inventory";
             // 
             // headerinfoLabel
             // 
             headerinfoLabel.AutoSize = true;
             headerinfoLabel.Font = new Font("Microsoft Sans Serif", 13F);
-            headerinfoLabel.Location = new Point(59, 93);
+            headerinfoLabel.Location = new Point(25, 52);
             headerinfoLabel.Name = "headerinfoLabel";
             headerinfoLabel.Size = new Size(129, 26);
-            headerinfoLabel.TabIndex = 21;
+            headerinfoLabel.TabIndex = 65;
             headerinfoLabel.Text = "Product Info";
-            // 
-            // cancelBtn
-            // 
-            cancelBtn.BackColor = Color.FromArgb(55, 161, 218);
-            cancelBtn.Cursor = Cursors.Hand;
-            cancelBtn.FlatStyle = FlatStyle.Popup;
-            cancelBtn.Font = new Font("Arial Narrow", 12F, FontStyle.Bold);
-            cancelBtn.ForeColor = Color.White;
-            cancelBtn.Location = new Point(702, 597);
-            cancelBtn.Name = "cancelBtn";
-            cancelBtn.Size = new Size(174, 36);
-            cancelBtn.TabIndex = 20;
-            cancelBtn.Text = "Cancel";
-            cancelBtn.UseVisualStyleBackColor = false;
-            cancelBtn.Click += cancelBtn_Click;
             // 
             // lowstockthresholdTextBox
             // 
-            lowstockthresholdTextBox.Location = new Point(900, 392);
+            lowstockthresholdTextBox.Location = new Point(801, 321);
             lowstockthresholdTextBox.Name = "lowstockthresholdTextBox";
-            lowstockthresholdTextBox.Size = new Size(175, 30);
-            lowstockthresholdTextBox.TabIndex = 19;
+            lowstockthresholdTextBox.Size = new Size(175, 27);
+            lowstockthresholdTextBox.TabIndex = 63;
             // 
             // stockqtyTextBox
             // 
-            stockqtyTextBox.Location = new Point(900, 346);
+            stockqtyTextBox.Location = new Point(798, 258);
             stockqtyTextBox.Name = "stockqtyTextBox";
-            stockqtyTextBox.Size = new Size(175, 30);
-            stockqtyTextBox.TabIndex = 18;
+            stockqtyTextBox.Size = new Size(175, 27);
+            stockqtyTextBox.TabIndex = 62;
             // 
             // sellingpriceTextBox
             // 
-            sellingpriceTextBox.Location = new Point(900, 233);
+            sellingpriceTextBox.Location = new Point(798, 192);
             sellingpriceTextBox.Name = "sellingpriceTextBox";
-            sellingpriceTextBox.Size = new Size(175, 30);
-            sellingpriceTextBox.TabIndex = 17;
+            sellingpriceTextBox.Size = new Size(175, 27);
+            sellingpriceTextBox.TabIndex = 61;
             // 
-            // lowstocklabel
+            // lowStockLbl
             // 
-            lowstocklabel.AutoSize = true;
-            lowstocklabel.Font = new Font("Microsoft Sans Serif", 11F);
-            lowstocklabel.Location = new Point(702, 392);
-            lowstocklabel.Name = "lowstocklabel";
-            lowstocklabel.Size = new Size(199, 24);
-            lowstocklabel.TabIndex = 16;
-            lowstocklabel.Text = "Low Stock (Threshold)";
+            lowStockLbl.AutoSize = true;
+            lowStockLbl.Font = new Font("Microsoft Sans Serif", 11F);
+            lowStockLbl.Location = new Point(603, 321);
+            lowStockLbl.Name = "lowStockLbl";
+            lowStockLbl.Size = new Size(159, 24);
+            lowStockLbl.TabIndex = 60;
+            lowStockLbl.Text = "Stock (Threshold)";
             // 
-            // stockqtyLabel
+            // stockQtyLbl
             // 
-            stockqtyLabel.AutoSize = true;
-            stockqtyLabel.Font = new Font("Microsoft Sans Serif", 11F);
-            stockqtyLabel.Location = new Point(702, 346);
-            stockqtyLabel.Name = "stockqtyLabel";
-            stockqtyLabel.Size = new Size(129, 24);
-            stockqtyLabel.TabIndex = 15;
-            stockqtyLabel.Text = "Stock Quantity";
+            stockQtyLbl.AutoSize = true;
+            stockQtyLbl.Font = new Font("Microsoft Sans Serif", 11F);
+            stockQtyLbl.Location = new Point(600, 258);
+            stockQtyLbl.Name = "stockQtyLbl";
+            stockQtyLbl.Size = new Size(129, 24);
+            stockQtyLbl.TabIndex = 59;
+            stockQtyLbl.Text = "Stock Quantity";
             // 
-            // sellingPriceLabel
+            // spLBL
             // 
-            sellingPriceLabel.AutoSize = true;
-            sellingPriceLabel.Font = new Font("Microsoft Sans Serif", 11F);
-            sellingPriceLabel.Location = new Point(702, 239);
-            sellingPriceLabel.Name = "sellingPriceLabel";
-            sellingPriceLabel.Size = new Size(115, 24);
-            sellingPriceLabel.TabIndex = 14;
-            sellingPriceLabel.Text = "Selling Price";
+            spLBL.AutoSize = true;
+            spLBL.Font = new Font("Microsoft Sans Serif", 11F);
+            spLBL.Location = new Point(600, 198);
+            spLBL.Name = "spLBL";
+            spLBL.Size = new Size(115, 24);
+            spLBL.TabIndex = 58;
+            spLBL.Text = "Selling Price";
             // 
             // skuTextBox
             // 
-            skuTextBox.Location = new Point(225, 231);
+            skuTextBox.Location = new Point(191, 190);
             skuTextBox.Name = "skuTextBox";
-            skuTextBox.Size = new Size(358, 30);
-            skuTextBox.TabIndex = 13;
+            skuTextBox.Size = new Size(358, 27);
+            skuTextBox.TabIndex = 57;
             // 
             // skulabel
             // 
             skulabel.AutoSize = true;
             skulabel.Font = new Font("Microsoft Sans Serif", 11F);
-            skulabel.Location = new Point(61, 231);
+            skulabel.Location = new Point(27, 190);
             skulabel.Name = "skulabel";
             skulabel.Size = new Size(47, 24);
-            skulabel.TabIndex = 12;
+            skulabel.TabIndex = 56;
             skulabel.Text = "SKU";
             // 
             // pCategoryComboBox
             // 
             pCategoryComboBox.FormattingEnabled = true;
-            pCategoryComboBox.Location = new Point(225, 295);
+            pCategoryComboBox.Location = new Point(191, 254);
             pCategoryComboBox.Name = "pCategoryComboBox";
-            pCategoryComboBox.Size = new Size(358, 33);
-            pCategoryComboBox.TabIndex = 10;
+            pCategoryComboBox.Size = new Size(358, 28);
+            pCategoryComboBox.TabIndex = 55;
             // 
             // vatComboBox
             // 
             vatComboBox.FormattingEnabled = true;
-            vatComboBox.Location = new Point(225, 398);
+            vatComboBox.Location = new Point(191, 357);
             vatComboBox.Name = "vatComboBox";
-            vatComboBox.Size = new Size(358, 33);
-            vatComboBox.TabIndex = 9;
+            vatComboBox.Size = new Size(358, 28);
+            vatComboBox.TabIndex = 54;
             // 
             // priceTextBox
             // 
-            priceTextBox.Location = new Point(900, 177);
+            priceTextBox.Location = new Point(798, 136);
             priceTextBox.Name = "priceTextBox";
-            priceTextBox.Size = new Size(175, 30);
-            priceTextBox.TabIndex = 8;
+            priceTextBox.Size = new Size(175, 27);
+            priceTextBox.TabIndex = 53;
             // 
             // pnameTextBox
             // 
-            pnameTextBox.Location = new Point(225, 171);
+            pnameTextBox.Location = new Point(191, 130);
             pnameTextBox.Name = "pnameTextBox";
-            pnameTextBox.Size = new Size(358, 30);
-            pnameTextBox.TabIndex = 7;
-            // 
-            // AddBtn
-            // 
-            AddBtn.BackColor = Color.FromArgb(55, 161, 218);
-            AddBtn.Cursor = Cursors.Hand;
-            AddBtn.FlatStyle = FlatStyle.Popup;
-            AddBtn.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AddBtn.ForeColor = Color.White;
-            AddBtn.Location = new Point(61, 597);
-            AddBtn.Name = "AddBtn";
-            AddBtn.Size = new Size(174, 36);
-            AddBtn.TabIndex = 6;
-            AddBtn.Text = "Add";
-            AddBtn.UseVisualStyleBackColor = false;
-            AddBtn.Click += AddBtn_Click;
+            pnameTextBox.Size = new Size(358, 27);
+            pnameTextBox.TabIndex = 52;
             // 
             // stockCheckBox
             // 
             stockCheckBox.AutoSize = true;
             stockCheckBox.Font = new Font("Microsoft Sans Serif", 11F);
-            stockCheckBox.Location = new Point(900, 443);
+            stockCheckBox.Location = new Point(801, 372);
             stockCheckBox.Name = "stockCheckBox";
             stockCheckBox.Size = new Size(108, 28);
-            stockCheckBox.TabIndex = 5;
+            stockCheckBox.TabIndex = 50;
             stockCheckBox.Text = "In Stock?";
             stockCheckBox.UseVisualStyleBackColor = true;
             // 
-            // stockstatusLabel
+            // stockchkboxLbl
             // 
-            stockstatusLabel.AutoSize = true;
-            stockstatusLabel.Font = new Font("Microsoft Sans Serif", 11F);
-            stockstatusLabel.Location = new Point(702, 443);
-            stockstatusLabel.Name = "stockstatusLabel";
-            stockstatusLabel.Size = new Size(56, 24);
-            stockstatusLabel.TabIndex = 4;
-            stockstatusLabel.Text = "Stock";
+            stockchkboxLbl.AutoSize = true;
+            stockchkboxLbl.Font = new Font("Microsoft Sans Serif", 11F);
+            stockchkboxLbl.Location = new Point(603, 372);
+            stockchkboxLbl.Name = "stockchkboxLbl";
+            stockchkboxLbl.Size = new Size(56, 24);
+            stockchkboxLbl.TabIndex = 49;
+            stockchkboxLbl.Text = "Stock";
             // 
             // vatcategoryLabel
             // 
             vatcategoryLabel.AutoSize = true;
             vatcategoryLabel.Font = new Font("Microsoft Sans Serif", 11F);
-            vatcategoryLabel.Location = new Point(59, 398);
+            vatcategoryLabel.Location = new Point(25, 357);
             vatcategoryLabel.Name = "vatcategoryLabel";
             vatcategoryLabel.Size = new Size(128, 24);
-            vatcategoryLabel.TabIndex = 3;
+            vatcategoryLabel.TabIndex = 48;
             vatcategoryLabel.Text = "VAT Category";
             // 
-            // label3
+            // priceLbl
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 11F);
-            label3.Location = new Point(705, 177);
-            label3.Name = "label3";
-            label3.Size = new Size(53, 24);
-            label3.TabIndex = 2;
-            label3.Text = "Price";
+            priceLbl.AutoSize = true;
+            priceLbl.Font = new Font("Microsoft Sans Serif", 11F);
+            priceLbl.Location = new Point(603, 136);
+            priceLbl.Name = "priceLbl";
+            priceLbl.Size = new Size(53, 24);
+            priceLbl.TabIndex = 47;
+            priceLbl.Text = "Price";
             // 
             // categoryLabel
             // 
             categoryLabel.AutoSize = true;
             categoryLabel.Font = new Font("Microsoft Sans Serif", 11F);
-            categoryLabel.Location = new Point(61, 295);
+            categoryLabel.Location = new Point(27, 254);
             categoryLabel.Name = "categoryLabel";
             categoryLabel.Size = new Size(85, 24);
-            categoryLabel.TabIndex = 1;
+            categoryLabel.TabIndex = 46;
             categoryLabel.Text = "Category";
             // 
             // nameLabel
             // 
             nameLabel.AutoSize = true;
             nameLabel.Font = new Font("Microsoft Sans Serif", 11F);
-            nameLabel.Location = new Point(59, 171);
+            nameLabel.Location = new Point(25, 130);
             nameLabel.Name = "nameLabel";
             nameLabel.Size = new Size(61, 24);
-            nameLabel.TabIndex = 0;
+            nameLabel.TabIndex = 45;
             nameLabel.Text = "Name";
-            // 
-            // backToDashboardBtn
-            // 
-            backToDashboardBtn.BackColor = Color.FromArgb(55, 161, 218);
-            backToDashboardBtn.Cursor = Cursors.Hand;
-            backToDashboardBtn.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            backToDashboardBtn.ForeColor = Color.White;
-            backToDashboardBtn.Image = Properties.Resources.dashboard_png;
-            backToDashboardBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            backToDashboardBtn.Location = new Point(14, 13);
-            backToDashboardBtn.Name = "backToDashboardBtn";
-            backToDashboardBtn.Size = new Size(127, 45);
-            backToDashboardBtn.TabIndex = 1;
-            backToDashboardBtn.Text = "Dashboard";
-            backToDashboardBtn.TextAlign = ContentAlignment.MiddleRight;
-            backToDashboardBtn.UseVisualStyleBackColor = false;
-            backToDashboardBtn.Click += backToDashboardBtn_Click;
-            // 
-            // productViewModelBindingSource
-            // 
-            productViewModelBindingSource.DataSource = typeof(ViewModels.Pages.ProductViewModel);
             // 
             // Inventory
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(tabControl1);
-            Controls.Add(backToDashboardBtn);
+            BackColor = Color.White;
+            Controls.Add(TabControl);
+            Controls.Add(HeaderPanel);
             Name = "Inventory";
             Size = new Size(1200, 800);
-            tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)productViewModelBindingSource1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)productViewModelBindingSource).EndInit();
+            HeaderPanel.ResumeLayout(false);
+            HeaderPanel.PerformLayout();
+            TabControl.ResumeLayout(false);
+            viewpTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)InventoryGridView).EndInit();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)productViewModelBindingSource).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private TabControl tabControl1;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
-        private Label nameLabel;
         private Label label3;
-        private Label categoryLabel;
-        private CheckBox stockCheckBox;
         private Label stockstatusLabel;
-        private Label vatcategoryLabel;
-        private TextBox priceTextBox;
-        private TextBox pnameTextBox;
-        private Button AddBtn;
-        private ComboBox pCategoryComboBox;
-        private ComboBox vatComboBox;
         private BindingSource productViewModelBindingSource;
-        private Button backToDashboardBtn;
         private BindingSource productViewModelBindingSource1;
-        private DataGridView dataGridView1;
-        private TextBox skuTextBox;
-        private Label skulabel;
-        private TextBox stockqtyTextBox;
-        private TextBox sellingpriceTextBox;
         private Label lowstocklabel;
         private Label stockqtyLabel;
         private Label sellingPriceLabel;
-        private TextBox lowstockthresholdTextBox;
-        private Button cancelBtn;
+        private Guna.UI2.WinForms.Guna2GradientPanel HeaderPanel;
+        private Guna.UI2.WinForms.Guna2HtmlLabel branchLabel;
+        private Guna.UI2.WinForms.Guna2HtmlLabel titleLabel;
+        private Guna.UI2.WinForms.Guna2TabControl TabControl;
+        private TabPage tabPage2;
         private Label headerinfo2Label;
         private Label headerinfoLabel;
+        private TextBox lowstockthresholdTextBox;
+        private TextBox stockqtyTextBox;
+        private TextBox sellingpriceTextBox;
+        private Label lowStockLbl;
+        private Label stockQtyLbl;
+        private Label spLBL;
+        private TextBox skuTextBox;
+        private Label skulabel;
+        private ComboBox pCategoryComboBox;
+        private ComboBox vatComboBox;
+        private TextBox priceTextBox;
+        private TextBox pnameTextBox;
+        private CheckBox stockCheckBox;
+        private Label stockchkboxLbl;
+        private Label vatcategoryLabel;
+        private Label priceLbl;
+        private Label categoryLabel;
+        private Label nameLabel;
+        private Guna.UI2.WinForms.Guna2GradientButton cancelBtn;
+        private Guna.UI2.WinForms.Guna2GradientButton AddBtn;
+        private Guna.UI2.WinForms.Guna2Button BackToDashboardBtn;
+        private Guna.UI2.WinForms.Guna2DataGridView InventoryGridView;
+        private TabPage viewpTabPage;
     }
 }

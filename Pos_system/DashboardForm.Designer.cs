@@ -38,17 +38,21 @@ namespace Pos_system
             panelMain.Dock = DockStyle.Fill;
             panelMain.Location = new Point(0, 0);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(1262, 753);
+            panelMain.Size = new Size(1366, 768);
             panelMain.TabIndex = 0;
             // 
             // DashboardForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1262, 753);
+            BackColor = Color.White;
+            ClientSize = new Size(1366, 768);
             Controls.Add(panelMain);
+            MinimumSize = new Size(1024, 768);
             Name = "DashboardForm";
-            Text = "POS System - Dashboard";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Point of Sale System";
+            WindowState = FormWindowState.Maximized;
             Load += DashboardForm_Load;
             ResumeLayout(false);
         }

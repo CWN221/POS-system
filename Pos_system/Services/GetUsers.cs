@@ -9,14 +9,13 @@
 using System.Data;
 using Pos_system.Models;
 using Pos_system.Database;
-using MySql.Data.MySqlClient;
+using Npgsql;
 using Pos_system.logs;
 
 namespace Pos_system.Services
 {
     public class GetUsers
     {
-
         // Method to get all users from the DB
         public async Task<List<UserModel>> GetAllUsers()
         {
@@ -29,22 +28,20 @@ namespace Pos_system.Services
 
             try
             {
-
-                using var cmd = new MySqlCommand(query, conn);
+                using var cmd = new NpgsqlCommand(query, conn);
                 using var reader = await cmd.ExecuteReaderAsync();
 
                 while (await reader.ReadAsync())
                 {
                     var user = new UserModel
                     {
-                        Id = reader.GetInt32("Id"),
-                        Username = reader.GetString("Username"),
-                        Role = reader.GetString("Role"),
-                        IsActive = reader.GetBoolean("IsActive")
+                        Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                        Username = reader.GetString(reader.GetOrdinal("Username")),
+                        Role = Enum.Parse<UserRole>(reader.GetString(reader.GetOrdinal("Role"))),
+                        IsActive = reader.GetBoolean(reader.GetOrdinal("IsActive"))
                     };
                     users.Add(user);
                 }
-
             }
             catch (Exception ex)
             {
@@ -53,5 +50,4 @@ namespace Pos_system.Services
             return users;
         }
     }
-
 }
