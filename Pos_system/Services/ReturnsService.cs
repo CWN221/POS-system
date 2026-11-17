@@ -2,7 +2,7 @@
 using Pos_system.Core;
 using Pos_system.Database;
 using Pos_system.Models;
-using Pos_system.Core;
+using Pos_system.logs;
 using AppContext = Pos_system.Core.AppContext;
 
 namespace Pos_system.Services
@@ -17,6 +17,15 @@ namespace Pos_system.Services
             if (request.Items.Count == 0)
                 return new ReturnResult { Approved = false, Message = "No items selected for return." };
 
+            if (request.RefundType == "StoreCredit" && string.IsNullOrWhiteSpace(request.CustomerPhone))
+            {
+                return new ReturnResult
+                {
+                    Approved = false,
+                    Message = "Customer phone number is required when issuing store credit."
+                };
+            }
+
             decimal totalRefund = 0;
 
             using var conn = DBConnection.GetConnection();
@@ -24,7 +33,6 @@ namespace Pos_system.Services
 
             try
             {
-                // Verify sale belongs to branch
                 const string saleCheck = "SELECT BranchId FROM sales WHERE id = @saleId";
                 using (var checkCmd = new NpgsqlCommand(saleCheck, conn, transaction))
                 {
@@ -39,8 +47,8 @@ namespace Pos_system.Services
                 }
 
                 const string returnString = @"
-                    INSERT INTO returns(receipt_no, sale_id, reason, refund_type, refund_amount, requested_by, branch_id)
-                    VALUES(@receipt_no, @sale_id, @reason, @refund_type, 0, @requested_by, @branch_id)
+                    INSERT INTO returns(receipt_no, sale_id, reason, refund_type, refund_amount, requested_by, approved_by, branch_id, customer_phone)
+                    VALUES(@receipt_no, @sale_id, @reason, @refund_type, 0, @requested_by, @approved_by, @branch_id, @customer_phone)
                     RETURNING id";
 
                 int returnId;
@@ -51,22 +59,48 @@ namespace Pos_system.Services
                     cmd.Parameters.AddWithValue("@reason", request.Reason);
                     cmd.Parameters.AddWithValue("@refund_type", request.RefundType);
                     cmd.Parameters.AddWithValue("@requested_by", request.RequestedBy);
+                    cmd.Parameters.AddWithValue("@approved_by", request.ApprovedBy > 0 ? request.ApprovedBy : request.RequestedBy);
                     cmd.Parameters.AddWithValue("@branch_id", request.BranchId);
+                    cmd.Parameters.AddWithValue("@customer_phone",
+                        string.IsNullOrWhiteSpace(request.CustomerPhone) ? DBNull.Value : (object)request.CustomerPhone.Trim());
                     returnId = Convert.ToInt32(await cmd.ExecuteScalarAsync());
                 }
 
                 foreach (var item in request.Items)
                 {
-                    // Validate return qty against original sale qty
-                    const string qtyCheck = "SELECT quantity FROM sale_items WHERE id = @id AND sale_id = @saleId";
+                    const string qtyCheck = @"
+                        SELECT
+                            si.quantity,
+                            COALESCE((SELECT SUM(ri.qty_returned)
+                                      FROM return_items ri
+                                      WHERE ri.sale_item_id = si.id), 0) AS already_returned
+                        FROM sale_items si
+                        WHERE si.id = @id AND si.sale_id = @saleId";
+
+                    int soldQty;
+                    int alreadyReturned;
+
                     using (var qtyCmd = new NpgsqlCommand(qtyCheck, conn, transaction))
                     {
                         qtyCmd.Parameters.AddWithValue("@id", item.SaleItemId);
                         qtyCmd.Parameters.AddWithValue("@saleId", request.SaleId);
-                        var soldQty = Convert.ToInt32(await qtyCmd.ExecuteScalarAsync());
-                        if (item.QtyToReturn <= 0 || item.QtyToReturn > soldQty)
-                            throw new InvalidOperationException($"Invalid return quantity for item {item.SaleItemId}.");
+
+                        using var reader = await qtyCmd.ExecuteReaderAsync();
+                        if (!await reader.ReadAsync())
+                            throw new InvalidOperationException($"Sale item {item.SaleItemId} not found on sale {request.SaleId}.");
+
+                        soldQty = reader.GetInt32(0);
+                        alreadyReturned = reader.GetInt32(1);
                     }
+
+                    if (item.QtyToReturn <= 0)
+                        throw new InvalidOperationException($"Return quantity must be greater than zero for item {item.SaleItemId}.");
+
+                    if (alreadyReturned + item.QtyToReturn > soldQty)
+                        throw new InvalidOperationException(
+                            $"Cannot return {item.QtyToReturn} of this item. " +
+                            $"Sold: {soldQty}, already returned: {alreadyReturned}, " +
+                            $"remaining returnable: {soldQty - alreadyReturned}.");
 
                     const string insertItem = @"
                         INSERT INTO return_items(return_id, sale_item_id, product_id, qty_returned, line_amount)
@@ -113,15 +147,43 @@ namespace Pos_system.Services
 
                 await transaction.CommitAsync();
 
-                await AppServices.GetRequiredService<AuditService>()
-                    .LogAsync("RETURN_PROCESSED", "return", returnId.ToString(), $"Refund: {totalRefund:C}");
+                await AppServices.GetRequiredService<AuditService>().LogAsync(
+                    "RETURN_PROCESSED",
+                    "return",
+                    returnId.ToString(),
+                    $"Refund: {totalRefund:C}, Approved by user {request.ApprovedBy}");
+
+                // Issue store credit AFTER the return has been committed.
+                if (request.RefundType == "StoreCredit" && !string.IsNullOrWhiteSpace(request.CustomerPhone))
+                {
+                    try
+                    {
+                        var creditDao = AppServices.GetRequiredService<StoreCreditDAO>();
+                        var creditResult = await creditDao.IssueCreditAsync(
+                            request.CustomerPhone,
+                            totalRefund,
+                            returnId,
+                            $"Refund for receipt {request.ReceiptNo}");
+
+                        if (!creditResult.success)
+                        {
+                            Logger.Log($"Store credit issue failed for return {returnId}: {creditResult.message}");
+                        }
+                    }
+                    catch (Exception creditEx)
+                    {
+                        Logger.Log($"Store credit issue threw for return {returnId}: {creditEx.Message}");
+                    }
+                }
 
                 return new ReturnResult
                 {
                     ReturnId = returnId,
                     Approved = true,
                     RefundAmount = totalRefund,
-                    Message = "Return processed successfully."
+                    Message = request.RefundType == "StoreCredit"
+                        ? $"Return processed. {totalRefund:C} issued as store credit to {request.CustomerPhone}."
+                        : "Return processed successfully."
                 };
             }
             catch (Exception ex)
@@ -133,6 +195,28 @@ namespace Pos_system.Services
                     RefundAmount = 0,
                     Message = $"Return processing failed: {ex.Message}"
                 };
+            }
+        }
+
+        public async Task<decimal> GetTodayRefundTotal()
+        {
+            try
+            {
+                using var conn = DBConnection.GetConnection();
+                const string query = @"
+                    SELECT COALESCE(SUM(refund_amount), 0)
+                    FROM returns
+                    WHERE branch_id = @branchId AND DATE(created_at) = CURRENT_DATE";
+
+                using var cmd = new NpgsqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@branchId", AppContext.CurrentBranchId);
+
+                var result = await cmd.ExecuteScalarAsync();
+                return result != null && result != DBNull.Value ? Convert.ToDecimal(result) : 0;
+            }
+            catch
+            {
+                return 0;
             }
         }
     }

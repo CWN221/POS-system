@@ -23,6 +23,8 @@ namespace Pos_system.Models
         public required UserRole Role { get; set; }
         public bool IsActive { get; set; } // to indicate if the user is active or not
         public int BranchId { get; set; }
+        public int FailedLoginAttempts { get; set; }
+        public DateTime? LockoutUntil { get; set; }
         public bool MustChangePassword { get; set; }
 
         public bool CanMakeSales {

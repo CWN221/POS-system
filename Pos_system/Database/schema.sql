@@ -8,6 +8,8 @@ CREATE TABLE IF NOT EXISTS users (
     IsActive BOOLEAN DEFAULT TRUE,
     MustChangePassword BOOLEAN DEFAULT FALSE,
     BranchId INTEGER NOT NULL,
+    FailedLoginAttempts INTEGER DEFAULT 0,
+    LockoutUntil TIMESTAMP,
     CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -44,6 +46,7 @@ CREATE TABLE IF NOT EXISTS products (
     stock_status VARCHAR(20),
     stock_quantity INTEGER DEFAULT 0,
     low_stock_threshold INTEGER DEFAULT 5,
+    is_active BOOLEAN DEFAULT TRUE,
     BranchId INTEGER REFERENCES branches(Id)
 );
 
@@ -60,14 +63,19 @@ CREATE TABLE IF NOT EXISTS vat_settings (
     vat_percentage DECIMAL(5,2) NOT NULL
 );
 
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+
 -- Sales Table
 CREATE TABLE IF NOT EXISTS sales (
     id SERIAL PRIMARY KEY,
+    sale_uuid UUID DEFAULT gen_random_uuid(),
     sale_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     total_amount DECIMAL(10,2),
     BranchId INTEGER REFERENCES branches(Id),
     payment_method VARCHAR(50),
-    cashier_id INTEGER REFERENCES users(Id)
+    receipt_number VARCHAR(50) NOT NULL,
+    cashier_id INTEGER REFERENCES users(Id),
+    store_credit_used NUMERIC(14,2) DEFAULT 0
 );
 
 -- Sale Items Table
@@ -95,6 +103,8 @@ CREATE TABLE IF NOT EXISTS stock_movements (
     quantity INTEGER,
     reference_id INTEGER,
     branch_id INTEGER REFERENCES branches(Id),
+    reason VARCHAR(200),
+    user_id INTEGER REFERENCES users(Id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -107,6 +117,7 @@ CREATE TABLE IF NOT EXISTS returns (
     refund_type VARCHAR(50),
     refund_amount DECIMAL(10,2),
     requested_by INTEGER REFERENCES users(Id),
+    approved_by INTEGER REFERENCES users(Id),
     branch_id INTEGER REFERENCES branches(Id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -118,7 +129,8 @@ CREATE TABLE IF NOT EXISTS return_items (
     sale_item_id INTEGER REFERENCES sale_items(id),
     product_id INTEGER REFERENCES products(idproducts),
     qty_returned INTEGER,
-    line_amount DECIMAL(10,2)
+    line_amount DECIMAL(10,2),
+    customer_phone VARCHAR(30)
 );
 
 -- Z Reports Table
@@ -129,6 +141,14 @@ CREATE TABLE IF NOT EXISTS z_reports (
     total_sales DECIMAL(10,2),
     total_vat DECIMAL(10,2),
     total_transactions INTEGER,
+    gross_sales DECIMAL(10,2),
+    refund_amount DECIMAL(10,2),
+    net_sales DECIMAL(10,2),
+    cash_total DECIMAL(10,2),
+    mpesa_total DECIMAL(10,2),
+    card_total DECIMAL(10,2),
+    closed_by INTEGER REFERENCES users(Id),
+    is_locked BOOLEAN DEFAULT FALSE,
     generated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(report_date, branch_id)
 );
@@ -145,6 +165,104 @@ CREATE TABLE IF NOT EXISTS audit_log (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Payments Table
+CREATE TABLE IF NOT EXISTS payments (
+    id SERIAL PRIMARY KEY,
+    sale_id INTEGER NOT NULL REFERENCES sales(id) ON DELETE CASCADE,
+    method VARCHAR(30) NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    reference VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Suppliers Table
+CREATE TABLE IF NOT EXISTS suppliers (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(200) NOT NULL,
+    contact_person VARCHAR(150),
+    phone VARCHAR(30),
+    email VARCHAR(150),
+    address TEXT,
+    kra_pin VARCHAR(50),
+    is_active BOOLEAN DEFAULT TRUE,
+    branch_id INTEGER REFERENCES branches(Id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Purchase Orders Table
+CREATE TABLE IF NOT EXISTS purchase_orders (
+    id SERIAL PRIMARY KEY,
+    po_number VARCHAR(50) NOT NULL,
+    supplier_id INTEGER NOT NULL REFERENCES suppliers(id),
+    branch_id INTEGER NOT NULL REFERENCES branches(Id),
+    status VARCHAR(20) NOT NULL DEFAULT 'DRAFT',
+    order_date DATE NOT NULL DEFAULT CURRENT_DATE,
+    expected_date DATE,
+    notes TEXT,
+    created_by INTEGER REFERENCES users(Id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Purchase Order Items Table
+CREATE TABLE IF NOT EXISTS purchase_order_items (
+    id SERIAL PRIMARY KEY,
+    po_id INTEGER NOT NULL REFERENCES purchase_orders(id) ON DELETE CASCADE,
+    product_id INTEGER NOT NULL REFERENCES products(idproducts),
+    quantity_ordered INTEGER NOT NULL,
+    quantity_received INTEGER NOT NULL DEFAULT 0,
+    unit_cost DECIMAL(10,2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Goods Receipt Table
+CREATE TABLE IF NOT EXISTS goods_receipts (
+    id SERIAL PRIMARY KEY,
+    receipt_number VARCHAR(50) NOT NULL,
+    po_id INTEGER NOT NULL REFERENCES purchase_orders(id),
+    branch_id INTEGER NOT NULL REFERENCES branches(Id),
+    received_by INTEGER REFERENCES users(Id),
+    notes TEXT,
+    received_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Goods Receipt Items Table
+CREATE TABLE IF NOT EXISTS goods_receipt_items (
+    id SERIAL PRIMARY KEY,
+    receipt_id INTEGER NOT NULL REFERENCES goods_receipts(id) ON DELETE CASCADE,
+    po_item_id INTEGER NOT NULL REFERENCES purchase_order_items(id),
+    product_id INTEGER NOT NULL REFERENCES products(idproducts),
+    quantity_received INTEGER NOT NULL,
+    unit_cost DECIMAL(10,2) NOT NULL
+);
+
+-- Store Credit Ledger Table
+CREATE TABLE IF NOT EXISTS store_credit_ledger (
+    id SERIAL PRIMARY KEY,
+    customer_phone VARCHAR(30) NOT NULL,
+    amount NUMERIC(14,2) NOT NULL,          -- positive = credit issued, negative = redeemed
+    movement_type VARCHAR(20) NOT NULL,     -- 'ISSUE' or 'REDEEM'
+    reference_id INTEGER,                   -- return_id for ISSUE, sale_id for REDEEM
+    branch_id INTEGER REFERENCES branches(Id),
+    user_id INTEGER REFERENCES users(Id),
+    notes TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS sync_log (
+    id              BIGSERIAL PRIMARY KEY,
+    table_name      VARCHAR(50) NOT NULL,
+    local_row_id    INTEGER NOT NULL,
+    synced_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT uq_sync_log UNIQUE (table_name, local_row_id)
+);
+
+-- Track the sequence explicitly for future inserts
+CREATE TABLE IF NOT EXISTS receipt_sequences (
+    year INT PRIMARY KEY,
+    last_sequence INT NOT NULL DEFAULT 0
+);
+
 -- Schema version tracking
 CREATE TABLE IF NOT EXISTS schema_migrations (
     version INTEGER PRIMARY KEY,
@@ -159,6 +277,30 @@ CREATE INDEX IF NOT EXISTS idx_products_branch ON products(BranchId);
 CREATE INDEX IF NOT EXISTS idx_stock_movements_product ON stock_movements(product_id);
 CREATE INDEX IF NOT EXISTS idx_returns_sale ON returns(sale_id);
 CREATE INDEX IF NOT EXISTS idx_audit_log_created ON audit_log(created_at);
+CREATE INDEX IF NOT EXISTS idx_return_items_sale_item_id ON return_items(sale_item_id);
+CREATE INDEX IF NOT EXISTS idx_payments_sale_id ON payments(sale_id);
+CREATE INDEX IF NOT EXISTS idx_stock_movements_created ON stock_movements(created_at);
+CREATE INDEX IF NOT EXISTS idx_stock_movements_branch_type ON stock_movements(branch_id, type);
+CREATE INDEX IF NOT EXISTS idx_users_lockout ON users(LockoutUntil);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_sales_uuid ON sales(sale_uuid);
+CREATE INDEX IF NOT EXISTS idx_suppliers_branch ON suppliers(branch_id);
+CREATE INDEX IF NOT EXISTS idx_suppliers_active ON suppliers(is_active);
+CREATE INDEX IF NOT EXISTS idx_po_branch ON purchase_orders(branch_id);
+CREATE INDEX IF NOT EXISTS idx_po_supplier ON purchase_orders(supplier_id);
+CREATE INDEX IF NOT EXISTS idx_po_status ON purchase_orders(status);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_po_number ON purchase_orders(po_number);
+CREATE INDEX IF NOT EXISTS idx_po_items_po ON purchase_order_items(po_id);
+CREATE INDEX IF NOT EXISTS idx_po_items_product ON purchase_order_items(product_id);
+CREATE INDEX IF NOT EXISTS idx_gr_po ON goods_receipts(po_id);
+CREATE INDEX IF NOT EXISTS idx_gr_branch ON goods_receipts(branch_id);
+CREATE INDEX IF NOT EXISTS idx_gr_items_receipt ON goods_receipt_items(receipt_id);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_sales_receipt_number ON sales(receipt_number);
+CREATE INDEX IF NOT EXISTS idx_products_active ON products(BranchId, is_active);
+CREATE INDEX IF NOT EXISTS idx_credit_phone ON store_credit_ledger(customer_phone);
+CREATE INDEX IF NOT EXISTS idx_credit_branch ON store_credit_ledger(branch_id, customer_phone);
+CREATE INDEX IF NOT EXISTS idx_returns_phone ON returns(customer_phone);
+CREATE INDEX IF NOT EXISTS idx_sync_log_table ON sync_log(table_name);
+
 
 -- Insert default VAT settings
 INSERT INTO vat_settings (name, vat_percentage)
@@ -168,9 +310,6 @@ SELECT 'Zero Rated', 0.00 WHERE NOT EXISTS (SELECT 1 FROM vat_settings WHERE nam
 INSERT INTO vat_settings (name, vat_percentage)
 SELECT 'Exempt', 0.00 WHERE NOT EXISTS (SELECT 1 FROM vat_settings WHERE name = 'Exempt');
 
--- Insert default branch
-INSERT INTO branches (BranchName, Location)
-SELECT 'Main Branch', 'City' WHERE NOT EXISTS (SELECT 1 FROM branches WHERE BranchName = 'Main Branch');
 
 -- Insert default admin user (password: Admin123!) - must change on first login
 INSERT INTO users (Username, PasswordHash, Role, IsActive, MustChangePassword, BranchId)

@@ -17,5 +17,6 @@ namespace Pos_system.Models
         public string? Stock_status { get; set; }
         public int Stock_quantity { get; set; }
         public int Low_stock_threshold { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }

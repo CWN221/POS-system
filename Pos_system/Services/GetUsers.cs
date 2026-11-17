@@ -1,13 +1,4 @@
-﻿/**
- * 
- * GetUsers.cs
- * Service class to retrieve list of users from the database.
- * This is used in Settings page(Users tab) to display a list of users and their details.
- *
- **/
-
-using System.Data;
-using Pos_system.Models;
+﻿using Pos_system.Models;
 using Pos_system.Database;
 using Npgsql;
 using Pos_system.logs;
@@ -16,15 +7,12 @@ namespace Pos_system.Services
 {
     public class GetUsers
     {
-        // Method to get all users from the DB
         public async Task<List<UserModel>> GetAllUsers()
         {
             var users = new List<UserModel>();
             using var conn = DBConnection.GetConnection();
 
-            if (conn == null) return users;
-
-            string query = "SELECT Id, Username, Role, IsActive FROM Users";
+            const string query = "SELECT Id, Username, Role, IsActive, BranchId FROM users WHERE IsActive = true ORDER BY Username";
 
             try
             {
@@ -33,14 +21,15 @@ namespace Pos_system.Services
 
                 while (await reader.ReadAsync())
                 {
-                    var user = new UserModel
+                    users.Add(new UserModel
                     {
                         Id = reader.GetInt32(reader.GetOrdinal("Id")),
                         Username = reader.GetString(reader.GetOrdinal("Username")),
+                        PasswordHash = string.Empty,
                         Role = Enum.Parse<UserRole>(reader.GetString(reader.GetOrdinal("Role"))),
-                        IsActive = reader.GetBoolean(reader.GetOrdinal("IsActive"))
-                    };
-                    users.Add(user);
+                        IsActive = reader.GetBoolean(reader.GetOrdinal("IsActive")),
+                        BranchId = reader.GetInt32(reader.GetOrdinal("BranchId"))
+                    });
                 }
             }
             catch (Exception ex)

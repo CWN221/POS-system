@@ -144,5 +144,100 @@ namespace Pos_system.Services
                 return branches;
             }
         }
+
+        // Method to update an existing branch
+        public async Task<bool> UpdateBranch(StoreBranch branch)
+        {
+            if (branch.Id <= 0)
+                throw new ArgumentException("Branch Id is required for update.");
+
+            using var conn = DBConnection.GetConnection() ?? throw new InvalidOperationException("Database connection failed.");
+            try
+            {
+                string query = "UPDATE branches SET BranchName = @BranchName, Location = @Location WHERE Id = @Id";
+
+                using var cmd = new NpgsqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Id", branch.Id);
+                cmd.Parameters.AddWithValue("@BranchName", branch.BranchName);
+                cmd.Parameters.AddWithValue("@Location", branch.Location ?? (object)DBNull.Value);
+
+                return await cmd.ExecuteNonQueryAsync() > 0;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log("Error updating branch: " + ex.Message);
+                return false;
+            }
+        }
+
+        // Method to safely delete a branch — blocked if it has any associated data
+        public async Task<(bool success, string message)> DeleteBranch(int branchId)
+        {
+            if (branchId <= 0)
+                return (false, "Invalid branch ID.");
+
+            if (branchId == Core.AppContext.CurrentBranchId)
+                return (false, "You cannot delete the branch you are currently signed into.");
+
+            using var conn = DBConnection.GetConnection() ?? throw new InvalidOperationException("Database connection failed.");
+            try
+            {
+                // Check for dependent data
+                var checkQuery = @"
+                    SELECT
+                        (SELECT COUNT(*) FROM sales WHERE BranchId = @Id) AS sales_count,
+                        (SELECT COUNT(*) FROM products WHERE BranchId = @Id) AS products_count,
+                        (SELECT COUNT(*) FROM users WHERE BranchId = @Id) AS users_count";
+
+                int salesCount = 0, productsCount = 0, usersCount = 0;
+
+                using (var checkCmd = new NpgsqlCommand(checkQuery, conn))
+                {
+                    checkCmd.Parameters.AddWithValue("@Id", branchId);
+                    using var reader = await checkCmd.ExecuteReaderAsync();
+                    if (await reader.ReadAsync())
+                    {
+                        salesCount = Convert.ToInt32(reader["sales_count"]);
+                        productsCount = Convert.ToInt32(reader["products_count"]);
+                        usersCount = Convert.ToInt32(reader["users_count"]);
+                    }
+                }
+
+                if (salesCount > 0 || productsCount > 0 || usersCount > 0)
+                {
+                    var blockers = new List<string>();
+                    if (salesCount > 0) blockers.Add($"{salesCount} sale(s)");
+                    if (productsCount > 0) blockers.Add($"{productsCount} product(s)");
+                    if (usersCount > 0) blockers.Add($"{usersCount} user(s)");
+
+                    return (false, $"Cannot delete branch — it has {string.Join(", ", blockers)} linked to it. Remove or reassign them first.");
+                }
+
+                // Delete associated store settings first
+                using (var delSettings = new NpgsqlCommand("DELETE FROM storesettings WHERE BranchId = @Id", conn))
+                {
+                    delSettings.Parameters.AddWithValue("@Id", branchId);
+                    await delSettings.ExecuteNonQueryAsync();
+                }
+
+                // Delete the branch
+                using var delCmd = new NpgsqlCommand("DELETE FROM branches WHERE Id = @Id", conn);
+                delCmd.Parameters.AddWithValue("@Id", branchId);
+
+                int rows = await delCmd.ExecuteNonQueryAsync();
+                return rows > 0 ? (true, "Branch deleted successfully.") : (false, "Branch not found.");
+            }
+            catch (PostgresException ex)
+            {
+                Logger.Log("Delete branch FK violation: " + ex.Message);
+                return (false, "Cannot delete branch — it is referenced by existing records.");
+            }
+            catch (Exception ex)
+            {
+                Logger.Log("Error deleting branch: " + ex.Message);
+                return (false, "An unexpected error occurred while deleting the branch.");
+            }
+        }
+
     }
 }

@@ -58,6 +58,7 @@ namespace Pos_system
                         break;
                 }
 
+#if !DEBUG
                 var user = SessionManager.CurrentUser;
                 if (user?.MustChangePassword == true)
                 {
@@ -69,6 +70,7 @@ namespace Pos_system
                     }
                     user.MustChangePassword = false;
                 }
+#endif
 
                 Application.Run(new DashboardForm());
                 SessionManager.Logout();

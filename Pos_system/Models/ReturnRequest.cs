@@ -7,9 +7,10 @@
  * - 'ReceiptNo': Represents the receipt number associated with the return.
  * - 'SaleId': An integer representing the unique identifier of the sale transaction.
  * - 'Reason': A string describing the reason for the return.
- * - 'RefundType': A string indicating the type of refund (e.g., cash, store credit).
+ * - 'RefundType': A string indicating the type of refund (e.g. cash, store credit).
  * - 'RequestedBy': User ID of the person processing the return.
- * 
+ *  - 'ApprovedBy': User ID of the person approving the return
+ *  - 'CustomerPhone': A string representing the customer's phone number
  */
 
 namespace Pos_system.Models
@@ -22,6 +23,8 @@ namespace Pos_system.Models
         public string Reason { get; set; }
         public string RefundType { get; set; }
         public int RequestedBy { get; set; }
+        public int ApprovedBy { get; set; }
+        public string CustomerPhone { get; set; } = "";
         public int BranchId { get; set; }
 
     }

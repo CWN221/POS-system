@@ -31,14 +31,15 @@ namespace Pos_system.Services
                     FROM sales s
                     JOIN sale_items si ON s.id = si.sale_id                 
                     WHERE (@BranchId IS NULL OR s.BranchId = @BranchId)
-                    AND s.sale_date BETWEEN @FromDate AND @ToDate
+                    AND s.sale_date >= @FromDate AND s.sale_date < @ToDate
+                    AND s.is_voided = FALSE
                     GROUP BY DATE(s.sale_date)
                     ORDER BY SaleDate DESC";
 
             using var cmd = new NpgsqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@BranchId", branchId ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("@FromDate", from);
-            cmd.Parameters.AddWithValue("@ToDate", to);
+            cmd.Parameters.AddWithValue("@FromDate", from.Date);
+            cmd.Parameters.AddWithValue("@ToDate", to.Date.AddDays(1));
 
             using var reader = await cmd.ExecuteReaderAsync();
 
@@ -74,14 +75,15 @@ namespace Pos_system.Services
                             FROM sale_items si
                             JOIN sales s ON si.sale_id = s.id
                             WHERE (@BranchId IS NULL OR s.BranchId = @BranchId)
-                            AND s.sale_date BETWEEN @FromDate AND @ToDate
+                            AND s.sale_date >= @FromDate AND s.sale_date < @ToDate
+                            AND s.is_voided = FALSE
                             GROUP BY DATE(s.sale_date), si.vat_category, si.vat_percentage
                             ORDER BY SaleDate DESC;";
 
             using var cmd = new NpgsqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@BranchId", branchId ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("@FromDate", from);
-            cmd.Parameters.AddWithValue("@ToDate", to);
+            cmd.Parameters.AddWithValue("@FromDate", from.Date);
+            cmd.Parameters.AddWithValue("@ToDate", to.Date.AddDays(1));
 
             using var reader = await cmd.ExecuteReaderAsync();
 
@@ -119,13 +121,14 @@ namespace Pos_system.Services
                             FROM sales s
                             JOIN sale_items si ON s.id = si.sale_id
                             JOIN branches b ON s.BranchId = b.Id
-                            WHERE s.sale_date BETWEEN @FromDate AND @ToDate
+                            WHERE s.sale_date >= @FromDate AND s.sale_date < @ToDate
+                            AND s.is_voided = FALSE
                             GROUP BY b.Id, b.BranchName
                             ORDER BY TotalSales DESC;";
 
             using var cmd = new NpgsqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@FromDate", from);
-            cmd.Parameters.AddWithValue("@ToDate", to);
+            cmd.Parameters.AddWithValue("@FromDate", from.Date);
+            cmd.Parameters.AddWithValue("@ToDate", to.Date.AddDays(1));
 
             using var reader = await cmd.ExecuteReaderAsync();
 
@@ -165,6 +168,7 @@ namespace Pos_system.Services
                                 (p.stock_quantity * p.price) AS StockValue
                             FROM products p
                             WHERE (@BranchId IS NULL OR p.BranchId = @BranchId)
+                            AND p.is_active = TRUE
                             ORDER BY p.pName;";
 
             using var cmd = new NpgsqlCommand(query, conn);
@@ -204,6 +208,7 @@ namespace Pos_system.Services
                 FROM sales s
                 WHERE s.BranchId = @BranchId
                   AND s.sale_date >= DATE_TRUNC('month', CURRENT_DATE) - (@Months || ' months')::INTERVAL
+                  AND s.is_voided = FALSE
                 GROUP BY DATE_TRUNC('month', s.sale_date)
                 ORDER BY MonthStart";
 

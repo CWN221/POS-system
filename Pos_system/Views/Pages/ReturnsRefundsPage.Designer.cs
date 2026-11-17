@@ -28,286 +28,620 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReturnsRefundsPage));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            HeaderPanelTop = new Guna.UI2.WinForms.Guna2GradientPanel();
-            BackToDashboardBtn = new Guna.UI2.WinForms.Guna2Button();
-            guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            CurrentBranchLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            returnsLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            DspItemPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
-            gridSaleItems = new Guna.UI2.WinForms.Guna2DataGridView();
-            BodyPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
-            ReturnPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
+            headerPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
+            titleLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            branchLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            backToDashboardBtn = new Guna.UI2.WinForms.Guna2Button();
+            receiptPanel = new Guna.UI2.WinForms.Guna2Panel();
+            receiptRoot = new TableLayoutPanel();
+            receiptLabel = new Label();
+            txtReceiptNo = new Guna.UI2.WinForms.Guna2TextBox();
+            rcpLbl = new Label();
+            FindReceiptBtn = new Guna.UI2.WinForms.Guna2GradientButton();
+            bodyLayout = new TableLayoutPanel();
+            saleDetailsCard = new Guna.UI2.WinForms.Guna2Panel();
+            saleDetailsRoot = new TableLayoutPanel();
+            saleDetailsHeaderPanel = new Panel();
+            SaleDetailsLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            saleDateCaption = new Label();
+            DateOutputLbl = new Label();
+            saleBranchCaption = new Label();
+            BranchOutputLbl = new Label();
+            salePaymentCaption = new Label();
+            PaymentOutputLbl = new Label();
+            saleCashierCaption = new Label();
+            CashierOutputLbl = new Label();
+            saleTotalCaption = new Label();
+            totalPayOutputLbl = new Label();
+            returnPanel = new Guna.UI2.WinForms.Guna2Panel();
+            returnRoot = new TableLayoutPanel();
+            returnHeaderPanel = new Panel();
+            ReturnActionLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            reasonCaption = new Label();
+            ReasonComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            refundCaption = new Label();
+            refundRadiosPanel = new Panel();
             rbStoreCredit = new Guna.UI2.WinForms.Guna2RadioButton();
             rbCash = new Guna.UI2.WinForms.Guna2RadioButton();
+            notesCaption = new Label();
             NotesTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            ReasonComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            printRtnRcptBtn = new Guna.UI2.WinForms.Guna2GradientButton();
+            phoneCaption = new Label();
+            phoneTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            refundPreviewCaption = new Label();
+            RefundPreviewOutputLbl = new Label();
+            returnButtonsPanel = new Panel();
+            printRtnRcptBtn = new Guna.UI2.WinForms.Guna2Button();
             ProcessReturnBtn = new Guna.UI2.WinForms.Guna2GradientButton();
-            RefundPreviewOutputLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            RefundsPreviewLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            NotesLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            RefundLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            ReasonLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            ReturnPanelHeader = new Guna.UI2.WinForms.Guna2GradientPanel();
-            ReturnActionLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            SaleDetailsPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
-            totalPayOutputLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            totalPaymentLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            CashierOutputLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            PaymentOutputLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            BranchOutputLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            DateOutputLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            CashierLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            PaymentLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            BranchLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            DateLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            SalesDetailsPanelHeader = new Guna.UI2.WinForms.Guna2GradientPanel();
-            SaleDetailsLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            ReceiptPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
-            txtReceiptNo = new Guna.UI2.WinForms.Guna2TextBox();
-            FindReceiptBtn = new Guna.UI2.WinForms.Guna2GradientButton();
-            ReceiptLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            rcpLbl = new Label();
-            HeaderPanelTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
-            DspItemPanel.SuspendLayout();
+            itemsCard = new Guna.UI2.WinForms.Guna2Panel();
+            itemsRoot = new TableLayoutPanel();
+            itemsHeaderPanel = new Panel();
+            selectedCountLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            itemsHeaderLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            gridSaleItems = new Guna.UI2.WinForms.Guna2DataGridView();
+            headerPanel.SuspendLayout();
+            receiptPanel.SuspendLayout();
+            receiptRoot.SuspendLayout();
+            bodyLayout.SuspendLayout();
+            saleDetailsCard.SuspendLayout();
+            saleDetailsRoot.SuspendLayout();
+            saleDetailsHeaderPanel.SuspendLayout();
+            returnPanel.SuspendLayout();
+            returnRoot.SuspendLayout();
+            returnHeaderPanel.SuspendLayout();
+            refundRadiosPanel.SuspendLayout();
+            returnButtonsPanel.SuspendLayout();
+            itemsCard.SuspendLayout();
+            itemsRoot.SuspendLayout();
+            itemsHeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridSaleItems).BeginInit();
-            BodyPanel.SuspendLayout();
-            ReturnPanel.SuspendLayout();
-            ReturnPanelHeader.SuspendLayout();
-            SaleDetailsPanel.SuspendLayout();
-            SalesDetailsPanelHeader.SuspendLayout();
-            ReceiptPanel.SuspendLayout();
             SuspendLayout();
             // 
-            // HeaderPanelTop
+            // headerPanel
             // 
-            HeaderPanelTop.BackColor = Color.White;
-            HeaderPanelTop.Controls.Add(BackToDashboardBtn);
-            HeaderPanelTop.Controls.Add(guna2PictureBox1);
-            HeaderPanelTop.Controls.Add(CurrentBranchLbl);
-            HeaderPanelTop.Controls.Add(returnsLbl);
-            HeaderPanelTop.CustomizableEdges = customizableEdges5;
-            HeaderPanelTop.Dock = DockStyle.Top;
-            HeaderPanelTop.FillColor = Color.FromArgb(244, 248, 254);
-            HeaderPanelTop.FillColor2 = Color.FromArgb(224, 228, 234);
-            HeaderPanelTop.Location = new Point(0, 0);
-            HeaderPanelTop.Name = "HeaderPanelTop";
-            HeaderPanelTop.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            HeaderPanelTop.Size = new Size(1366, 118);
-            HeaderPanelTop.TabIndex = 0;
+            headerPanel.Controls.Add(titleLbl);
+            headerPanel.Controls.Add(branchLbl);
+            headerPanel.Controls.Add(backToDashboardBtn);
+            headerPanel.CustomizableEdges = customizableEdges3;
+            headerPanel.Dock = DockStyle.Top;
+            headerPanel.FillColor = Color.White;
+            headerPanel.FillColor2 = Color.White;
+            headerPanel.Location = new Point(20, 0);
+            headerPanel.Name = "headerPanel";
+            headerPanel.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            headerPanel.Size = new Size(1326, 68);
+            headerPanel.TabIndex = 0;
             // 
-            // BackToDashboardBtn
+            // titleLbl
             // 
-            BackToDashboardBtn.Anchor = AnchorStyles.Left;
-            BackToDashboardBtn.BorderRadius = 7;
-            BackToDashboardBtn.Cursor = Cursors.Hand;
-            BackToDashboardBtn.CustomizableEdges = customizableEdges1;
-            BackToDashboardBtn.DisabledState.BorderColor = Color.DarkGray;
-            BackToDashboardBtn.DisabledState.CustomBorderColor = Color.DarkGray;
-            BackToDashboardBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            BackToDashboardBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            BackToDashboardBtn.FillColor = Color.FromArgb(111, 179, 255);
-            BackToDashboardBtn.FocusedColor = Color.FromArgb(75, 146, 249);
-            BackToDashboardBtn.Font = new Font("Arial", 10F);
-            BackToDashboardBtn.ForeColor = Color.White;
-            BackToDashboardBtn.HoverState.FillColor = Color.FromArgb(75, 146, 249);
-            BackToDashboardBtn.HoverState.Font = new Font("Arial", 10.1F);
-            BackToDashboardBtn.Image = Properties.Resources.dashboard_png;
-            BackToDashboardBtn.Location = new Point(16, 18);
-            BackToDashboardBtn.Name = "BackToDashboardBtn";
-            BackToDashboardBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            BackToDashboardBtn.Size = new Size(144, 45);
-            BackToDashboardBtn.TabIndex = 6;
-            BackToDashboardBtn.Text = "Dashboard";
-            BackToDashboardBtn.Click += BackToDashboardBtn_Click;
+            titleLbl.BackColor = Color.Transparent;
+            titleLbl.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold);
+            titleLbl.ForeColor = Color.FromArgb(15, 23, 42);
+            titleLbl.Location = new Point(184, 17);
+            titleLbl.Name = "titleLbl";
+            titleLbl.Size = new Size(258, 43);
+            titleLbl.TabIndex = 0;
+            titleLbl.Text = "Returns & Refunds";
             // 
-            // guna2PictureBox1
+            // branchLbl
             // 
-            guna2PictureBox1.CustomizableEdges = customizableEdges3;
-            guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
-            guna2PictureBox1.ImageRotate = 0F;
-            guna2PictureBox1.Location = new Point(374, 26);
-            guna2PictureBox1.Name = "guna2PictureBox1";
-            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2PictureBox1.Size = new Size(64, 61);
-            guna2PictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            guna2PictureBox1.TabIndex = 2;
-            guna2PictureBox1.TabStop = false;
+            branchLbl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            branchLbl.BackColor = Color.Transparent;
+            branchLbl.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            branchLbl.ForeColor = Color.FromArgb(37, 99, 235);
+            branchLbl.Location = new Point(1126, 24);
+            branchLbl.Name = "branchLbl";
+            branchLbl.Size = new Size(82, 25);
+            branchLbl.TabIndex = 1;
+            branchLbl.Text = "Branch: —";
+            branchLbl.TextAlignment = ContentAlignment.TopRight;
             // 
-            // CurrentBranchLbl
+            // backToDashboardBtn
             // 
-            CurrentBranchLbl.BackColor = Color.Transparent;
-            CurrentBranchLbl.Font = new Font("Arial", 10F);
-            CurrentBranchLbl.Location = new Point(840, 44);
-            CurrentBranchLbl.Name = "CurrentBranchLbl";
-            CurrentBranchLbl.Size = new Size(30, 21);
-            CurrentBranchLbl.TabIndex = 1;
-            CurrentBranchLbl.Text = "N/A";
+            backToDashboardBtn.Anchor = AnchorStyles.Left;
+            backToDashboardBtn.BorderRadius = 10;
+            backToDashboardBtn.Cursor = Cursors.Hand;
+            backToDashboardBtn.CustomizableEdges = customizableEdges1;
+            backToDashboardBtn.DisabledState.BorderColor = Color.DarkGray;
+            backToDashboardBtn.DisabledState.CustomBorderColor = Color.DarkGray;
+            backToDashboardBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            backToDashboardBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            backToDashboardBtn.FillColor = Color.FromArgb(239, 246, 255);
+            backToDashboardBtn.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            backToDashboardBtn.ForeColor = Color.FromArgb(37, 99, 235);
+            backToDashboardBtn.HoverState.FillColor = Color.FromArgb(219, 234, 254);
+            backToDashboardBtn.Location = new Point(20, 14);
+            backToDashboardBtn.Name = "backToDashboardBtn";
+            backToDashboardBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            backToDashboardBtn.Size = new Size(140, 40);
+            backToDashboardBtn.TabIndex = 2;
+            backToDashboardBtn.Text = "← Dashboard";
+            backToDashboardBtn.Click += BackToDashboardBtn_Click;
             // 
-            // returnsLbl
+            // receiptPanel
             // 
-            returnsLbl.BackColor = Color.Transparent;
-            returnsLbl.Font = new Font("Arial", 11F, FontStyle.Bold);
-            returnsLbl.Location = new Point(444, 42);
-            returnsLbl.Name = "returnsLbl";
-            returnsLbl.Size = new Size(200, 23);
-            returnsLbl.TabIndex = 0;
-            returnsLbl.Text = "RETURNS & REFUNDS";
+            receiptPanel.BorderColor = Color.FromArgb(226, 232, 240);
+            receiptPanel.BorderRadius = 14;
+            receiptPanel.BorderThickness = 1;
+            receiptPanel.Controls.Add(receiptRoot);
+            receiptPanel.CustomizableEdges = customizableEdges9;
+            receiptPanel.Dock = DockStyle.Top;
+            receiptPanel.FillColor = Color.White;
+            receiptPanel.Location = new Point(20, 68);
+            receiptPanel.Margin = new Padding(0);
+            receiptPanel.Name = "receiptPanel";
+            receiptPanel.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            receiptPanel.Size = new Size(1326, 78);
+            receiptPanel.TabIndex = 1;
             // 
-            // DspItemPanel
+            // receiptRoot
             // 
-            DspItemPanel.BackColor = Color.White;
-            DspItemPanel.Controls.Add(gridSaleItems);
-            DspItemPanel.CustomizableEdges = customizableEdges7;
-            DspItemPanel.Dock = DockStyle.Bottom;
-            DspItemPanel.Location = new Point(0, 544);
-            DspItemPanel.Name = "DspItemPanel";
-            DspItemPanel.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            DspItemPanel.Size = new Size(1366, 224);
-            DspItemPanel.TabIndex = 1;
+            receiptRoot.ColumnCount = 5;
+            receiptRoot.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 140F));
+            receiptRoot.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 340F));
+            receiptRoot.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 89F));
+            receiptRoot.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 182F));
+            receiptRoot.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            receiptRoot.Controls.Add(receiptLabel, 0, 0);
+            receiptRoot.Controls.Add(txtReceiptNo, 1, 0);
+            receiptRoot.Controls.Add(rcpLbl, 2, 0);
+            receiptRoot.Controls.Add(FindReceiptBtn, 3, 0);
+            receiptRoot.Dock = DockStyle.Fill;
+            receiptRoot.Location = new Point(0, 0);
+            receiptRoot.Name = "receiptRoot";
+            receiptRoot.Padding = new Padding(20, 16, 20, 16);
+            receiptRoot.RowCount = 1;
+            receiptRoot.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            receiptRoot.Size = new Size(1326, 78);
+            receiptRoot.TabIndex = 0;
             // 
-            // gridSaleItems
+            // receiptLabel
             // 
-            gridSaleItems.AllowUserToAddRows = false;
-            gridSaleItems.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            gridSaleItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            gridSaleItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            gridSaleItems.ColumnHeadersHeight = 4;
-            gridSaleItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            gridSaleItems.DefaultCellStyle = dataGridViewCellStyle3;
-            gridSaleItems.Dock = DockStyle.Fill;
-            gridSaleItems.GridColor = Color.FromArgb(231, 229, 255);
-            gridSaleItems.Location = new Point(0, 0);
-            gridSaleItems.Name = "gridSaleItems";
-            gridSaleItems.RowHeadersVisible = false;
-            gridSaleItems.RowHeadersWidth = 51;
-            gridSaleItems.Size = new Size(1366, 224);
-            gridSaleItems.TabIndex = 0;
-            gridSaleItems.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            gridSaleItems.ThemeStyle.AlternatingRowsStyle.Font = null;
-            gridSaleItems.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            gridSaleItems.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            gridSaleItems.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            gridSaleItems.ThemeStyle.BackColor = Color.White;
-            gridSaleItems.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            gridSaleItems.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            gridSaleItems.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            gridSaleItems.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
-            gridSaleItems.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            gridSaleItems.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            gridSaleItems.ThemeStyle.HeaderStyle.Height = 4;
-            gridSaleItems.ThemeStyle.ReadOnly = false;
-            gridSaleItems.ThemeStyle.RowsStyle.BackColor = Color.White;
-            gridSaleItems.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            gridSaleItems.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
-            gridSaleItems.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            gridSaleItems.ThemeStyle.RowsStyle.Height = 29;
-            gridSaleItems.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            gridSaleItems.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            receiptLabel.AutoSize = true;
+            receiptLabel.Dock = DockStyle.Fill;
+            receiptLabel.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            receiptLabel.ForeColor = Color.FromArgb(51, 65, 85);
+            receiptLabel.Location = new Point(23, 16);
+            receiptLabel.Name = "receiptLabel";
+            receiptLabel.Size = new Size(134, 46);
+            receiptLabel.TabIndex = 0;
+            receiptLabel.Text = "Receipt No:";
+            receiptLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // BodyPanel
+            // txtReceiptNo
             // 
-            BodyPanel.BackColor = Color.White;
-            BodyPanel.Controls.Add(ReturnPanel);
-            BodyPanel.Controls.Add(SaleDetailsPanel);
-            BodyPanel.CustomizableEdges = customizableEdges25;
-            BodyPanel.Dock = DockStyle.Bottom;
-            BodyPanel.Location = new Point(0, 181);
-            BodyPanel.Name = "BodyPanel";
-            BodyPanel.ShadowDecoration.CustomizableEdges = customizableEdges26;
-            BodyPanel.Size = new Size(1366, 363);
-            BodyPanel.TabIndex = 2;
+            txtReceiptNo.BorderColor = Color.FromArgb(203, 213, 225);
+            txtReceiptNo.BorderRadius = 8;
+            txtReceiptNo.CustomizableEdges = customizableEdges5;
+            txtReceiptNo.DefaultText = "";
+            txtReceiptNo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtReceiptNo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtReceiptNo.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtReceiptNo.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtReceiptNo.Dock = DockStyle.Fill;
+            txtReceiptNo.FocusedState.BorderColor = Color.FromArgb(37, 99, 235);
+            txtReceiptNo.Font = new Font("Segoe UI", 10F);
+            txtReceiptNo.ForeColor = Color.Empty;
+            txtReceiptNo.HoverState.BorderColor = Color.FromArgb(37, 99, 235);
+            txtReceiptNo.Location = new Point(163, 22);
+            txtReceiptNo.Margin = new Padding(3, 6, 3, 6);
+            txtReceiptNo.Name = "txtReceiptNo";
+            txtReceiptNo.PlaceholderForeColor = Color.FromArgb(148, 163, 184);
+            txtReceiptNo.PlaceholderText = "";
+            txtReceiptNo.SelectedText = "";
+            txtReceiptNo.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            txtReceiptNo.Size = new Size(334, 34);
+            txtReceiptNo.TabIndex = 1;
             // 
-            // ReturnPanel
+            // rcpLbl
             // 
-            ReturnPanel.BackColor = Color.White;
-            ReturnPanel.Controls.Add(rbStoreCredit);
-            ReturnPanel.Controls.Add(rbCash);
-            ReturnPanel.Controls.Add(NotesTextBox);
-            ReturnPanel.Controls.Add(ReasonComboBox);
-            ReturnPanel.Controls.Add(printRtnRcptBtn);
-            ReturnPanel.Controls.Add(ProcessReturnBtn);
-            ReturnPanel.Controls.Add(RefundPreviewOutputLbl);
-            ReturnPanel.Controls.Add(RefundsPreviewLbl);
-            ReturnPanel.Controls.Add(NotesLbl);
-            ReturnPanel.Controls.Add(RefundLbl);
-            ReturnPanel.Controls.Add(ReasonLbl);
-            ReturnPanel.Controls.Add(ReturnPanelHeader);
-            ReturnPanel.CustomizableEdges = customizableEdges19;
-            ReturnPanel.Dock = DockStyle.Right;
-            ReturnPanel.Location = new Point(662, 0);
-            ReturnPanel.Name = "ReturnPanel";
-            ReturnPanel.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            ReturnPanel.Size = new Size(704, 363);
-            ReturnPanel.TabIndex = 1;
+            rcpLbl.AutoSize = true;
+            rcpLbl.Dock = DockStyle.Fill;
+            rcpLbl.Font = new Font("Segoe UI", 9.5F);
+            rcpLbl.ForeColor = Color.FromArgb(148, 163, 184);
+            rcpLbl.Location = new Point(503, 16);
+            rcpLbl.Name = "rcpLbl";
+            rcpLbl.Size = new Size(83, 46);
+            rcpLbl.TabIndex = 2;
+            rcpLbl.Text = "—";
+            rcpLbl.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // FindReceiptBtn
+            // 
+            FindReceiptBtn.BorderRadius = 10;
+            FindReceiptBtn.CustomizableEdges = customizableEdges7;
+            FindReceiptBtn.DisabledState.BorderColor = Color.DarkGray;
+            FindReceiptBtn.DisabledState.CustomBorderColor = Color.DarkGray;
+            FindReceiptBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            FindReceiptBtn.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            FindReceiptBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            FindReceiptBtn.Dock = DockStyle.Fill;
+            FindReceiptBtn.FillColor = Color.FromArgb(37, 99, 235);
+            FindReceiptBtn.FillColor2 = Color.FromArgb(59, 130, 246);
+            FindReceiptBtn.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            FindReceiptBtn.ForeColor = Color.White;
+            FindReceiptBtn.HoverState.FillColor = Color.FromArgb(29, 78, 216);
+            FindReceiptBtn.HoverState.FillColor2 = Color.FromArgb(37, 99, 235);
+            FindReceiptBtn.Location = new Point(592, 22);
+            FindReceiptBtn.Margin = new Padding(3, 6, 3, 6);
+            FindReceiptBtn.Name = "FindReceiptBtn";
+            FindReceiptBtn.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            FindReceiptBtn.Size = new Size(176, 34);
+            FindReceiptBtn.TabIndex = 3;
+            FindReceiptBtn.Text = "Find Receipt";
+            FindReceiptBtn.Click += FindReceiptBtn_Click;
+            // 
+            // bodyLayout
+            // 
+            bodyLayout.ColumnCount = 2;
+            bodyLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 42F));
+            bodyLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 58F));
+            bodyLayout.Controls.Add(saleDetailsCard, 0, 0);
+            bodyLayout.Controls.Add(returnPanel, 1, 0);
+            bodyLayout.Dock = DockStyle.Top;
+            bodyLayout.Location = new Point(20, 146);
+            bodyLayout.Name = "bodyLayout";
+            bodyLayout.RowCount = 1;
+            bodyLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            bodyLayout.Size = new Size(1326, 440);
+            bodyLayout.TabIndex = 2;
+            // 
+            // saleDetailsCard
+            // 
+            saleDetailsCard.BorderColor = Color.FromArgb(226, 232, 240);
+            saleDetailsCard.BorderRadius = 14;
+            saleDetailsCard.BorderThickness = 1;
+            saleDetailsCard.Controls.Add(saleDetailsRoot);
+            saleDetailsCard.CustomizableEdges = customizableEdges11;
+            saleDetailsCard.Dock = DockStyle.Fill;
+            saleDetailsCard.FillColor = Color.White;
+            saleDetailsCard.Location = new Point(0, 0);
+            saleDetailsCard.Margin = new Padding(0, 0, 12, 0);
+            saleDetailsCard.Name = "saleDetailsCard";
+            saleDetailsCard.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            saleDetailsCard.Size = new Size(544, 440);
+            saleDetailsCard.TabIndex = 0;
+            // 
+            // saleDetailsRoot
+            // 
+            saleDetailsRoot.ColumnCount = 1;
+            saleDetailsRoot.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            saleDetailsRoot.Controls.Add(saleDetailsHeaderPanel, 0, 0);
+            saleDetailsRoot.Controls.Add(saleDateCaption, 0, 1);
+            saleDetailsRoot.Controls.Add(DateOutputLbl, 0, 2);
+            saleDetailsRoot.Controls.Add(saleBranchCaption, 0, 3);
+            saleDetailsRoot.Controls.Add(BranchOutputLbl, 0, 4);
+            saleDetailsRoot.Controls.Add(salePaymentCaption, 0, 5);
+            saleDetailsRoot.Controls.Add(PaymentOutputLbl, 0, 6);
+            saleDetailsRoot.Controls.Add(saleCashierCaption, 0, 7);
+            saleDetailsRoot.Controls.Add(CashierOutputLbl, 0, 8);
+            saleDetailsRoot.Controls.Add(saleTotalCaption, 0, 9);
+            saleDetailsRoot.Controls.Add(totalPayOutputLbl, 0, 10);
+            saleDetailsRoot.Dock = DockStyle.Fill;
+            saleDetailsRoot.Location = new Point(0, 0);
+            saleDetailsRoot.Name = "saleDetailsRoot";
+            saleDetailsRoot.Padding = new Padding(20, 14, 20, 14);
+            saleDetailsRoot.RowCount = 11;
+            saleDetailsRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            saleDetailsRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            saleDetailsRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
+            saleDetailsRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            saleDetailsRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
+            saleDetailsRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            saleDetailsRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
+            saleDetailsRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            saleDetailsRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
+            saleDetailsRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            saleDetailsRoot.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            saleDetailsRoot.Size = new Size(544, 440);
+            saleDetailsRoot.TabIndex = 0;
+            // 
+            // saleDetailsHeaderPanel
+            // 
+            saleDetailsHeaderPanel.BackColor = Color.Transparent;
+            saleDetailsHeaderPanel.Controls.Add(SaleDetailsLbl);
+            saleDetailsHeaderPanel.Dock = DockStyle.Fill;
+            saleDetailsHeaderPanel.Location = new Point(23, 17);
+            saleDetailsHeaderPanel.Name = "saleDetailsHeaderPanel";
+            saleDetailsHeaderPanel.Size = new Size(498, 34);
+            saleDetailsHeaderPanel.TabIndex = 0;
+            // 
+            // SaleDetailsLbl
+            // 
+            SaleDetailsLbl.BackColor = Color.Transparent;
+            SaleDetailsLbl.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            SaleDetailsLbl.ForeColor = Color.FromArgb(15, 23, 42);
+            SaleDetailsLbl.Location = new Point(0, 4);
+            SaleDetailsLbl.Name = "SaleDetailsLbl";
+            SaleDetailsLbl.Size = new Size(118, 32);
+            SaleDetailsLbl.TabIndex = 0;
+            SaleDetailsLbl.Text = "Sale Details";
+            // 
+            // saleDateCaption
+            // 
+            saleDateCaption.AutoSize = true;
+            saleDateCaption.Dock = DockStyle.Fill;
+            saleDateCaption.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            saleDateCaption.ForeColor = Color.FromArgb(100, 116, 139);
+            saleDateCaption.Location = new Point(23, 54);
+            saleDateCaption.Name = "saleDateCaption";
+            saleDateCaption.Size = new Size(498, 22);
+            saleDateCaption.TabIndex = 1;
+            saleDateCaption.Text = "DATE";
+            // 
+            // DateOutputLbl
+            // 
+            DateOutputLbl.AutoSize = true;
+            DateOutputLbl.Dock = DockStyle.Fill;
+            DateOutputLbl.Font = new Font("Segoe UI", 10F);
+            DateOutputLbl.ForeColor = Color.FromArgb(15, 23, 42);
+            DateOutputLbl.Location = new Point(23, 76);
+            DateOutputLbl.Name = "DateOutputLbl";
+            DateOutputLbl.Size = new Size(498, 38);
+            DateOutputLbl.TabIndex = 2;
+            DateOutputLbl.Text = "—";
+            // 
+            // saleBranchCaption
+            // 
+            saleBranchCaption.AutoSize = true;
+            saleBranchCaption.Dock = DockStyle.Fill;
+            saleBranchCaption.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            saleBranchCaption.ForeColor = Color.FromArgb(100, 116, 139);
+            saleBranchCaption.Location = new Point(23, 114);
+            saleBranchCaption.Name = "saleBranchCaption";
+            saleBranchCaption.Size = new Size(498, 22);
+            saleBranchCaption.TabIndex = 3;
+            saleBranchCaption.Text = "BRANCH";
+            // 
+            // BranchOutputLbl
+            // 
+            BranchOutputLbl.AutoSize = true;
+            BranchOutputLbl.Dock = DockStyle.Fill;
+            BranchOutputLbl.Font = new Font("Segoe UI", 10F);
+            BranchOutputLbl.ForeColor = Color.FromArgb(15, 23, 42);
+            BranchOutputLbl.Location = new Point(23, 136);
+            BranchOutputLbl.Name = "BranchOutputLbl";
+            BranchOutputLbl.Size = new Size(498, 38);
+            BranchOutputLbl.TabIndex = 4;
+            BranchOutputLbl.Text = "—";
+            // 
+            // salePaymentCaption
+            // 
+            salePaymentCaption.AutoSize = true;
+            salePaymentCaption.Dock = DockStyle.Fill;
+            salePaymentCaption.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            salePaymentCaption.ForeColor = Color.FromArgb(100, 116, 139);
+            salePaymentCaption.Location = new Point(23, 174);
+            salePaymentCaption.Name = "salePaymentCaption";
+            salePaymentCaption.Size = new Size(498, 22);
+            salePaymentCaption.TabIndex = 5;
+            salePaymentCaption.Text = "PAYMENT METHOD";
+            // 
+            // PaymentOutputLbl
+            // 
+            PaymentOutputLbl.AutoSize = true;
+            PaymentOutputLbl.Dock = DockStyle.Fill;
+            PaymentOutputLbl.Font = new Font("Segoe UI", 10F);
+            PaymentOutputLbl.ForeColor = Color.FromArgb(15, 23, 42);
+            PaymentOutputLbl.Location = new Point(23, 196);
+            PaymentOutputLbl.Name = "PaymentOutputLbl";
+            PaymentOutputLbl.Size = new Size(498, 38);
+            PaymentOutputLbl.TabIndex = 6;
+            PaymentOutputLbl.Text = "—";
+            // 
+            // saleCashierCaption
+            // 
+            saleCashierCaption.AutoSize = true;
+            saleCashierCaption.Dock = DockStyle.Fill;
+            saleCashierCaption.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            saleCashierCaption.ForeColor = Color.FromArgb(100, 116, 139);
+            saleCashierCaption.Location = new Point(23, 234);
+            saleCashierCaption.Name = "saleCashierCaption";
+            saleCashierCaption.Size = new Size(498, 22);
+            saleCashierCaption.TabIndex = 7;
+            saleCashierCaption.Text = "CASHIER";
+            // 
+            // CashierOutputLbl
+            // 
+            CashierOutputLbl.AutoSize = true;
+            CashierOutputLbl.Dock = DockStyle.Fill;
+            CashierOutputLbl.Font = new Font("Segoe UI", 10F);
+            CashierOutputLbl.ForeColor = Color.FromArgb(15, 23, 42);
+            CashierOutputLbl.Location = new Point(23, 256);
+            CashierOutputLbl.Name = "CashierOutputLbl";
+            CashierOutputLbl.Size = new Size(498, 38);
+            CashierOutputLbl.TabIndex = 8;
+            CashierOutputLbl.Text = "—";
+            // 
+            // saleTotalCaption
+            // 
+            saleTotalCaption.AutoSize = true;
+            saleTotalCaption.Dock = DockStyle.Fill;
+            saleTotalCaption.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            saleTotalCaption.ForeColor = Color.FromArgb(100, 116, 139);
+            saleTotalCaption.Location = new Point(23, 294);
+            saleTotalCaption.Name = "saleTotalCaption";
+            saleTotalCaption.Size = new Size(498, 22);
+            saleTotalCaption.TabIndex = 9;
+            saleTotalCaption.Text = "TOTAL PAYMENT";
+            // 
+            // totalPayOutputLbl
+            // 
+            totalPayOutputLbl.AutoSize = true;
+            totalPayOutputLbl.Dock = DockStyle.Fill;
+            totalPayOutputLbl.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            totalPayOutputLbl.ForeColor = Color.FromArgb(22, 163, 74);
+            totalPayOutputLbl.Location = new Point(23, 316);
+            totalPayOutputLbl.Name = "totalPayOutputLbl";
+            totalPayOutputLbl.Size = new Size(498, 110);
+            totalPayOutputLbl.TabIndex = 10;
+            totalPayOutputLbl.Text = "—";
+            // 
+            // returnPanel
+            // 
+            returnPanel.BorderColor = Color.FromArgb(226, 232, 240);
+            returnPanel.BorderRadius = 14;
+            returnPanel.BorderThickness = 1;
+            returnPanel.Controls.Add(returnRoot);
+            returnPanel.CustomizableEdges = customizableEdges15;
+            returnPanel.Dock = DockStyle.Fill;
+            returnPanel.FillColor = Color.White;
+            returnPanel.Location = new Point(568, 0);
+            returnPanel.Margin = new Padding(12, 0, 0, 0);
+            returnPanel.Name = "returnPanel";
+            returnPanel.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            returnPanel.Size = new Size(758, 440);
+            returnPanel.TabIndex = 1;
+            // 
+            // returnRoot
+            // 
+            returnRoot.ColumnCount = 1;
+            returnRoot.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            returnRoot.Controls.Add(returnHeaderPanel, 0, 0);
+            returnRoot.Controls.Add(reasonCaption, 0, 1);
+            returnRoot.Controls.Add(ReasonComboBox, 0, 2);
+            returnRoot.Controls.Add(refundCaption, 0, 3);
+            returnRoot.Controls.Add(refundRadiosPanel, 0, 4);
+            returnRoot.Controls.Add(notesCaption, 0, 5);
+            returnRoot.Controls.Add(NotesTextBox, 0, 6);
+            returnRoot.Controls.Add(phoneCaption, 0, 7);
+            returnRoot.Controls.Add(phoneTextBox, 0, 8);
+            returnRoot.Controls.Add(refundPreviewCaption, 0, 9);
+            returnRoot.Controls.Add(RefundPreviewOutputLbl, 0, 10);
+            returnRoot.Controls.Add(returnButtonsPanel, 0, 11);
+            returnRoot.Dock = DockStyle.Fill;
+            returnRoot.Location = new Point(0, 0);
+            returnRoot.Name = "returnRoot";
+            returnRoot.Padding = new Padding(20, 14, 20, 14);
+            returnRoot.RowCount = 12;
+            returnRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            returnRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            returnRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 46F));
+            returnRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            returnRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 36F));
+            returnRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            returnRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
+            returnRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            returnRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            returnRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            returnRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 36F));
+            returnRoot.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            returnRoot.Size = new Size(758, 440);
+            returnRoot.TabIndex = 0;
+            // 
+            // returnHeaderPanel
+            // 
+            returnHeaderPanel.BackColor = Color.Transparent;
+            returnHeaderPanel.Controls.Add(ReturnActionLbl);
+            returnHeaderPanel.Dock = DockStyle.Fill;
+            returnHeaderPanel.Location = new Point(23, 17);
+            returnHeaderPanel.Name = "returnHeaderPanel";
+            returnHeaderPanel.Size = new Size(712, 34);
+            returnHeaderPanel.TabIndex = 0;
+            // 
+            // ReturnActionLbl
+            // 
+            ReturnActionLbl.BackColor = Color.Transparent;
+            ReturnActionLbl.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            ReturnActionLbl.ForeColor = Color.FromArgb(15, 23, 42);
+            ReturnActionLbl.Location = new Point(0, 4);
+            ReturnActionLbl.Name = "ReturnActionLbl";
+            ReturnActionLbl.Size = new Size(142, 32);
+            ReturnActionLbl.TabIndex = 0;
+            ReturnActionLbl.Text = "Return Action";
+            // 
+            // reasonCaption
+            // 
+            reasonCaption.AutoSize = true;
+            reasonCaption.Dock = DockStyle.Fill;
+            reasonCaption.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            reasonCaption.ForeColor = Color.FromArgb(51, 65, 85);
+            reasonCaption.Location = new Point(23, 54);
+            reasonCaption.Name = "reasonCaption";
+            reasonCaption.Size = new Size(712, 22);
+            reasonCaption.TabIndex = 1;
+            reasonCaption.Text = "Reason";
+            // 
+            // ReasonComboBox
+            // 
+            ReasonComboBox.BackColor = Color.Transparent;
+            ReasonComboBox.BorderColor = Color.FromArgb(203, 213, 225);
+            ReasonComboBox.BorderRadius = 8;
+            ReasonComboBox.CustomizableEdges = customizableEdges9;
+            ReasonComboBox.Dock = DockStyle.Fill;
+            ReasonComboBox.DrawMode = DrawMode.OwnerDrawFixed;
+            ReasonComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            ReasonComboBox.FocusedColor = Color.FromArgb(37, 99, 235);
+            ReasonComboBox.FocusedState.BorderColor = Color.FromArgb(37, 99, 235);
+            ReasonComboBox.Font = new Font("Segoe UI", 10F);
+            ReasonComboBox.ForeColor = Color.FromArgb(68, 88, 112);
+            ReasonComboBox.HoverState.BorderColor = Color.FromArgb(37, 99, 235);
+            ReasonComboBox.ItemHeight = 30;
+            ReasonComboBox.Items.AddRange(new object[] { "Defective / Faulty item", "Damaged item (on arrival or during use)", "Expired product", "Missing parts / incomplete", "Not functioning as expected", "Poor quality", "Wrong size", "Doesn't fit", "Not compatible (device/accessory mismatch)", "Wrong item sold", "Wrong quantity", "Duplicate purchase", "Pricing error", "Incorrect item in package", "Wrong item delivered", "Item damaged during delivery", "Warranty claim", "Exchange instead of refund", "Other" });
+            ReasonComboBox.Location = new Point(23, 81);
+            ReasonComboBox.Margin = new Padding(3, 5, 3, 5);
+            ReasonComboBox.Name = "ReasonComboBox";
+            ReasonComboBox.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            ReasonComboBox.Size = new Size(712, 36);
+            ReasonComboBox.TabIndex = 2;
+            // 
+            // refundCaption
+            // 
+            refundCaption.AutoSize = true;
+            refundCaption.Dock = DockStyle.Fill;
+            refundCaption.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            refundCaption.ForeColor = Color.FromArgb(51, 65, 85);
+            refundCaption.Location = new Point(23, 122);
+            refundCaption.Name = "refundCaption";
+            refundCaption.Size = new Size(712, 22);
+            refundCaption.TabIndex = 3;
+            refundCaption.Text = "Refund Type";
+            // 
+            // refundRadiosPanel
+            // 
+            refundRadiosPanel.BackColor = Color.Transparent;
+            refundRadiosPanel.Controls.Add(rbStoreCredit);
+            refundRadiosPanel.Controls.Add(rbCash);
+            refundRadiosPanel.Dock = DockStyle.Fill;
+            refundRadiosPanel.Location = new Point(23, 147);
+            refundRadiosPanel.Name = "refundRadiosPanel";
+            refundRadiosPanel.Size = new Size(712, 30);
+            refundRadiosPanel.TabIndex = 4;
             // 
             // rbStoreCredit
             // 
             rbStoreCredit.AutoSize = true;
-            rbStoreCredit.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            rbStoreCredit.CheckedState.BorderColor = Color.FromArgb(37, 99, 235);
             rbStoreCredit.CheckedState.BorderThickness = 0;
-            rbStoreCredit.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            rbStoreCredit.CheckedState.FillColor = Color.FromArgb(37, 99, 235);
             rbStoreCredit.CheckedState.InnerColor = Color.White;
             rbStoreCredit.CheckedState.InnerOffset = -4;
-            rbStoreCredit.Font = new Font("Arial", 10F);
-            rbStoreCredit.Location = new Point(241, 122);
+            rbStoreCredit.Font = new Font("Segoe UI", 10F);
+            rbStoreCredit.ForeColor = Color.FromArgb(30, 41, 59);
+            rbStoreCredit.Location = new Point(120, 3);
             rbStoreCredit.Name = "rbStoreCredit";
-            rbStoreCredit.Size = new Size(113, 23);
-            rbStoreCredit.TabIndex = 14;
-            rbStoreCredit.Text = "StoreCredit";
-            rbStoreCredit.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            rbStoreCredit.Size = new Size(121, 27);
+            rbStoreCredit.TabIndex = 1;
+            rbStoreCredit.Text = "Store Credit";
+            rbStoreCredit.UncheckedState.BorderColor = Color.FromArgb(203, 213, 225);
             rbStoreCredit.UncheckedState.BorderThickness = 2;
             rbStoreCredit.UncheckedState.FillColor = Color.Transparent;
             rbStoreCredit.UncheckedState.InnerColor = Color.Transparent;
@@ -315,467 +649,397 @@
             // rbCash
             // 
             rbCash.AutoSize = true;
-            rbCash.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            rbCash.Checked = true;
+            rbCash.CheckedState.BorderColor = Color.FromArgb(37, 99, 235);
             rbCash.CheckedState.BorderThickness = 0;
-            rbCash.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            rbCash.CheckedState.FillColor = Color.FromArgb(37, 99, 235);
             rbCash.CheckedState.InnerColor = Color.White;
             rbCash.CheckedState.InnerOffset = -4;
-            rbCash.Font = new Font("Arial", 10F);
-            rbCash.Location = new Point(156, 122);
+            rbCash.Font = new Font("Segoe UI", 10F);
+            rbCash.ForeColor = Color.FromArgb(30, 41, 59);
+            rbCash.Location = new Point(0, 3);
             rbCash.Name = "rbCash";
-            rbCash.Size = new Size(68, 23);
-            rbCash.TabIndex = 13;
+            rbCash.Size = new Size(68, 27);
+            rbCash.TabIndex = 0;
+            rbCash.TabStop = true;
             rbCash.Text = "Cash";
-            rbCash.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            rbCash.UncheckedState.BorderColor = Color.FromArgb(203, 213, 225);
             rbCash.UncheckedState.BorderThickness = 2;
             rbCash.UncheckedState.FillColor = Color.Transparent;
             rbCash.UncheckedState.InnerColor = Color.Transparent;
             // 
+            // notesCaption
+            // 
+            notesCaption.AutoSize = true;
+            notesCaption.Dock = DockStyle.Fill;
+            notesCaption.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            notesCaption.ForeColor = Color.FromArgb(51, 65, 85);
+            notesCaption.Location = new Point(23, 180);
+            notesCaption.Name = "notesCaption";
+            notesCaption.Size = new Size(712, 22);
+            notesCaption.TabIndex = 5;
+            notesCaption.Text = "Notes";
+            // 
             // NotesTextBox
             // 
-            NotesTextBox.CustomizableEdges = customizableEdges9;
+            NotesTextBox.BorderColor = Color.FromArgb(203, 213, 225);
+            NotesTextBox.BorderRadius = 8;
+            NotesTextBox.CustomizableEdges = customizableEdges5;
             NotesTextBox.DefaultText = "";
             NotesTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             NotesTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             NotesTextBox.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             NotesTextBox.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            NotesTextBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            NotesTextBox.Font = new Font("Arial", 10F);
-            NotesTextBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            NotesTextBox.Location = new Point(157, 169);
-            NotesTextBox.Margin = new Padding(3, 4, 3, 4);
+            NotesTextBox.Dock = DockStyle.Fill;
+            NotesTextBox.FocusedState.BorderColor = Color.FromArgb(37, 99, 235);
+            NotesTextBox.Font = new Font("Segoe UI", 10F);
+            NotesTextBox.HoverState.BorderColor = Color.FromArgb(37, 99, 235);
+            NotesTextBox.Location = new Point(23, 207);
+            NotesTextBox.Margin = new Padding(3, 5, 3, 5);
             NotesTextBox.Multiline = true;
             NotesTextBox.Name = "NotesTextBox";
-            NotesTextBox.PlaceholderText = "";
+            NotesTextBox.PlaceholderForeColor = Color.FromArgb(148, 163, 184);
+            NotesTextBox.PlaceholderText = "Optional comments...";
             NotesTextBox.SelectedText = "";
-            NotesTextBox.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            NotesTextBox.Size = new Size(412, 62);
-            NotesTextBox.TabIndex = 12;
+            NotesTextBox.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            NotesTextBox.Size = new Size(712, 46);
+            NotesTextBox.TabIndex = 6;
             // 
-            // ReasonComboBox
+            // phoneCaption
             // 
-            ReasonComboBox.BackColor = Color.Transparent;
-            ReasonComboBox.CustomizableEdges = customizableEdges11;
-            ReasonComboBox.DrawMode = DrawMode.OwnerDrawFixed;
-            ReasonComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            ReasonComboBox.FocusedColor = Color.FromArgb(94, 148, 255);
-            ReasonComboBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            ReasonComboBox.Font = new Font("Arial", 10F);
-            ReasonComboBox.ForeColor = Color.FromArgb(68, 88, 112);
-            ReasonComboBox.ItemHeight = 30;
-            ReasonComboBox.Items.AddRange(new object[] { "## Product Issues", "", "Defective / Faulty item", "", "Damaged item (on arrival or during use)", "", "Expired product", "", "Missing parts / incomplete", "", "Not functioning as expected", "", "Poor quality", "", "", "Other (with optional comment)", "", "## ", "Size / Fit / Compatibility", "", "Wrong size", "", "Doesn’t fit", "", "Not compatible (device/accessory mismatch)", "", "", "Other (with optional comment)", "", "## Order / Transaction Errors", "", "Wrong item sold", "", "Wrong quantity", "", "Duplicate purchase", "", "Pricing error", "", "Incorrect item in package", "", "Other (with optional comment)", "", "## ", "Delivery Issues", "", "", "Wrong item delivered", "", "Item damaged during delivery", "", "", "Other (with optional comment)", "", "## Store Policy / Other", "", "Warranty claim", "", "Exchange instead of refund", "", "", "Other (with optional comment)" });
-            ReasonComboBox.Location = new Point(156, 76);
-            ReasonComboBox.Name = "ReasonComboBox";
-            ReasonComboBox.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            ReasonComboBox.Size = new Size(413, 36);
-            ReasonComboBox.TabIndex = 9;
+            phoneCaption.AutoSize = true;
+            phoneCaption.Dock = DockStyle.Fill;
+            phoneCaption.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            phoneCaption.ForeColor = Color.FromArgb(51, 65, 85);
+            phoneCaption.Location = new Point(23, 258);
+            phoneCaption.Name = "phoneCaption";
+            phoneCaption.Size = new Size(712, 22);
+            phoneCaption.TabIndex = 7;
+            phoneCaption.Text = "Customer Phone (required for Store Credit)";
+            // 
+            // phoneTextBox
+            // 
+            phoneTextBox.BorderColor = Color.FromArgb(203, 213, 225);
+            phoneTextBox.BorderRadius = 8;
+            phoneTextBox.CustomizableEdges = customizableEdges13;
+            phoneTextBox.DefaultText = "";
+            phoneTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            phoneTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            phoneTextBox.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            phoneTextBox.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            phoneTextBox.Dock = DockStyle.Fill;
+            phoneTextBox.FocusedState.BorderColor = Color.FromArgb(37, 99, 235);
+            phoneTextBox.Font = new Font("Segoe UI", 10F);
+            phoneTextBox.HoverState.BorderColor = Color.FromArgb(37, 99, 235);
+            phoneTextBox.Location = new Point(23, 285);
+            phoneTextBox.Margin = new Padding(3, 5, 3, 5);
+            phoneTextBox.Name = "phoneTextBox";
+            phoneTextBox.PlaceholderForeColor = Color.FromArgb(148, 163, 184);
+            phoneTextBox.PlaceholderText = "e.g. 0712 345 678";
+            phoneTextBox.SelectedText = "";
+            phoneTextBox.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            phoneTextBox.Size = new Size(712, 40);
+            phoneTextBox.TabIndex = 8;
+            // 
+            // refundPreviewCaption
+            // 
+            refundPreviewCaption.AutoSize = true;
+            refundPreviewCaption.Dock = DockStyle.Fill;
+            refundPreviewCaption.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            refundPreviewCaption.ForeColor = Color.FromArgb(51, 65, 85);
+            refundPreviewCaption.Location = new Point(23, 330);
+            refundPreviewCaption.Name = "refundPreviewCaption";
+            refundPreviewCaption.Size = new Size(712, 22);
+            refundPreviewCaption.TabIndex = 9;
+            refundPreviewCaption.Text = "Refund Preview";
+            // 
+            // RefundPreviewOutputLbl
+            // 
+            RefundPreviewOutputLbl.AutoSize = true;
+            RefundPreviewOutputLbl.Dock = DockStyle.Fill;
+            RefundPreviewOutputLbl.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            RefundPreviewOutputLbl.ForeColor = Color.FromArgb(220, 38, 38);
+            RefundPreviewOutputLbl.Location = new Point(23, 352);
+            RefundPreviewOutputLbl.Name = "RefundPreviewOutputLbl";
+            RefundPreviewOutputLbl.Size = new Size(712, 36);
+            RefundPreviewOutputLbl.TabIndex = 10;
+            RefundPreviewOutputLbl.Text = "—";
+            // 
+            // returnButtonsPanel
+            // 
+            returnButtonsPanel.BackColor = Color.Transparent;
+            returnButtonsPanel.Controls.Add(printRtnRcptBtn);
+            returnButtonsPanel.Controls.Add(ProcessReturnBtn);
+            returnButtonsPanel.Dock = DockStyle.Fill;
+            returnButtonsPanel.Location = new Point(23, 391);
+            returnButtonsPanel.Name = "returnButtonsPanel";
+            returnButtonsPanel.Size = new Size(712, 32);
+            returnButtonsPanel.TabIndex = 11;
             // 
             // printRtnRcptBtn
             // 
-            printRtnRcptBtn.CustomizableEdges = customizableEdges13;
+            printRtnRcptBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            printRtnRcptBtn.BorderColor = Color.FromArgb(203, 213, 225);
+            printRtnRcptBtn.BorderRadius = 10;
+            printRtnRcptBtn.BorderThickness = 1;
+            printRtnRcptBtn.Cursor = Cursors.Hand;
+            printRtnRcptBtn.CustomizableEdges = customizableEdges7;
             printRtnRcptBtn.DisabledState.BorderColor = Color.DarkGray;
             printRtnRcptBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             printRtnRcptBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            printRtnRcptBtn.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
             printRtnRcptBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            printRtnRcptBtn.FillColor = Color.FromArgb(79, 172, 254);
-            printRtnRcptBtn.FillColor2 = Color.FromArgb(102, 126, 234);
-            printRtnRcptBtn.Font = new Font("Segoe UI", 9F);
-            printRtnRcptBtn.ForeColor = Color.White;
-            printRtnRcptBtn.HoverState.FillColor = Color.FromArgb(102, 126, 234);
-            printRtnRcptBtn.HoverState.FillColor2 = Color.FromArgb(118, 75, 162);
-            printRtnRcptBtn.Location = new Point(294, 307);
+            printRtnRcptBtn.FillColor = Color.White;
+            printRtnRcptBtn.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            printRtnRcptBtn.ForeColor = Color.FromArgb(51, 65, 85);
+            printRtnRcptBtn.HoverState.FillColor = Color.FromArgb(248, 250, 252);
+            printRtnRcptBtn.Location = new Point(320, 0);
             printRtnRcptBtn.Name = "printRtnRcptBtn";
-            printRtnRcptBtn.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            printRtnRcptBtn.Size = new Size(162, 36);
-            printRtnRcptBtn.TabIndex = 8;
+            printRtnRcptBtn.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            printRtnRcptBtn.Size = new Size(210, 30);
+            printRtnRcptBtn.TabIndex = 1;
             printRtnRcptBtn.Text = "Print Return Receipt";
             // 
             // ProcessReturnBtn
             // 
-            ProcessReturnBtn.CustomizableEdges = customizableEdges15;
+            ProcessReturnBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ProcessReturnBtn.BorderRadius = 10;
+            ProcessReturnBtn.CustomizableEdges = customizableEdges11;
             ProcessReturnBtn.DisabledState.BorderColor = Color.DarkGray;
             ProcessReturnBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             ProcessReturnBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             ProcessReturnBtn.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
             ProcessReturnBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            ProcessReturnBtn.FillColor = Color.FromArgb(79, 172, 254);
-            ProcessReturnBtn.FillColor2 = Color.FromArgb(102, 126, 234);
-            ProcessReturnBtn.Font = new Font("Segoe UI", 9F);
+            ProcessReturnBtn.FillColor = Color.FromArgb(22, 163, 74);
+            ProcessReturnBtn.FillColor2 = Color.FromArgb(34, 197, 94);
+            ProcessReturnBtn.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             ProcessReturnBtn.ForeColor = Color.White;
-            ProcessReturnBtn.HoverState.FillColor = Color.FromArgb(102, 126, 234);
-            ProcessReturnBtn.HoverState.FillColor2 = Color.FromArgb(118, 75, 162);
-            ProcessReturnBtn.Location = new Point(23, 307);
+            ProcessReturnBtn.HoverState.FillColor = Color.FromArgb(21, 128, 61);
+            ProcessReturnBtn.HoverState.FillColor2 = Color.FromArgb(22, 163, 74);
+            ProcessReturnBtn.Location = new Point(545, 0);
             ProcessReturnBtn.Name = "ProcessReturnBtn";
-            ProcessReturnBtn.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            ProcessReturnBtn.Size = new Size(162, 36);
-            ProcessReturnBtn.TabIndex = 7;
+            ProcessReturnBtn.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            ProcessReturnBtn.Size = new Size(164, 30);
+            ProcessReturnBtn.TabIndex = 0;
             ProcessReturnBtn.Text = "Process Return";
             ProcessReturnBtn.Click += ProcessReturnBtn_Click;
             // 
-            // RefundPreviewOutputLbl
+            // itemsCard
             // 
-            RefundPreviewOutputLbl.BackColor = Color.Transparent;
-            RefundPreviewOutputLbl.Font = new Font("Arial", 10F);
-            RefundPreviewOutputLbl.Location = new Point(157, 238);
-            RefundPreviewOutputLbl.Name = "RefundPreviewOutputLbl";
-            RefundPreviewOutputLbl.Size = new Size(30, 21);
-            RefundPreviewOutputLbl.TabIndex = 6;
-            RefundPreviewOutputLbl.Text = "N/A";
+            itemsCard.BorderColor = Color.FromArgb(226, 232, 240);
+            itemsCard.BorderRadius = 14;
+            itemsCard.BorderThickness = 1;
+            itemsCard.Controls.Add(itemsRoot);
+            itemsCard.CustomizableEdges = customizableEdges15;
+            itemsCard.Dock = DockStyle.Fill;
+            itemsCard.FillColor = Color.White;
+            itemsCard.Location = new Point(20, 586);
+            itemsCard.Margin = new Padding(0, 16, 0, 0);
+            itemsCard.Name = "itemsCard";
+            itemsCard.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            itemsCard.Size = new Size(1326, 162);
+            itemsCard.TabIndex = 3;
             // 
-            // RefundsPreviewLbl
+            // itemsRoot
             // 
-            RefundsPreviewLbl.BackColor = Color.Transparent;
-            RefundsPreviewLbl.Font = new Font("Arial", 10F);
-            RefundsPreviewLbl.Location = new Point(21, 238);
-            RefundsPreviewLbl.Name = "RefundsPreviewLbl";
-            RefundsPreviewLbl.Size = new Size(130, 21);
-            RefundsPreviewLbl.TabIndex = 5;
-            RefundsPreviewLbl.Text = "Refunds Preview:";
+            itemsRoot.ColumnCount = 1;
+            itemsRoot.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            itemsRoot.Controls.Add(itemsHeaderPanel, 0, 0);
+            itemsRoot.Controls.Add(gridSaleItems, 0, 1);
+            itemsRoot.Dock = DockStyle.Fill;
+            itemsRoot.Location = new Point(0, 0);
+            itemsRoot.Name = "itemsRoot";
+            itemsRoot.Padding = new Padding(20, 14, 20, 20);
+            itemsRoot.RowCount = 2;
+            itemsRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 36F));
+            itemsRoot.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            itemsRoot.Size = new Size(1326, 162);
+            itemsRoot.TabIndex = 0;
             // 
-            // NotesLbl
+            // itemsHeaderPanel
             // 
-            NotesLbl.BackColor = Color.Transparent;
-            NotesLbl.Font = new Font("Arial", 10F);
-            NotesLbl.Location = new Point(21, 169);
-            NotesLbl.Name = "NotesLbl";
-            NotesLbl.Size = new Size(49, 21);
-            NotesLbl.TabIndex = 3;
-            NotesLbl.Text = "Notes:";
+            itemsHeaderPanel.BackColor = Color.Transparent;
+            itemsHeaderPanel.Controls.Add(selectedCountLbl);
+            itemsHeaderPanel.Controls.Add(itemsHeaderLbl);
+            itemsHeaderPanel.Dock = DockStyle.Fill;
+            itemsHeaderPanel.Location = new Point(23, 17);
+            itemsHeaderPanel.Name = "itemsHeaderPanel";
+            itemsHeaderPanel.Size = new Size(1280, 30);
+            itemsHeaderPanel.TabIndex = 0;
             // 
-            // RefundLbl
+            // selectedCountLbl
             // 
-            RefundLbl.BackColor = Color.Transparent;
-            RefundLbl.Font = new Font("Arial", 10F);
-            RefundLbl.Location = new Point(21, 122);
-            RefundLbl.Name = "RefundLbl";
-            RefundLbl.Size = new Size(101, 21);
-            RefundLbl.TabIndex = 2;
-            RefundLbl.Text = "Refund Type:";
+            selectedCountLbl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            selectedCountLbl.BackColor = Color.Transparent;
+            selectedCountLbl.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            selectedCountLbl.ForeColor = Color.FromArgb(37, 99, 235);
+            selectedCountLbl.Location = new Point(1100, 5);
+            selectedCountLbl.Name = "selectedCountLbl";
+            selectedCountLbl.Size = new Size(79, 25);
+            selectedCountLbl.TabIndex = 1;
+            selectedCountLbl.Text = "0 selected";
+            selectedCountLbl.TextAlignment = ContentAlignment.TopRight;
             // 
-            // ReasonLbl
+            // itemsHeaderLbl
             // 
-            ReasonLbl.BackColor = Color.Transparent;
-            ReasonLbl.Font = new Font("Arial", 10F);
-            ReasonLbl.Location = new Point(21, 76);
-            ReasonLbl.Name = "ReasonLbl";
-            ReasonLbl.Size = new Size(63, 21);
-            ReasonLbl.TabIndex = 1;
-            ReasonLbl.Text = "Reason:";
+            itemsHeaderLbl.BackColor = Color.Transparent;
+            itemsHeaderLbl.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            itemsHeaderLbl.ForeColor = Color.FromArgb(15, 23, 42);
+            itemsHeaderLbl.Location = new Point(0, 2);
+            itemsHeaderLbl.Name = "itemsHeaderLbl";
+            itemsHeaderLbl.Size = new Size(97, 30);
+            itemsHeaderLbl.TabIndex = 0;
+            itemsHeaderLbl.Text = "Sale Items";
             // 
-            // ReturnPanelHeader
+            // gridSaleItems
             // 
-            ReturnPanelHeader.Controls.Add(ReturnActionLbl);
-            ReturnPanelHeader.CustomizableEdges = customizableEdges17;
-            ReturnPanelHeader.Dock = DockStyle.Top;
-            ReturnPanelHeader.Location = new Point(0, 0);
-            ReturnPanelHeader.Name = "ReturnPanelHeader";
-            ReturnPanelHeader.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            ReturnPanelHeader.Size = new Size(704, 44);
-            ReturnPanelHeader.TabIndex = 0;
-            // 
-            // ReturnActionLbl
-            // 
-            ReturnActionLbl.BackColor = Color.Transparent;
-            ReturnActionLbl.Font = new Font("Arial", 10F);
-            ReturnActionLbl.Location = new Point(21, 11);
-            ReturnActionLbl.Name = "ReturnActionLbl";
-            ReturnActionLbl.Size = new Size(132, 21);
-            ReturnActionLbl.TabIndex = 0;
-            ReturnActionLbl.Text = "RETURN ACTION";
-            // 
-            // SaleDetailsPanel
-            // 
-            SaleDetailsPanel.BackColor = Color.White;
-            SaleDetailsPanel.Controls.Add(totalPayOutputLbl);
-            SaleDetailsPanel.Controls.Add(totalPaymentLbl);
-            SaleDetailsPanel.Controls.Add(CashierOutputLbl);
-            SaleDetailsPanel.Controls.Add(PaymentOutputLbl);
-            SaleDetailsPanel.Controls.Add(BranchOutputLbl);
-            SaleDetailsPanel.Controls.Add(DateOutputLbl);
-            SaleDetailsPanel.Controls.Add(CashierLbl);
-            SaleDetailsPanel.Controls.Add(PaymentLbl);
-            SaleDetailsPanel.Controls.Add(BranchLbl);
-            SaleDetailsPanel.Controls.Add(DateLbl);
-            SaleDetailsPanel.Controls.Add(SalesDetailsPanelHeader);
-            SaleDetailsPanel.CustomizableEdges = customizableEdges23;
-            SaleDetailsPanel.Dock = DockStyle.Left;
-            SaleDetailsPanel.Location = new Point(0, 0);
-            SaleDetailsPanel.Name = "SaleDetailsPanel";
-            SaleDetailsPanel.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            SaleDetailsPanel.Size = new Size(541, 363);
-            SaleDetailsPanel.TabIndex = 0;
-            // 
-            // totalPayOutputLbl
-            // 
-            totalPayOutputLbl.BackColor = Color.Transparent;
-            totalPayOutputLbl.Font = new Font("Arial", 10F);
-            totalPayOutputLbl.Location = new Point(133, 188);
-            totalPayOutputLbl.Name = "totalPayOutputLbl";
-            totalPayOutputLbl.Size = new Size(30, 21);
-            totalPayOutputLbl.TabIndex = 10;
-            totalPayOutputLbl.Text = "N/A";
-            // 
-            // totalPaymentLbl
-            // 
-            totalPaymentLbl.BackColor = Color.Transparent;
-            totalPaymentLbl.Font = new Font("Arial", 10F);
-            totalPaymentLbl.Location = new Point(16, 188);
-            totalPaymentLbl.Name = "totalPaymentLbl";
-            totalPaymentLbl.Size = new Size(111, 21);
-            totalPaymentLbl.TabIndex = 9;
-            totalPaymentLbl.Text = "Total Payment:";
-            // 
-            // CashierOutputLbl
-            // 
-            CashierOutputLbl.BackColor = Color.Transparent;
-            CashierOutputLbl.Font = new Font("Arial", 10F);
-            CashierOutputLbl.Location = new Point(87, 161);
-            CashierOutputLbl.Name = "CashierOutputLbl";
-            CashierOutputLbl.Size = new Size(30, 21);
-            CashierOutputLbl.TabIndex = 8;
-            CashierOutputLbl.Text = "N/A";
-            // 
-            // PaymentOutputLbl
-            // 
-            PaymentOutputLbl.BackColor = Color.Transparent;
-            PaymentOutputLbl.Font = new Font("Arial", 10F);
-            PaymentOutputLbl.Location = new Point(94, 133);
-            PaymentOutputLbl.Name = "PaymentOutputLbl";
-            PaymentOutputLbl.Size = new Size(30, 21);
-            PaymentOutputLbl.TabIndex = 7;
-            PaymentOutputLbl.Text = "N/A";
-            // 
-            // BranchOutputLbl
-            // 
-            BranchOutputLbl.BackColor = Color.Transparent;
-            BranchOutputLbl.Font = new Font("Arial", 10F);
-            BranchOutputLbl.Location = new Point(83, 104);
-            BranchOutputLbl.Name = "BranchOutputLbl";
-            BranchOutputLbl.Size = new Size(30, 21);
-            BranchOutputLbl.TabIndex = 6;
-            BranchOutputLbl.Text = "N/A";
-            // 
-            // DateOutputLbl
-            // 
-            DateOutputLbl.BackColor = Color.Transparent;
-            DateOutputLbl.Font = new Font("Arial", 10F);
-            DateOutputLbl.Location = new Point(64, 76);
-            DateOutputLbl.Name = "DateOutputLbl";
-            DateOutputLbl.Size = new Size(30, 21);
-            DateOutputLbl.TabIndex = 5;
-            DateOutputLbl.Text = "N/A";
-            // 
-            // CashierLbl
-            // 
-            CashierLbl.BackColor = Color.Transparent;
-            CashierLbl.Font = new Font("Arial", 10F);
-            CashierLbl.Location = new Point(16, 160);
-            CashierLbl.Name = "CashierLbl";
-            CashierLbl.Size = new Size(65, 21);
-            CashierLbl.TabIndex = 4;
-            CashierLbl.Text = "Cashier:";
-            // 
-            // PaymentLbl
-            // 
-            PaymentLbl.BackColor = Color.Transparent;
-            PaymentLbl.Font = new Font("Arial", 10F);
-            PaymentLbl.Location = new Point(16, 132);
-            PaymentLbl.Name = "PaymentLbl";
-            PaymentLbl.Size = new Size(72, 21);
-            PaymentLbl.TabIndex = 3;
-            PaymentLbl.Text = "Payment:";
-            // 
-            // BranchLbl
-            // 
-            BranchLbl.BackColor = Color.Transparent;
-            BranchLbl.Font = new Font("Arial", 10F);
-            BranchLbl.Location = new Point(16, 104);
-            BranchLbl.Name = "BranchLbl";
-            BranchLbl.Size = new Size(61, 21);
-            BranchLbl.TabIndex = 2;
-            BranchLbl.Text = "Branch:";
-            // 
-            // DateLbl
-            // 
-            DateLbl.BackColor = Color.Transparent;
-            DateLbl.Font = new Font("Arial", 10F);
-            DateLbl.Location = new Point(16, 76);
-            DateLbl.Name = "DateLbl";
-            DateLbl.Size = new Size(42, 21);
-            DateLbl.TabIndex = 1;
-            DateLbl.Text = "Date:";
-            // 
-            // SalesDetailsPanelHeader
-            // 
-            SalesDetailsPanelHeader.Controls.Add(SaleDetailsLbl);
-            SalesDetailsPanelHeader.CustomizableEdges = customizableEdges21;
-            SalesDetailsPanelHeader.Dock = DockStyle.Top;
-            SalesDetailsPanelHeader.Location = new Point(0, 0);
-            SalesDetailsPanelHeader.Name = "SalesDetailsPanelHeader";
-            SalesDetailsPanelHeader.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            SalesDetailsPanelHeader.Size = new Size(541, 44);
-            SalesDetailsPanelHeader.TabIndex = 0;
-            // 
-            // SaleDetailsLbl
-            // 
-            SaleDetailsLbl.BackColor = Color.Transparent;
-            SaleDetailsLbl.Font = new Font("Arial", 10F);
-            SaleDetailsLbl.Location = new Point(16, 11);
-            SaleDetailsLbl.Name = "SaleDetailsLbl";
-            SaleDetailsLbl.Size = new Size(118, 21);
-            SaleDetailsLbl.TabIndex = 0;
-            SaleDetailsLbl.Text = "SALE DETAILS";
-            // 
-            // ReceiptPanel
-            // 
-            ReceiptPanel.BackColor = Color.White;
-            ReceiptPanel.Controls.Add(rcpLbl);
-            ReceiptPanel.Controls.Add(txtReceiptNo);
-            ReceiptPanel.Controls.Add(FindReceiptBtn);
-            ReceiptPanel.Controls.Add(ReceiptLbl);
-            ReceiptPanel.CustomizableEdges = customizableEdges31;
-            ReceiptPanel.Dock = DockStyle.Top;
-            ReceiptPanel.Location = new Point(0, 118);
-            ReceiptPanel.Name = "ReceiptPanel";
-            ReceiptPanel.ShadowDecoration.CustomizableEdges = customizableEdges32;
-            ReceiptPanel.Size = new Size(1366, 57);
-            ReceiptPanel.TabIndex = 3;
-            // 
-            // txtReceiptNo
-            // 
-            txtReceiptNo.CustomizableEdges = customizableEdges27;
-            txtReceiptNo.DefaultText = "";
-            txtReceiptNo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtReceiptNo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtReceiptNo.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtReceiptNo.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtReceiptNo.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtReceiptNo.Font = new Font("Segoe UI", 9F);
-            txtReceiptNo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtReceiptNo.Location = new Point(149, 7);
-            txtReceiptNo.Margin = new Padding(0, 4, 0, 4);
-            txtReceiptNo.Name = "txtReceiptNo";
-            txtReceiptNo.PlaceholderText = "";
-            txtReceiptNo.SelectedText = "";
-            txtReceiptNo.ShadowDecoration.CustomizableEdges = customizableEdges28;
-            txtReceiptNo.Size = new Size(376, 37);
-            txtReceiptNo.TabIndex = 3;
-            // 
-            // FindReceiptBtn
-            // 
-            FindReceiptBtn.CustomizableEdges = customizableEdges29;
-            FindReceiptBtn.DisabledState.BorderColor = Color.DarkGray;
-            FindReceiptBtn.DisabledState.CustomBorderColor = Color.DarkGray;
-            FindReceiptBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            FindReceiptBtn.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
-            FindReceiptBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            FindReceiptBtn.FillColor = Color.FromArgb(79, 172, 254);
-            FindReceiptBtn.FillColor2 = Color.FromArgb(102, 126, 234);
-            FindReceiptBtn.Font = new Font("Segoe UI", 9F);
-            FindReceiptBtn.ForeColor = Color.White;
-            FindReceiptBtn.HoverState.FillColor = Color.FromArgb(102, 126, 234);
-            FindReceiptBtn.HoverState.FillColor2 = Color.FromArgb(118, 75, 162);
-            FindReceiptBtn.Location = new Point(541, 6);
-            FindReceiptBtn.Name = "FindReceiptBtn";
-            FindReceiptBtn.ShadowDecoration.CustomizableEdges = customizableEdges30;
-            FindReceiptBtn.Size = new Size(167, 37);
-            FindReceiptBtn.TabIndex = 2;
-            FindReceiptBtn.Text = "Find Receipt";
-            FindReceiptBtn.Click += FindReceiptBtn_Click;
-            // 
-            // ReceiptLbl
-            // 
-            ReceiptLbl.BackColor = Color.Transparent;
-            ReceiptLbl.Font = new Font("Arial", 10F);
-            ReceiptLbl.Location = new Point(16, 18);
-            ReceiptLbl.Name = "ReceiptLbl";
-            ReceiptLbl.Size = new Size(88, 21);
-            ReceiptLbl.TabIndex = 0;
-            ReceiptLbl.Text = "Receipt No:";
-            // 
-            // rcpLbl
-            // 
-            rcpLbl.AutoSize = true;
-            rcpLbl.Location = new Point(110, 18);
-            rcpLbl.Name = "rcpLbl";
-            rcpLbl.Size = new Size(36, 20);
-            rcpLbl.TabIndex = 4;
-            rcpLbl.Text = "N/A";
+            gridSaleItems.AllowUserToAddRows = false;
+            gridSaleItems.AllowUserToDeleteRows = false;
+            gridSaleItems.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(250, 251, 253);
+            gridSaleItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(248, 250, 252);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(71, 85, 105);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(248, 250, 252);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(71, 85, 105);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            gridSaleItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            gridSaleItems.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(30, 41, 59);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(239, 246, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(37, 99, 235);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            gridSaleItems.DefaultCellStyle = dataGridViewCellStyle3;
+            gridSaleItems.Dock = DockStyle.Fill;
+            gridSaleItems.GridColor = Color.FromArgb(241, 245, 249);
+            gridSaleItems.Location = new Point(23, 53);
+            gridSaleItems.Name = "gridSaleItems";
+            gridSaleItems.RowHeadersVisible = false;
+            gridSaleItems.RowHeadersWidth = 51;
+            gridSaleItems.RowTemplate.Height = 38;
+            gridSaleItems.Size = new Size(1280, 86);
+            gridSaleItems.TabIndex = 1;
+            gridSaleItems.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 251, 253);
+            gridSaleItems.ThemeStyle.AlternatingRowsStyle.Font = null;
+            gridSaleItems.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            gridSaleItems.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            gridSaleItems.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            gridSaleItems.ThemeStyle.BackColor = Color.White;
+            gridSaleItems.ThemeStyle.GridColor = Color.FromArgb(241, 245, 249);
+            gridSaleItems.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(248, 250, 252);
+            gridSaleItems.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            gridSaleItems.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            gridSaleItems.ThemeStyle.HeaderStyle.ForeColor = Color.FromArgb(71, 85, 105);
+            gridSaleItems.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            gridSaleItems.ThemeStyle.HeaderStyle.Height = 40;
+            gridSaleItems.ThemeStyle.ReadOnly = false;
+            gridSaleItems.ThemeStyle.RowsStyle.BackColor = Color.White;
+            gridSaleItems.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            gridSaleItems.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 10F);
+            gridSaleItems.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(30, 41, 59);
+            gridSaleItems.ThemeStyle.RowsStyle.Height = 38;
+            gridSaleItems.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(239, 246, 255);
+            gridSaleItems.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(37, 99, 235);
             // 
             // ReturnsRefundsPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            Controls.Add(ReceiptPanel);
-            Controls.Add(BodyPanel);
-            Controls.Add(DspItemPanel);
-            Controls.Add(HeaderPanelTop);
+            BackColor = Color.FromArgb(248, 250, 252);
+            Controls.Add(itemsCard);
+            Controls.Add(bodyLayout);
+            Controls.Add(receiptPanel);
+            Controls.Add(headerPanel);
             Name = "ReturnsRefundsPage";
+            Padding = new Padding(20, 0, 20, 20);
             Size = new Size(1366, 768);
-            HeaderPanelTop.ResumeLayout(false);
-            HeaderPanelTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
-            DspItemPanel.ResumeLayout(false);
+            headerPanel.ResumeLayout(false);
+            headerPanel.PerformLayout();
+            receiptPanel.ResumeLayout(false);
+            receiptRoot.ResumeLayout(false);
+            receiptRoot.PerformLayout();
+            bodyLayout.ResumeLayout(false);
+            saleDetailsCard.ResumeLayout(false);
+            saleDetailsRoot.ResumeLayout(false);
+            saleDetailsRoot.PerformLayout();
+            saleDetailsHeaderPanel.ResumeLayout(false);
+            saleDetailsHeaderPanel.PerformLayout();
+            returnPanel.ResumeLayout(false);
+            returnRoot.ResumeLayout(false);
+            returnRoot.PerformLayout();
+            returnHeaderPanel.ResumeLayout(false);
+            returnHeaderPanel.PerformLayout();
+            refundRadiosPanel.ResumeLayout(false);
+            refundRadiosPanel.PerformLayout();
+            returnButtonsPanel.ResumeLayout(false);
+            itemsCard.ResumeLayout(false);
+            itemsRoot.ResumeLayout(false);
+            itemsHeaderPanel.ResumeLayout(false);
+            itemsHeaderPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)gridSaleItems).EndInit();
-            BodyPanel.ResumeLayout(false);
-            ReturnPanel.ResumeLayout(false);
-            ReturnPanel.PerformLayout();
-            ReturnPanelHeader.ResumeLayout(false);
-            ReturnPanelHeader.PerformLayout();
-            SaleDetailsPanel.ResumeLayout(false);
-            SaleDetailsPanel.PerformLayout();
-            SalesDetailsPanelHeader.ResumeLayout(false);
-            SalesDetailsPanelHeader.PerformLayout();
-            ReceiptPanel.ResumeLayout(false);
-            ReceiptPanel.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2GradientPanel HeaderPanelTop;
-        private Guna.UI2.WinForms.Guna2GradientPanel DspItemPanel;
-        private Guna.UI2.WinForms.Guna2GradientPanel BodyPanel;
-        private Guna.UI2.WinForms.Guna2HtmlLabel CurrentBranchLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel returnsLbl;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2GradientPanel ReceiptPanel;
-        private Guna.UI2.WinForms.Guna2GradientButton FindReceiptBtn;
-        private Guna.UI2.WinForms.Guna2HtmlLabel ReceiptLbl;
+        private Guna.UI2.WinForms.Guna2GradientPanel headerPanel;
+        private Guna.UI2.WinForms.Guna2HtmlLabel titleLbl;
+        private Guna.UI2.WinForms.Guna2HtmlLabel branchLbl;
+        private Guna.UI2.WinForms.Guna2Button backToDashboardBtn;
+
+        private Guna.UI2.WinForms.Guna2Panel receiptPanel;
+        private TableLayoutPanel receiptRoot;
+        private Label receiptLabel;
         private Guna.UI2.WinForms.Guna2TextBox txtReceiptNo;
-        private Guna.UI2.WinForms.Guna2GradientPanel ReturnPanel;
-        private Guna.UI2.WinForms.Guna2GradientPanel SaleDetailsPanel;
-        private Guna.UI2.WinForms.Guna2GradientPanel ReturnPanelHeader;
-        private Guna.UI2.WinForms.Guna2GradientPanel SalesDetailsPanelHeader;
-        private Guna.UI2.WinForms.Guna2HtmlLabel ReturnActionLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel CashierOutputLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel PaymentOutputLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel BranchOutputLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel DateOutputLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel CashierLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel PaymentLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel BranchLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel DateLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel SaleDetailsLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel RefundPreviewOutputLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel RefundsPreviewLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel NotesLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel RefundLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel ReasonLbl;
-        private Guna.UI2.WinForms.Guna2GradientButton printRtnRcptBtn;
-        private Guna.UI2.WinForms.Guna2GradientButton ProcessReturnBtn;
-        private Guna.UI2.WinForms.Guna2TextBox NotesTextBox;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox2;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
-        private Guna.UI2.WinForms.Guna2ComboBox ReasonComboBox;
-        private Guna.UI2.WinForms.Guna2RadioButton rbStoreCredit;
-        private Guna.UI2.WinForms.Guna2RadioButton rbCash;
-        private Guna.UI2.WinForms.Guna2DataGridView gridSaleItems;
-        private Guna.UI2.WinForms.Guna2HtmlLabel totalPayOutputLbl;
-        private Guna.UI2.WinForms.Guna2HtmlLabel totalPaymentLbl;
-        private Guna.UI2.WinForms.Guna2Button BackToDashboardBtn;
         private Label rcpLbl;
+        private Guna.UI2.WinForms.Guna2GradientButton FindReceiptBtn;
+
+        private TableLayoutPanel bodyLayout;
+
+        private Guna.UI2.WinForms.Guna2Panel saleDetailsCard;
+        private TableLayoutPanel saleDetailsRoot;
+        private Panel saleDetailsHeaderPanel;
+        private Guna.UI2.WinForms.Guna2HtmlLabel SaleDetailsLbl;
+        private Label saleDateCaption;
+        private Label DateOutputLbl;
+        private Label saleBranchCaption;
+        private Label BranchOutputLbl;
+        private Label salePaymentCaption;
+        private Label PaymentOutputLbl;
+        private Label saleCashierCaption;
+        private Label CashierOutputLbl;
+        private Label saleTotalCaption;
+        private Label totalPayOutputLbl;
+
+        private Guna.UI2.WinForms.Guna2Panel returnPanel;
+        private TableLayoutPanel returnRoot;
+        private Panel returnHeaderPanel;
+        private Guna.UI2.WinForms.Guna2HtmlLabel ReturnActionLbl;
+        private Label reasonCaption;
+        private Guna.UI2.WinForms.Guna2ComboBox ReasonComboBox;
+        private Label refundCaption;
+        private Panel refundRadiosPanel;
+        private Guna.UI2.WinForms.Guna2RadioButton rbCash;
+        private Guna.UI2.WinForms.Guna2RadioButton rbStoreCredit;
+        private Label notesCaption;
+        private Guna.UI2.WinForms.Guna2TextBox NotesTextBox;
+        private Label phoneCaption;
+        private Guna.UI2.WinForms.Guna2TextBox phoneTextBox;
+        private Label refundPreviewCaption;
+        private Label RefundPreviewOutputLbl;
+        private Panel returnButtonsPanel;
+        private Guna.UI2.WinForms.Guna2Button printRtnRcptBtn;
+        private Guna.UI2.WinForms.Guna2GradientButton ProcessReturnBtn;
+
+        private Guna.UI2.WinForms.Guna2Panel itemsCard;
+        private TableLayoutPanel itemsRoot;
+        private Panel itemsHeaderPanel;
+        private Guna.UI2.WinForms.Guna2HtmlLabel itemsHeaderLbl;
+        private Guna.UI2.WinForms.Guna2HtmlLabel selectedCountLbl;
+        private Guna.UI2.WinForms.Guna2DataGridView gridSaleItems;
     }
 }

@@ -20,10 +20,7 @@ namespace Pos_system
             return settings
                 .HasRenderingSettings(settings =>
                 {
-                    // settings.UseGPU = false; // Uncomment if needed
-                    // settings.TryUseVSync = true; // Uncomment if needed
-                    // settings.LiveChartsRenderLoopFPS = 60; // Uncomment if needed
-                    // settings.ShowFPS = false; // Uncomment if needed
+                     //settings.UseGPU = false;
                 })
                 .HasTextSettings(new TextSettings
                 {

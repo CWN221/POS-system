@@ -32,19 +32,25 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             PanelLeftSide = new Guna.UI2.WinForms.Guna2Panel();
             PictureBoxLogo = new Guna.UI2.WinForms.Guna2PictureBox();
             WelcomeLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             SysNameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2PanelLoginCard = new Guna.UI2.WinForms.Guna2Panel();
+            minimizeBtn = new Guna.UI2.WinForms.Guna2ControlBox();
+            exitBtn = new Guna.UI2.WinForms.Guna2ControlBox();
             TitleLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             SubtitleLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             UsernameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -110,24 +116,55 @@
             // guna2PanelLoginCard
             // 
             guna2PanelLoginCard.BackColor = Color.Transparent;
+            guna2PanelLoginCard.Controls.Add(minimizeBtn);
+            guna2PanelLoginCard.Controls.Add(exitBtn);
             guna2PanelLoginCard.Controls.Add(TitleLbl);
             guna2PanelLoginCard.Controls.Add(SubtitleLbl);
             guna2PanelLoginCard.Controls.Add(UsernameTextBox);
             guna2PanelLoginCard.Controls.Add(PasswordTextBox);
             guna2PanelLoginCard.Controls.Add(LoginBtn);
             guna2PanelLoginCard.Controls.Add(ShowPasswordCheckBox);
-            guna2PanelLoginCard.CustomizableEdges = customizableEdges11;
+            guna2PanelLoginCard.CustomizableEdges = customizableEdges15;
             guna2PanelLoginCard.Dock = DockStyle.Right;
             guna2PanelLoginCard.FillColor = Color.White;
             guna2PanelLoginCard.Location = new Point(524, 0);
             guna2PanelLoginCard.Name = "guna2PanelLoginCard";
             guna2PanelLoginCard.ShadowDecoration.BorderRadius = 20;
             guna2PanelLoginCard.ShadowDecoration.Color = Color.FromArgb(0, 0, 0, 30);
-            guna2PanelLoginCard.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2PanelLoginCard.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2PanelLoginCard.ShadowDecoration.Depth = 25;
             guna2PanelLoginCard.ShadowDecoration.Enabled = true;
             guna2PanelLoginCard.Size = new Size(842, 768);
             guna2PanelLoginCard.TabIndex = 1;
+            // 
+            // minimizeBtn
+            // 
+            minimizeBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            minimizeBtn.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            minimizeBtn.CustomizableEdges = customizableEdges5;
+            minimizeBtn.FillColor = Color.FromArgb(139, 152, 166);
+            minimizeBtn.IconColor = Color.White;
+            minimizeBtn.Location = new Point(755, 3);
+            minimizeBtn.Name = "minimizeBtn";
+            minimizeBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            minimizeBtn.Size = new Size(38, 32);
+            minimizeBtn.TabIndex = 5;
+            // 
+            // exitBtn
+            // 
+            exitBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            exitBtn.Animated = true;
+            exitBtn.BorderColor = Color.Transparent;
+            exitBtn.CustomizableEdges = customizableEdges7;
+            exitBtn.FillColor = Color.FromArgb(139, 152, 166);
+            exitBtn.HoverState.FillColor = Color.Red;
+            exitBtn.HoverState.IconColor = Color.White;
+            exitBtn.IconColor = Color.White;
+            exitBtn.Location = new Point(799, 3);
+            exitBtn.Name = "exitBtn";
+            exitBtn.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            exitBtn.Size = new Size(40, 32);
+            exitBtn.TabIndex = 4;
             // 
             // TitleLbl
             // 
@@ -159,7 +196,7 @@
             UsernameTextBox.BorderRadius = 10;
             UsernameTextBox.BorderThickness = 2;
             UsernameTextBox.Cursor = Cursors.IBeam;
-            UsernameTextBox.CustomizableEdges = customizableEdges5;
+            UsernameTextBox.CustomizableEdges = customizableEdges9;
             UsernameTextBox.DefaultText = "";
             UsernameTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             UsernameTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -175,9 +212,9 @@
             UsernameTextBox.PlaceholderForeColor = Color.FromArgb(156, 163, 175);
             UsernameTextBox.PlaceholderText = "Enter your username";
             UsernameTextBox.SelectedText = "";
-            UsernameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            UsernameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges10;
             UsernameTextBox.Size = new Size(420, 50);
-            UsernameTextBox.TabIndex = 2;
+            UsernameTextBox.TabIndex = 0;
             // 
             // PasswordTextBox
             // 
@@ -187,7 +224,7 @@
             PasswordTextBox.BorderRadius = 10;
             PasswordTextBox.BorderThickness = 2;
             PasswordTextBox.Cursor = Cursors.IBeam;
-            PasswordTextBox.CustomizableEdges = customizableEdges7;
+            PasswordTextBox.CustomizableEdges = customizableEdges11;
             PasswordTextBox.DefaultText = "";
             PasswordTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             PasswordTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -204,16 +241,15 @@
             PasswordTextBox.PlaceholderForeColor = Color.FromArgb(156, 163, 175);
             PasswordTextBox.PlaceholderText = "Enter your password";
             PasswordTextBox.SelectedText = "";
-            PasswordTextBox.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            PasswordTextBox.ShadowDecoration.CustomizableEdges = customizableEdges12;
             PasswordTextBox.Size = new Size(420, 50);
-            PasswordTextBox.TabIndex = 3;
-            PasswordTextBox.UseSystemPasswordChar = true;
+            PasswordTextBox.TabIndex = 1;
             // 
             // LoginBtn
             // 
             LoginBtn.BorderRadius = 10;
             LoginBtn.Cursor = Cursors.Hand;
-            LoginBtn.CustomizableEdges = customizableEdges9;
+            LoginBtn.CustomizableEdges = customizableEdges13;
             LoginBtn.DisabledState.BorderColor = Color.DarkGray;
             LoginBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             LoginBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -223,9 +259,9 @@
             LoginBtn.ForeColor = Color.White;
             LoginBtn.Location = new Point(178, 504);
             LoginBtn.Name = "LoginBtn";
-            LoginBtn.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            LoginBtn.ShadowDecoration.CustomizableEdges = customizableEdges14;
             LoginBtn.Size = new Size(420, 50);
-            LoginBtn.TabIndex = 6;
+            LoginBtn.TabIndex = 3;
             LoginBtn.Text = "Sign In";
             LoginBtn.Click += LoginBtn_Click;
             // 
@@ -243,19 +279,17 @@
             ShowPasswordCheckBox.Location = new Point(178, 430);
             ShowPasswordCheckBox.Name = "ShowPasswordCheckBox";
             ShowPasswordCheckBox.Size = new Size(128, 24);
-            ShowPasswordCheckBox.TabIndex = 4;
+            ShowPasswordCheckBox.TabIndex = 2;
             ShowPasswordCheckBox.Text = "Show Password";
-            ShowPasswordCheckBox.UncheckedState.BorderColor = Color.FromArgb(203, 213, 225);
+            ShowPasswordCheckBox.UncheckedState.BorderColor = Color.Gainsboro;
             ShowPasswordCheckBox.UncheckedState.BorderRadius = 4;
             ShowPasswordCheckBox.UncheckedState.BorderThickness = 2;
             ShowPasswordCheckBox.UncheckedState.FillColor = Color.White;
             ShowPasswordCheckBox.UseVisualStyleBackColor = false;
-            ShowPasswordCheckBox.CheckedChanged += CheckBoxShowPassword_CheckedChanged;
+            ShowPasswordCheckBox.CheckedChanged += ShowPasswordCheckBox_CheckedChanged;
             // 
             // LoginPage
             // 
-            AutoSize = true;
-            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(248, 250, 252);
             ClientSize = new Size(1366, 768);
             Controls.Add(guna2PanelLoginCard);
@@ -265,7 +299,6 @@
             MinimumSize = new Size(1024, 768);
             Name = "LoginPage";
             StartPosition = FormStartPosition.CenterScreen;
-            Load += LoginPage_Load;
             PanelLeftSide.ResumeLayout(false);
             PanelLeftSide.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PictureBoxLogo).EndInit();
@@ -288,5 +321,7 @@
         private Guna.UI2.WinForms.Guna2TextBox PasswordTextBox;
         private Guna.UI2.WinForms.Guna2Button LoginBtn;
         private Guna.UI2.WinForms.Guna2CheckBox ShowPasswordCheckBox;
+        private Guna.UI2.WinForms.Guna2ControlBox exitBtn;
+        private Guna.UI2.WinForms.Guna2ControlBox minimizeBtn;
     }
 }

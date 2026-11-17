@@ -118,32 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="settings_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\settings_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="activity_history" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\activity_history.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dashboard_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dashboard_png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="new_product_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\new_product_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="reports_logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reports_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="order_approve_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\order_approve_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="make_sale_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\make_sale_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="column-chart-icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\column-chart-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="inventory2_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\inventory2_logo.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="reports_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reports_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="refund-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\refund-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="finance_mode_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\finance_mode_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon-logs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-logs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="inventory_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\inventory_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,7 +139,52 @@
   <data name="POS_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\POS_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="order_approve_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\order_approve_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="return" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\return.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dashboard_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dashboard_png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="finance_mode_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\finance_mode_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reports_logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reports_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="switch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\switch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="new_product_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\new_product_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settings_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settings_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-cloud-report" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-cloud-report.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="make_sale_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\make_sale_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reports_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reports_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="column-chart-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\column-chart-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-shopping" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-shopping.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="users_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\users_png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="warning-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\warning-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow-top-icon-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow-top-icon-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

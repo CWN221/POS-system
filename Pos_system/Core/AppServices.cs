@@ -24,6 +24,13 @@ namespace Pos_system.Core
             services.AddSingleton<UserRepository>();
             services.AddSingleton<GetUsers>();
             services.AddSingleton<VatDAO>();
+            services.AddSingleton<SupplierDAO>();
+            services.AddSingleton<PurchaseOrderDAO>();
+            services.AddSingleton<GoodsReceiptDAO>();
+            services.AddSingleton<StoreCreditDAO>();
+            services.AddSingleton<CloudReportsService>();
+            services.AddSingleton<CloudSyncService>();
+            services.AddSingleton<MpesaService>();
 
             _provider = services.BuildServiceProvider();
         }

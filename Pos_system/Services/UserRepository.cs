@@ -49,23 +49,61 @@ namespace Pos_system.Services
                 return "You cannot delete your own account while logged in.";
 
             using var conn = DBConnection.GetConnection();
-            const string query = "DELETE FROM users WHERE Id=@Id";
 
             try
             {
-                using var cmd = new NpgsqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Id", userId);
-                await cmd.ExecuteNonQueryAsync();
+                // Check if this user has any history
+                const string checkQuery = @"
+                        SELECT
+                            (SELECT COUNT(*) FROM sales WHERE cashier_id = @Id) +
+                            (SELECT COUNT(*) FROM returns WHERE requested_by = @Id OR approved_by = @Id) +
+                            (SELECT COUNT(*) FROM stock_movements WHERE user_id = @Id) +
+                            (SELECT COUNT(*) FROM audit_log WHERE user_id = @Id) +
+                            (SELECT COUNT(*) FROM store_credit_ledger WHERE user_id = @Id) AS total_refs";
 
-                await AppServices.GetRequiredService<AuditService>()
-                    .LogAsync("USER_DELETED", "user", userId.ToString());
+                int references;
+                using (var checkCmd = new NpgsqlCommand(checkQuery, conn))
+                {
+                    checkCmd.Parameters.AddWithValue("@Id", userId);
+                    references = Convert.ToInt32(await checkCmd.ExecuteScalarAsync());
+                }
 
-                return "User deleted successfully.";
+                if (references > 0)
+                {
+                    const string softQuery = "UPDATE users SET IsActive = FALSE WHERE id = @Id";
+
+                    using var softCmd = new NpgsqlCommand(softQuery, conn);
+                    softCmd.Parameters.AddWithValue("@Id", userId);
+
+                    if (await softCmd.ExecuteNonQueryAsync() > 0)
+                    {
+                        await AppServices.GetRequiredService<AuditService>().LogAsync("USER_DEACTIVATED", "user", userId.ToString());
+                        return $"This user has {references} historical record(s). They have been deactivated instead of deleted so that sales history stays intact.";
+                    }
+                    return "User not found.";
+                }
+
+                // If no history is found, safe to hard-delete
+                const string deleteQuery = "DELETE FROM users WHERE id = @Id";
+
+                using var deleteCmd = new NpgsqlCommand(deleteQuery, conn);
+                deleteCmd.Parameters.AddWithValue("@Id", userId);
+
+                if (await deleteCmd.ExecuteNonQueryAsync() > 0)
+                {
+                    await AppServices.GetRequiredService<AuditService>().LogAsync("USER_DELETED", "user", userId.ToString());
+                    return "User deleted permanently.";
+                }
+                return "User not found.";
             }
             catch (PostgresException ex)
             {
-                Logger.Log("Error deleting user: " + ex.Message);
-                return "Error deleting user.";
+                Logger.Log($"DeleteUser failed for ID {userId}: {ex.Message}");
+
+                if (ex.SqlState == "23503")
+                    return "This user cannot be deleted because they are referenced by existing records. Try deactivating them instead.";
+                else
+                    return $"Database error while deleting user: {ex.Message}";
             }
         }
     }
